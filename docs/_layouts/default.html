@@ -2,13 +2,15 @@
 
 <!DOCTYPE html>
 
-{% include meta.liquid %}
+{% capture project %}{{ site.github.project_title | capitalize }}{% endcapture %}
+{% capture tagline %}{{ site.github.project_tagline | remove: "Metreeca" | strip }}{% endcapture %}
+{% capture title %}{{ page.title | default: tagline }}{% endcapture %}
 
 <html>
 
     <head>
 
-        <title>{% if page.title %}{{ page.title }} | {% endif %}{{ name }}</title>
+        <title>{% if page.title %}{{ page.title }} | {% endif %}Metreeca/{{ project  }}</title>
 
         <meta name="description" content="{{ page.excerpt | strip_html }}">
         <meta name="copyright" content="{{ copyright }}"/>
@@ -29,29 +31,40 @@
         <nav>
 
             <header>
+
                 <a class="logo" href="{{ home }}"></a>
-                <a class="root" href="{{ root }}">{{ project }}</a>
+
+                <a class="project" href="{{ '/' | relative_url }}">{{ project }}</a>
+
                 <label for="toggle" class="icon"></label> <!-- icon dynamically managed by default.css -->
+
             </header>
 
-            <div class="title">{{ page.title }}</div>
-            <div class="version">Version {{ version }}</div>
+            <section>
 
-            <div class="toc">
+                <select name="version">
+                    <option>latest</option>
+                </select>
 
-                {% include toc.liquid html=content %}
+                <a class="title" href="#_top">{{ title }}</a>
 
-            </div>
+                <div class="toc">{% include toc.liquid html=content %}</div>
+
+            </section>
 
         </nav>
 
         <main>
 
-            <header>{{ page.title | default: page.caption | default: "" | remove: "Metreeca " }}</header>
+            <header>
+                <h1 id="_top">{{ title }}</h1>
+            </header>
 
-            <article>{{ content }}</article>
+            <section>{{ content }}</section>
 
-            <small>{{ copyright }} {{ license }}</small>
+            <footer>© {{ 'now' | date: '%Y' }} Metreeca srl. This work is licensed under the
+                <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons BY-NC-SA 4.0 License</a>
+            </footer>
 
         </main>
 

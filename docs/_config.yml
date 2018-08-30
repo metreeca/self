@@ -1,4 +1,6 @@
 baseurl: /self # no custom domain
+repository: metreeca/self # local testing (https://help.github.com/articles/repository-metadata-on-github-pages/)
+
 exclude: [Gemfile, Gemfile.lock]
 
 plugins:
