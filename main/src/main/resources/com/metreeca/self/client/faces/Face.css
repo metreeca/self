@@ -1,0 +1,65 @@
+/*
+ * Copyright © 2013-2018 Metreeca srl. All rights reserved.
+ *
+ * This file is part of Metreeca/Self.
+ *
+ * Metreeca/Self is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Affero General Public License as published
+ * by the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * Metreeca/Self is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty
+ * of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+ * See the GNU Affero General Public License for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with Metreeca/Self. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+:scope {
+	position: relative;
+	user-select: text;
+}
+
+:scope > .controls {
+	position: absolute;
+	top: 0;
+	right: 0;
+	opacity: 1;
+	transition: opacity 750ms 250ms;
+	z-index: 100; /* above leaflet map tiles */
+}
+
+:scope > figure {
+	position: relative;
+	width: 100%;
+	height: 100%;
+}
+
+:scope > figure.dropping {
+	background-color: #F0F0F0;
+	border-radius: 0.5em;
+}
+
+:scope > figure > .tooltip {
+	box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.25);
+}
+
+:scope > figure.active ~ details {
+	opacity: 0;
+	pointer-events: none;
+}
+
+:scope > figure .leaflet-container {
+	border-top-right-radius: 0;
+	transition: border-top-right-radius 750ms 250ms;
+}
+
+:scope > figure .leaflet-control-container > * {
+	z-index: 900 !important; /* below overlays */
+}
+
+:root:not(.mode-visualizer) :scope > figure:not(.active) .leaflet-container {
+	border-top-right-radius: 0.75em; /* compose with controls */
+}

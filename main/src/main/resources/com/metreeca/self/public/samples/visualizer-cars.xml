@@ -1,0 +1,346 @@
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  Copyright © 2013-2018 Metreeca srl. All rights reserved.
+
+  This file is part of Metreeca/Self.
+
+  Metreeca/Self is free software: you can redistribute it and/or modify
+  it under the terms of the GNU Affero General Public License as published
+  by the Free Software Foundation, either version 3 of the License, or
+  (at your option) any later version.
+
+  Metreeca/Self is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty
+  of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+  See the GNU Affero General Public License for more details.
+
+  You should have received a copy of the GNU Affero General Public License
+  along with Metreeca/Self. If not, see <http://www.gnu.org/licenses/>.
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+
+<bean>
+	<com.metreeca.self.shared.Report version="20170525">
+		<UUID>
+			<string>b94d7d13-f154-43c1-bed0-b6acec421aab</string>
+		</UUID>
+		<arrayed>
+			<long>1496215907615</long>
+		</arrayed>
+		<specs>
+			<com.metreeca.self.shared.beans.Specs>
+				<paths>
+					<list>
+						<com.metreeca.self.shared.beans.Path>
+							<constraint>
+								<com.metreeca.self.shared.beans.Constraint..Options>
+									<values>
+										<set>
+											<com.metreeca.self.shared.beans.Term>
+												<text>
+													<string>http://dbpedia.org/ontology/Automobile</string>
+												</text>
+												<type>
+													<string>recto</string>
+												</type>
+												<lng>
+													<float>NaN</float>
+												</lng>
+												<label>
+													<string>automobile</string>
+												</label>
+												<lat>
+													<float>NaN</float>
+												</lat>
+											</com.metreeca.self.shared.beans.Term>
+										</set>
+									</values>
+								</com.metreeca.self.shared.beans.Constraint..Options>
+							</constraint>
+							<steps>
+								<list>
+									<com.metreeca.self.shared.beans.Term>
+										<text>
+											<string>http://www.w3.org/1999/02/22-rdf-syntax-ns#type</string>
+										</text>
+										<type>
+											<string>recto</string>
+										</type>
+										<lng>
+											<float>NaN</float>
+										</lng>
+										<label>
+											<string>collection</string>
+										</label>
+										<lat>
+											<float>NaN</float>
+										</lat>
+									</com.metreeca.self.shared.beans.Term>
+								</list>
+							</steps>
+						</com.metreeca.self.shared.beans.Path>
+						<com.metreeca.self.shared.beans.Path>
+							<existing>
+								<boolean>true</boolean>
+							</existing>
+							<constraint>
+								<com.metreeca.self.shared.beans.Constraint..Options/>
+							</constraint>
+							<steps>
+								<list>
+									<com.metreeca.self.shared.beans.Term>
+										<text>
+											<string>http://www.w3.org/2000/01/rdf-schema#label</string>
+										</text>
+										<type>
+											<string>recto</string>
+										</type>
+										<lng>
+											<float>NaN</float>
+										</lng>
+										<lat>
+											<float>NaN</float>
+										</lat>
+									</com.metreeca.self.shared.beans.Term>
+								</list>
+							</steps>
+						</com.metreeca.self.shared.beans.Path>
+						<com.metreeca.self.shared.beans.Path id="2">
+							<label>
+								<string>automobile</string>
+							</label>
+						</com.metreeca.self.shared.beans.Path>
+						<com.metreeca.self.shared.beans.Path id="3">
+							<steps>
+								<list>
+									<com.metreeca.self.shared.beans.Term id="0">
+										<text>
+											<string>http://dbpedia.org/ontology/length</string>
+										</text>
+										<type>
+											<string>recto</string>
+										</type>
+										<lng>
+											<float>NaN</float>
+										</lng>
+										<label>
+											<string>length\20(μ)</string>
+										</label>
+										<lat>
+											<float>NaN</float>
+										</lat>
+									</com.metreeca.self.shared.beans.Term>
+								</list>
+							</steps>
+						</com.metreeca.self.shared.beans.Path>
+						<com.metreeca.self.shared.beans.Path id="5">
+							<steps>
+								<list>
+									<com.metreeca.self.shared.beans.Term>
+										<text>
+											<string>http://dbpedia.org/ontology/weight</string>
+										</text>
+										<type>
+											<string>recto</string>
+										</type>
+										<lng>
+											<float>NaN</float>
+										</lng>
+										<label>
+											<string>weight\20(g)</string>
+										</label>
+										<lat>
+											<float>NaN</float>
+										</lat>
+									</com.metreeca.self.shared.beans.Term>
+								</list>
+							</steps>
+						</com.metreeca.self.shared.beans.Path>
+						<com.metreeca.self.shared.beans.Path id="4">
+							<steps>
+								<list>
+									<com.metreeca.self.shared.beans.Term id="1">
+										<text>
+											<string>http://dbpedia.org/ontology/width</string>
+										</text>
+										<type>
+											<string>recto</string>
+										</type>
+										<lng>
+											<float>NaN</float>
+										</lng>
+										<label>
+											<string>width\20(μ)</string>
+										</label>
+										<lat>
+											<float>NaN</float>
+										</lat>
+									</com.metreeca.self.shared.beans.Term>
+								</list>
+							</steps>
+						</com.metreeca.self.shared.beans.Path>
+						<com.metreeca.self.shared.beans.Path>
+							<expanded>
+								<boolean>true</boolean>
+							</expanded>
+							<constraint>
+								<com.metreeca.self.shared.beans.Constraint..Range>
+									<lower>
+										<com.metreeca.self.shared.beans.Term>
+											<text>
+												<string>3</string>
+											</text>
+											<type>
+												<string>http://www.w3.org/2001/XMLSchema#double</string>
+											</type>
+											<lng>
+												<float>NaN</float>
+											</lng>
+											<lat>
+												<float>NaN</float>
+											</lat>
+										</com.metreeca.self.shared.beans.Term>
+									</lower>
+									<upper>
+										<com.metreeca.self.shared.beans.Term>
+											<text>
+												<string>5.5</string>
+											</text>
+											<type>
+												<string>http://www.w3.org/2001/XMLSchema#double</string>
+											</type>
+											<lng>
+												<float>NaN</float>
+											</lng>
+											<lat>
+												<float>NaN</float>
+											</lat>
+										</com.metreeca.self.shared.beans.Term>
+									</upper>
+								</com.metreeca.self.shared.beans.Constraint..Range>
+							</constraint>
+							<steps>
+								<list>
+									<com.metreeca.self.shared.beans.Term id="0"/>
+								</list>
+							</steps>
+						</com.metreeca.self.shared.beans.Path>
+						<com.metreeca.self.shared.beans.Path>
+							<expanded>
+								<boolean>true</boolean>
+							</expanded>
+							<constraint>
+								<com.metreeca.self.shared.beans.Constraint..Range>
+									<lower>
+										<com.metreeca.self.shared.beans.Term>
+											<text>
+												<string>1</string>
+											</text>
+											<type>
+												<string>http://www.w3.org/2001/XMLSchema#double</string>
+											</type>
+											<lng>
+												<float>NaN</float>
+											</lng>
+											<lat>
+												<float>NaN</float>
+											</lat>
+										</com.metreeca.self.shared.beans.Term>
+									</lower>
+									<upper>
+										<com.metreeca.self.shared.beans.Term>
+											<text>
+												<string>2.15</string>
+											</text>
+											<type>
+												<string>http://www.w3.org/2001/XMLSchema#double</string>
+											</type>
+											<lng>
+												<float>NaN</float>
+											</lng>
+											<lat>
+												<float>NaN</float>
+											</lat>
+										</com.metreeca.self.shared.beans.Term>
+									</upper>
+								</com.metreeca.self.shared.beans.Constraint..Range>
+							</constraint>
+							<steps>
+								<list>
+									<com.metreeca.self.shared.beans.Term id="1"/>
+								</list>
+							</steps>
+						</com.metreeca.self.shared.beans.Path>
+						<com.metreeca.self.shared.beans.Path id="6">
+							<steps>
+								<list>
+									<com.metreeca.self.shared.beans.Term>
+										<text>
+											<string>http://dbpedia.org/ontology/manufacturer</string>
+										</text>
+										<type>
+											<string>recto</string>
+										</type>
+										<lng>
+											<float>NaN</float>
+										</lng>
+										<label>
+											<string>manufacturer</string>
+										</label>
+										<lat>
+											<float>NaN</float>
+										</lat>
+									</com.metreeca.self.shared.beans.Term>
+								</list>
+							</steps>
+						</com.metreeca.self.shared.beans.Path>
+					</list>
+				</paths>
+				<label>
+					<string>automobile</string>
+				</label>
+			</com.metreeca.self.shared.beans.Specs>
+		</specs>
+		<lenses>
+			<list>
+				<com.metreeca._tool.shared.Item..Auto/>
+				<com.metreeca.self.shared.Report..Board/>
+				<com.metreeca.self.shared.Report..Table/>
+				<com.metreeca.self.shared.Report..Bubble id="7">
+					<item>
+						<com.metreeca.self.shared.beans.Path id="2"/>
+					</item>
+					<x>
+						<com.metreeca.self.shared.beans.Path id="3"/>
+					</x>
+					<y>
+						<com.metreeca.self.shared.beans.Path id="4"/>
+					</y>
+					<setup>
+						<string>{"abscissa":{"origin":false,"grid":false},"ordinate":{"origin":false,"grid":false}}
+						</string>
+					</setup>
+					<z>
+						<com.metreeca.self.shared.beans.Path id="5"/>
+					</z>
+					<group>
+						<com.metreeca.self.shared.beans.Path id="6"/>
+					</group>
+				</com.metreeca.self.shared.Report..Bubble>
+			</list>
+		</lenses>
+		<endpoint>
+			<string>http://dbpedia.org/sparql</string>
+		</endpoint>
+		<created>
+			<long>1441214599089</long>
+		</created>
+		<label>
+			<string>Car\20Sizes</string>
+		</label>
+		<lens>
+			<com.metreeca.self.shared.Report..Bubble id="7"/>
+		</lens>
+		<updated>
+			<long>1496215907615</long>
+		</updated>
+	</com.metreeca.self.shared.Report>
+</bean>

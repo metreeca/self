@@ -1,0 +1,89 @@
+/*
+ * Copyright © 2013-2018 Metreeca srl. All rights reserved.
+ *
+ * This file is part of Metreeca/Self.
+ *
+ * Metreeca/Self is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Affero General Public License as published
+ * by the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * Metreeca/Self is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty
+ * of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+ * See the GNU Affero General Public License for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with Metreeca/Self. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+:scope > header {
+	border-bottom-style: solid;
+}
+
+/**** Embedding *******************************************************************************************************/
+
+:root.embedded :scope > header {
+	flex-direction: row-reverse;
+	order: 2; /* at bottom */
+	z-index: 1; /* above main area to project box-shadow */
+	padding: 0.75rem 0;
+	border-top-style: solid;
+	border-bottom-style: none;
+}
+
+:root.facets-left :scope > header {
+	flex-direction: row-reverse;
+}
+
+:root.embedded :scope > header > menu,
+:root.facets-left :scope > header > menu {
+	justify-content: flex-start;
+	padding-left: 0;
+	padding-right: 1rem;
+}
+
+/**** Face Icons ******************************************************************************************************/
+
+.table-face::before {
+	content: '\F03A'; /* fa-list */
+}
+
+.board-face::before {
+	content: '\F00A'; /* fa-th */
+}
+
+.book-face::before {
+	content: '\F1EA'; /* fa-newspaper-o */
+	transform: translate(-0.1em, 0) scaleX(0.9);
+}
+
+.embedded .book-face::before {
+	transform: scaleX(0.9);
+}
+
+.charts-face::before {
+	content: '\f03e'; /* fa-picture-o */
+	transform: translate(0.05em, -0.05em) scaleX(0.9);
+}
+
+.pie-chart::before {
+	content: '\F200'; /* fa-pie-chart */
+}
+
+.bar-chart::before {
+	content: '\F080'; /* fa-bar-chart */
+}
+
+.line-chart::before {
+	content: '\F201'; /* fa-line-chart */
+}
+
+.bubble-chart::before {
+	content: '\F086'; /* fa-comments */
+}
+
+.marker-map::before {
+	content: '\F14E'; /* compass */
+	transform: translateY(-0.05em);
+}

@@ -1,0 +1,176 @@
+/*
+ * Copyright © 2013-2018 Metreeca srl. All rights reserved.
+ *
+ * This file is part of Metreeca/Self.
+ *
+ * Metreeca/Self is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Affero General Public License as published
+ * by the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * Metreeca/Self is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty
+ * of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+ * See the GNU Affero General Public License for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with Metreeca/Self. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+/**** Document ********************************************************************************************************/
+
+html {
+	font-family: 'Roboto', helvetica, arial, sans-serif;
+	font-size: 4mm;
+	font-weight: 300;
+	line-height: 1.3;
+}
+
+html, body {
+	width: 100%;
+	height: 100%;
+}
+
+body > noscript,
+body > .warning {
+	display: block;
+	width: 17em;
+	padding: 224px 1.5em 1.5em 1.5em;
+	margin: 0 auto; /* center */
+	position: relative;
+	top: 20%; /* offset vertically: margin-top would break body layout */
+	background: url('../icons/metreeca-128.png') no-repeat 50% 2em; /* application icon */
+	background-color: #FFF;
+	background-size: 128px 192px;
+	text-align: center;
+	border: solid 1px #CCC;
+	border-radius: 7px;
+	box-shadow: 0 7px 7px 0 #999;
+}
+
+body > .warning > * {
+	margin-top: 0.75em;
+}
+
+body > .warning > h1 {
+	white-space: normal;
+	font-size: 100%;
+	font-weight: 400;
+}
+
+body > .warning a {
+	font-weight: 400;
+}
+
+/**** Blocks **********************************************************************************************************/
+
+h1, h2, h3 {
+	font-weight: bold;
+	white-space: nowrap;
+}
+
+h1 {
+	font-size: 150%;
+}
+
+h2 {
+	font-size: 120%;
+}
+
+h3 {
+	font-size: 110%;
+}
+
+* + p {
+	margin-top: 1.5ex;
+}
+
+/**** Spans ***********************************************************************************************************/
+
+abbr {
+	text-transform: none !important;
+}
+
+/**** Links ***********************************************************************************************************/
+
+a {
+	text-decoration: none;
+	cursor: pointer;
+	color: darkslategray;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+/**** Lists ***********************************************************************************************************/
+
+* + dl {
+	margin-top: 1.5ex;
+}
+
+* + dt {
+	margin-top: 2ex;
+	color: #333;
+	font-size: 90%;
+	font-weight: bold;
+	padding-bottom: .5ex;
+}
+
+* + dd {
+	margin-top: .5ex;
+	margin-left: 2.5em;
+}
+
+* + ul {
+	margin-top: 1.5ex;
+}
+
+li {
+	list-style: square outside;
+	margin-left: 1em;
+}
+
+/**** Tables **********************************************************************************************************/
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+thead > tr:last-child {
+	border-bottom-style: solid;
+}
+
+tbody > tr:first-child > * {
+	padding-top: 0.5em;
+}
+
+td, th {
+	text-align: left;
+	vertical-align: top;
+	padding-bottom: 0.25em;
+	padding-left: 0.25em;
+}
+
+th {
+	padding-top: 0;
+	color: #999;
+	font-weight: bold;
+	font-size: 85%;
+	text-transform: lowercase;
+	cursor: default;
+	white-space: nowrap;
+}
+
+td {
+	padding-top: 0.25em;
+}
+
+td:first-child, th:first-child {
+	padding-left: 0.25em;
+}
+
+td:last-child, th:last-child {
+	padding-right: 0.25em;
+}

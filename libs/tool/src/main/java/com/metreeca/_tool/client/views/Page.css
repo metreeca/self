@@ -1,0 +1,134 @@
+/*
+ * Copyright © 2013-2018 Metreeca srl. All rights reserved.
+ *
+ * This file is part of Metreeca/Self.
+ *
+ * Metreeca/Self is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Affero General Public License as published
+ * by the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * Metreeca/Self is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty
+ * of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+ * See the GNU Affero General Public License for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with Metreeca/Self. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+:scope {
+	display: flex;
+	flex-direction: column;
+	align-items: stretch;
+	width: 100%;
+	height: 100%;
+	user-select: none;
+}
+
+:scope [contenteditable] {
+	user-select: text; /* ;(ff) enable text selection in contenteditable elements */
+}
+
+/**** Header **********************************************************************************************************/
+
+:scope > header {
+	display: flex;
+	flex-direction: row;
+	flex-shrink: 0;
+	align-items: center;
+	padding: 0.5rem 0.9rem 0.25rem 0.75rem;
+	font-size: 150%;
+	white-space: nowrap;
+}
+
+/**** Header > Logo ***************************************************************************************************/
+
+:scope > header > .logo {
+	flex-grow: 0;
+	flex-shrink: 0;
+	margin-right: 0.25rem;
+}
+
+/**** Header > Label **************************************************************************************************/
+
+:scope > header > .label {
+	flex-grow: 0;
+	flex-shrink: 1;
+	display: inline-block;
+	vertical-align: baseline;
+	min-width: 0.25em; /* don't collapse horiziontally when editing  */
+	padding: 0 0.1em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	font-size: inherit;
+	font-weight: lighter;
+	user-select: text;
+}
+
+:scope > header > .label[contenteditable] {
+	outline-style: solid;
+}
+
+/**** Header > Powered ************************************************************************************************/
+
+:scope > header > .powered {
+	flex-grow: 0;
+	flex-shrink: 1;
+	display: inline-block;
+	font-size: 60%;
+	color: #999;
+}
+
+/**** Header > Menu ***************************************************************************************************/
+
+:scope > header > menu {
+	display: flex;
+	flex-direction: row;
+	flex-grow: 1;
+	flex-shrink: 0;
+	align-items: center;
+	justify-content: flex-end;
+	padding-left: 1rem;
+	white-space: nowrap;
+}
+
+:scope > header > menu > section {
+	display: flex;
+	flex-direction: row;
+	flex-grow: 0;
+	flex-shrink: 0;
+	align-items: center;
+}
+
+:scope > header > menu > section:not(empty):not(:first-child) {
+	padding-left: 0.5rem;
+	margin-left: 0.5rem;
+	border-left-style: dotted;
+}
+
+:scope > header > menu > section > * {
+	margin: 0;
+}
+
+:scope > header > menu > section > *:not(:first-child) {
+	margin-left: 0.5rem;
+}
+
+/**** Main Area *******************************************************************************************************/
+
+:scope > section {
+	display: flex;
+	flex-direction: column;
+	flex-grow: 1;
+	align-items: stretch;
+	overflow: visible; /* overflowing tooltips */
+	min-height: 10em; /* enable vertical shrinking below content min size ;(ie) ignored if set to 0 */
+}
+
+:scope > section > * {
+	flex-grow: 1;
+	-webkit-flex-basis: 0; /* ;(chrome) fix vertical resizing issues (-webkit only to avoid issues with firefox) */
+}
+

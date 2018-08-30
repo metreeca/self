@@ -1,0 +1,99 @@
+/*
+ * Copyright © 2013-2018 Metreeca srl. All rights reserved.
+ *
+ * This file is part of Metreeca/Self.
+ *
+ * Metreeca/Self is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Affero General Public License as published
+ * by the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * Metreeca/Self is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty
+ * of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+ * See the GNU Affero General Public License for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with Metreeca/Self. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+:scope {
+	display: flex;
+	flex-direction: column;
+	align-items: stretch;
+	overflow: hidden;
+}
+
+/**** Header **********************************************************************************************************/
+
+:scope > header {
+	z-index: 1; /* cast scroll shadow over scrollable area */
+	display: flex;
+	flex-shrink: 0;
+	flex-direction: row;
+	justify-content: flex-end;
+	align-items: stretch;
+	height: 2rem; /* coordinate with PathView > header */
+	padding: 0 0.5rem 0 0;
+	margin-bottom: 0.25rem;
+	box-shadow: 0 0 1rem 0.5rem #FFF;
+	background-color: #DDD;
+}
+
+:scope > header > .input {
+	flex-grow: 1;
+	font-size: 85%;
+	border-color: #CCC;
+	border-radius: 0;
+}
+
+:scope > header > button {
+	padding-bottom: 0.1rem;
+	font-size: 120%;
+}
+
+/**** Facets **********************************************************************************************************/
+
+:scope > div {
+	flex-grow: 1;
+	overflow-x: hidden;
+	overflow-y: auto;
+	padding-top: 1em; /* prevent interactions with scroll shadow managed by header */
+	padding-bottom: 1em; /* prevent interactions with scroll shadow managed by footer */
+}
+
+:scope > div > * + * {
+	margin-top: 0.5em;
+}
+
+/**** Footer **********************************************************************************************************/
+
+:scope > footer {
+	z-index: 1; /* cast scroll shadow over scrollable area */
+	flex-shrink: 0;
+	display: flex;
+	flex-direction: row;
+	padding-top: 0.5rem;
+	box-shadow: 0 0 1rem 0.5rem #FFF;
+	color: #888;
+}
+
+:scope > footer > .warning {
+	flex-shrink: 0;
+	padding-left: 0.25rem;
+	font-size: 110%;
+	transform: translateY(10%);
+	color: red;
+}
+
+:scope > footer > .status {
+	flex-grow: 1;
+	flex-shrink: 0;
+	padding-right: 0.5rem;
+	text-align: right;
+	font-weight: bold;
+}
+
+.toolbar-bottom :scope > footer {
+	margin-bottom: 0.25rem;
+}

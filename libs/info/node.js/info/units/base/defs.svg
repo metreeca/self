@@ -1,0 +1,49 @@
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  Copyright © 2013-2017 Metreeca srl. All rights reserved.
+
+  This file is part of Metreeca.
+
+  Metreeca is free software: you can redistribute it and/or modify it
+  under the terms of the GNU Affero General Public License as published
+  by the Free Software Foundation, either version 3 of the License, or
+  (at your option) any later version.
+
+  Metreeca is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty
+  of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+  See the GNU Affero General Public License for more details.
+
+  You should have received a copy of the GNU Affero General Public License
+  along with Metreeca. If not, see <http://www.gnu.org/licenses/>.
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+
+<svg xmlns="http://www.w3.org/2000/svg" width="0" height="0">
+	<defs>
+
+		<filter id="info-highlight">
+			<feColorMatrix values="0.5 0 0 0 0  0 0.5 0 0 0  0 0 0.5 0 0  0 0 0 1 0"/>
+		</filter>
+
+		<filter id="info-negative">
+
+			<feMorphology in="SourceGraphic"
+					operator="erode" radius="2"/>
+
+			<feComponentTransfer result="inner">
+				<feFuncR type="table" tableValues="1 1"/>
+				<feFuncG type="table" tableValues="1 1"/>
+				<feFuncB type="table" tableValues="1 1"/>
+			</feComponentTransfer>
+
+			<feComponentTransfer in="SourceGraphic" result="outer">
+				<feFuncR type="linear" slope="0.9"/>
+				<feFuncG type="linear" slope="0.9"/>
+				<feFuncB type="linear" slope="0.9"/>
+			</feComponentTransfer>
+
+			<feBlend in="inner" in2="outer"/>
+
+		</filter>
+
+	</defs>
+</svg>

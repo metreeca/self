@@ -1,0 +1,285 @@
+/*
+ * Copyright © 2013-2018 Metreeca srl. All rights reserved.
+ *
+ * This file is part of Metreeca/Self.
+ *
+ * Metreeca/Self is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Affero General Public License as published
+ * by the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * Metreeca/Self is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty
+ * of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+ * See the GNU Affero General Public License for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with Metreeca/Self. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+/**** Forms ***********************************************************************************************************/
+
+label {
+	display: inline-block;
+}
+
+:not(br) + label {
+	margin-left: 0.25em;
+}
+
+label > input, label > select {
+	display: inline;
+	margin-right: 0.25em;
+}
+
+/**** Controls ********************************************************************************************************/
+
+/* ;( rules break if merged */
+
+*::-moz-placeholder {
+	color: #AAA !important; /* override input color style */
+}
+
+*:invalid::-moz-placeholder {
+	color: #C40 !important; /* override placeholder definition */
+}
+
+*:-ms-input-placeholder {
+	color: #AAA !important; /* override input color style */
+}
+
+*:invalid:-ms-input-placeholder {
+	color: #C40 !important; /* override placeholder definition */
+}
+
+*::-webkit-input-placeholder {
+	color: #AAA !important; /* override input color style */
+}
+
+*:invalid::-webkit-input-placeholder {
+	color: #C40 !important; /* override placeholder definition */
+}
+
+/**** Buttons *********************************************************************************************************/
+
+button {
+	text-decoration: none;
+	white-space: nowrap;
+	cursor: default; /* 'pointer' visually broken under windows */
+	user-select: none;
+	-moz-user-select: none;
+	-webkit-user-select: none;
+	-ms-user-select: none;
+}
+
+button:not(:first-child) {
+	margin-left: 0.5em;
+}
+
+button:disabled {
+	color: #bbb !important;
+	cursor: default;
+}
+
+button:not(:disabled):hover {
+	color: #D60 !important;
+}
+
+button:not(:disabled):active {
+	color: slategray !important;
+}
+
+/**** Selects *********************************************************************************************************/
+
+select {
+	user-select: none;
+}
+
+select > * {
+	padding-right: .75em;
+	font-size: .9rem;
+	color: black;
+}
+
+select option:disabled {
+	color: #999;
+}
+
+select:invalid {
+	color: darkgray;
+}
+
+select:focus {
+	box-shadow: inset 0 0 3px 0 slategray;
+	-webkit-box-shadow: inset 0 0 3px 0 slategray;
+}
+
+/**** Text Inputs *****************************************************************************************************/
+
+input {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	text-align: left;
+}
+
+input::-ms-clear {
+	display: none; /* don't show the clear button under windows */
+}
+
+textarea {
+	min-width: 5em;
+	min-height: 3ex;
+	max-height: 30em;
+	overflow: auto; /* ;(ie) vertical scrollbar with 'visible' */
+}
+
+input,
+textarea {
+	padding: 0.25em 0.5em 0.3em 0.5em;
+	border-style: solid;
+}
+
+input:disabled,
+textarea:disabled {
+	color: #666;
+}
+
+input:focus,
+textarea:focus {
+	box-shadow: inset 0 0 1px 1px slategray;
+	-webkit-box-shadow: inset 0 0 1px 1px slategray;
+}
+
+input:invalid,
+textarea:invalid {
+	box-shadow: inset 0 0 1px 1px darkorange;
+	-webkit-box-shadow: inset 0 0 1px 1px darkorange;
+}
+
+/* ;(ie) replace broken box shadows */
+
+:root.explorer input:focus,
+:root.explorer textarea:focus {
+	box-shadow: none;
+	border-color: lightslategray;
+}
+
+:root.explorer input:invalid,
+:root.explorer textarea:invalid {
+	box-shadow: none;
+	border-color: darkorange;
+}
+
+/**** Overlays ********************************************************************************************************/
+
+form.overlay {
+	min-width: 30em;
+	max-width: 80%;
+	border-style: solid;
+}
+
+form.overlay > table tbody:first-child tr:first-child td {
+	padding-top: 1.5rem;
+	padding-bottom: 0.25rem;
+	font-size: 125%;
+	font-weight: bold;
+}
+
+/**** Grids ***********************************************************************************************************/
+
+form > table {
+	width: 100%;
+	border-style: none;
+	border-collapse: collapse;
+	caption-side: bottom;
+	user-select: text;
+	-moz-user-select: text;
+	-webkit-user-select: text;
+	-ms-user-select: text;
+}
+
+form > table caption {
+	padding: 0.5rem 1rem;
+	text-align: right;
+	font-size: 150%;
+}
+
+form > table tbody:not(:last-child) {
+	border-bottom-style: solid; /* section separator */
+}
+
+form > table tr:first-child td {
+	padding-top: 1rem; /* section top padding */
+}
+
+form > table tr:last-child td {
+	padding-bottom: 1rem; /* section bottom padding */
+}
+
+form > table td {
+	padding: 0.1rem 0.5rem;
+	vertical-align: top;
+}
+
+form > table td:first-child {
+	width: 1px; /* shrink to fit ;(chrome 0 won't shrink, % size will expand form to fill available space) */
+	padding-left: 1.5rem;
+	text-align: right;
+	text-transform: lowercase;
+	white-space: nowrap;
+	color: #777;
+}
+
+form > table td:first-child > select {
+	width: auto !important; /* show complete labels */
+	text-transform: lowercase; /* lowercase field content used as label (e.g. dropdown menus */
+}
+
+form > table td:last-child {
+	padding-right: 1rem;
+}
+
+form > table td > *:not([type=checkbox]) {
+	width: 100%;
+}
+
+form > table input,
+form > table textarea {
+	padding: 0;
+	border-style: none;
+}
+
+form > table input:focus,
+form > table textarea:focus {
+	box-shadow: none;
+	-webkit-box-shadow: none;
+	outline-style: solid;
+	outline-offset: 0.25em;
+}
+
+/* ;(ie) outline-offset not supported and box-shadows misaligned on box…
+
+.explorer form > table input:focus,
+.explorer form > table textarea:focus {
+	outline-style: none !important;
+	box-shadow: 0 0 0 5.5px #FFF, 0 0 0 6px #CCC !important;
+}
+
+*/
+
+form > table input:invalid,
+form > table textarea:invalid {
+	box-shadow: none;
+	-webkit-box-shadow: none;
+	color: #C50;
+}
+
+form > table input:invalid:focus,
+form > table textarea:invalid:focus {
+	outline-color: #C50;
+}
+
+form > table textarea {
+	max-height: 10em;
+	resize: vertical;
+}

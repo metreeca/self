@@ -1,0 +1,149 @@
+/*
+ * Copyright © 2013-2018 Metreeca srl. All rights reserved.
+ *
+ * This file is part of Metreeca/Self.
+ *
+ * Metreeca/Self is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Affero General Public License as published
+ * by the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * Metreeca/Self is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty
+ * of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+ * See the GNU Affero General Public License for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with Metreeca/Self. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+/**** Sections ********************************************************************************************************/
+
+:scope {
+	cursor: default;
+	overflow-x: hidden;
+	overflow-y: auto;
+	padding: 0.25em 0px;
+	white-space: nowrap;
+	user-select: none;
+}
+
+:scope section:not(:first-child) {
+	padding-top: 0.25em;
+	border-top-style: solid;
+}
+
+:scope section:not(:last-child) {
+	padding-bottom: 0.25em;
+}
+
+:scope section:empty {
+	display: none;
+}
+
+/**** Items ***********************************************************************************************************/
+
+:scope command,
+:scope button,
+:scope menu {
+	position: relative;
+	display: block;
+	width: 100%;
+	margin: 0;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+:scope command:not([disabled]):hover,
+:scope button:not([disabled]):hover,
+:scope menu:not([disabled]):not(.expanded):hover {
+	background-color: slategray;
+	color: white !important;
+}
+
+:scope command[disabled],
+:scope button[disabled],
+:scope menu[disabled] {
+	color: #999999;
+}
+
+:scope command:empty:not([label])::after,
+:scope button:empty::after,
+:scope menu:empty:not([label])::after {
+	content: '\200B'; /* ;(ff) zero-width space prevents collapsing if empty (eg default option of drop-downs) */
+}
+
+:scope [label]::before,
+:scope command:not([label]),
+:scope button {
+	padding: 0.1em 1.25em;
+}
+
+:scope [label]::before {
+	/* place label before nested menu items */
+	content: attr(label);
+	display: inline-block;
+	width: 100%;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	vertical-align: bottom;
+}
+
+:scope [selected]::after {
+	position: absolute;
+	content: "\F00C"; /* fa-check */
+	font-family: FontAwesome;
+	font-size: 70%;
+	position: absolute;
+	top: 0.55em;
+	left: 0.4em;
+	line-height: 0.9;
+}
+
+:scope [selected]:not([disabled]):not(:hover)::after,
+:scope menu:not([disabled]):not(:hover)::after,
+:scope menu.expanded::after {
+	color: #666;
+}
+
+:scope button.fa {
+	font: inherit;
+}
+
+:scope button.fa::before {
+	position: relative;
+	left: -0.75em;
+	top: -0.1em;
+	font-size: 95%;
+}
+
+/**** Nested Menus ****************************************************************************************************/
+
+:scope menu::after {
+	font-family: FontAwesome;
+	font-size: 95%;
+	position: absolute;
+	top: 0.3em;
+	line-height: 0.9;
+}
+
+:scope menu.expanded::after {
+	content: "\F0D9"; /* fa-caret-left */
+	left: 0.5em;
+}
+
+:scope menu:not(.expanded)::after {
+	content: "\F0DA"; /* fa-caret-right */
+	right: 0.5em;
+}
+
+:scope menu.expanded::before {
+	border-bottom-style: dashed;
+	margin-bottom: 0.25em;
+	padding-bottom: 0.5em;
+	color: #666;
+}
+
+:scope menu:not(.expanded) * {
+	display: none;
+}

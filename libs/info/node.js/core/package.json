@@ -1,0 +1,24 @@
+{
+	"private": true,
+	"name": "metreeca-core",
+	"version": "0.0.0-alpha+20131211",
+	"author": "Metreeca <info@metreeca.it>",
+	"description": "Core utilities",
+	"keywords": ["util"],
+	"maintainers": [
+		{
+			"name": "Alessandro Bollini",
+			"email": "alessandro.bollini@metreeca.it"
+		}
+	],
+	"main": "units/core.js",
+	"scripts": {
+		"test": "make test"
+	},
+	"devDependencies": {
+		"karma": "~0",
+		"karma-jasmine": "~0",
+		"karma-webpack": "~1"
+	}
+}
+

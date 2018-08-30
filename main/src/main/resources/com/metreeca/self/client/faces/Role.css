@@ -1,0 +1,58 @@
+/*
+ * Copyright © 2013-2018 Metreeca srl. All rights reserved.
+ *
+ * This file is part of Metreeca/Self.
+ *
+ * Metreeca/Self is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Affero General Public License as published
+ * by the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * Metreeca/Self is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty
+ * of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+ * See the GNU Affero General Public License for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with Metreeca/Self. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+:scope {
+	vertical-align: bottom !important;
+	white-space: nowrap;
+	cursor: default;
+}
+
+:scope:empty::after {
+	content: "​-";
+	display: inline-block;
+	min-width: 4em; /* <= li:first-child max-width */
+	margin-left: 0.1em;
+	color: #999;
+}
+
+:scope > li {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	padding: 0;
+	margin: 0;
+	list-style: none;
+}
+
+:scope > li.dragging {
+	opacity: 0.5;
+}
+
+:scope > li > :first-child {
+	flex-grow: 1;
+	max-width: 8em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+:scope > li > :last-child {
+	flex-shrink: 0;
+	margin-right: 0.25em;
+	font-size: 90%;
+}

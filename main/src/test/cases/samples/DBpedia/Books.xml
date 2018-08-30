@@ -1,0 +1,235 @@
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  Copyright © 2013-2018 Metreeca srl. All rights reserved.
+
+  This file is part of Metreeca/Self.
+
+  Metreeca/Self is free software: you can redistribute it and/or modify
+  it under the terms of the GNU Affero General Public License as published
+  by the Free Software Foundation, either version 3 of the License, or
+  (at your option) any later version.
+
+  Metreeca/Self is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty
+  of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+  See the GNU Affero General Public License for more details.
+
+  You should have received a copy of the GNU Affero General Public License
+  along with Metreeca/Self. If not, see <http://www.gnu.org/licenses/>.
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+
+<bean>
+	<net.metreeca.rover.shared.Report version="20150407">
+		<UUID>
+			<string>00e09dc8-2bf3-4120-8817-ad2af5964860</string>
+		</UUID>
+		<lenses>
+			<list>
+				<net.metreeca.rover.shared.Report..Board/>
+				<net.metreeca._tool.shared.Item..Auto/>
+				<net.metreeca.rover.shared.Report..Table id="0"/>
+			</list>
+		</lenses>
+		<created>
+			<long>1428414088516</long>
+		</created>
+		<updated>
+			<long>1428414414493</long>
+		</updated>
+		<arrayed>
+			<long>1428414414493</long>
+		</arrayed>
+		<lens>
+			<net.metreeca.rover.shared.Report..Table id="0"/>
+		</lens>
+		<endpoint>
+			<string>http://dbpedia.org/sparql</string>
+		</endpoint>
+		<specs>
+			<net.metreeca.rover.shared.beans.Specs>
+				<paths>
+					<list>
+						<net.metreeca.rover.shared.beans.Path>
+							<constraint>
+								<net.metreeca.rover.shared.beans.Constraint..Options>
+									<values>
+										<set>
+											<net.metreeca.rover.shared.beans.Term>
+												<text>
+													<string>http://dbpedia.org/ontology/Book</string>
+												</text>
+												<type>
+													<string>recto</string>
+												</type>
+												<label>
+													<string>book</string>
+												</label>
+												<lng>
+													<float>NaN</float>
+												</lng>
+												<lat>
+													<float>NaN</float>
+												</lat>
+											</net.metreeca.rover.shared.beans.Term>
+										</set>
+									</values>
+								</net.metreeca.rover.shared.beans.Constraint..Options>
+							</constraint>
+							<steps>
+								<list>
+									<net.metreeca.rover.shared.beans.Term>
+										<text>
+											<string>http://www.w3.org/1999/02/22-rdf-syntax-ns#type</string>
+										</text>
+										<type>
+											<string>recto</string>
+										</type>
+										<label>
+											<string>collection</string>
+										</label>
+										<lng>
+											<float>NaN</float>
+										</lng>
+										<lat>
+											<float>NaN</float>
+										</lat>
+									</net.metreeca.rover.shared.beans.Term>
+								</list>
+							</steps>
+						</net.metreeca.rover.shared.beans.Path>
+						<net.metreeca.rover.shared.beans.Path>
+							<label>
+								<string>book</string>
+							</label>
+						</net.metreeca.rover.shared.beans.Path>
+						<net.metreeca.rover.shared.beans.Path>
+							<steps>
+								<list>
+									<net.metreeca.rover.shared.beans.Term id="1">
+										<text>
+											<string>http://dbpedia.org/ontology/author</string>
+										</text>
+										<type>
+											<string>recto</string>
+										</type>
+										<label>
+											<string>author</string>
+										</label>
+										<lng>
+											<float>NaN</float>
+										</lng>
+										<lat>
+											<float>NaN</float>
+										</lat>
+									</net.metreeca.rover.shared.beans.Term>
+								</list>
+							</steps>
+						</net.metreeca.rover.shared.beans.Path>
+						<net.metreeca.rover.shared.beans.Path>
+							<constraint>
+								<net.metreeca.rover.shared.beans.Constraint..Range/>
+							</constraint>
+							<steps>
+								<list>
+									<net.metreeca.rover.shared.beans.Term>
+										<text>
+											<string>http://dbpedia.org/ontology/publicationDate</string>
+										</text>
+										<type>
+											<string>recto</string>
+										</type>
+										<label>
+											<string>publication\20date</string>
+										</label>
+										<lng>
+											<float>NaN</float>
+										</lng>
+										<lat>
+											<float>NaN</float>
+										</lat>
+									</net.metreeca.rover.shared.beans.Term>
+								</list>
+							</steps>
+							<expanded>
+								<boolean>true</boolean>
+							</expanded>
+						</net.metreeca.rover.shared.beans.Path>
+						<net.metreeca.rover.shared.beans.Path>
+							<constraint>
+								<net.metreeca.rover.shared.beans.Constraint..Options/>
+							</constraint>
+							<steps>
+								<list>
+									<net.metreeca.rover.shared.beans.Term id="1"/>
+								</list>
+							</steps>
+							<expanded>
+								<boolean>true</boolean>
+							</expanded>
+						</net.metreeca.rover.shared.beans.Path>
+						<net.metreeca.rover.shared.beans.Path>
+							<constraint>
+								<net.metreeca.rover.shared.beans.Constraint..Options/>
+							</constraint>
+							<steps>
+								<list>
+									<net.metreeca.rover.shared.beans.Term>
+										<text>
+											<string>http://dbpedia.org/ontology/publisher</string>
+										</text>
+										<type>
+											<string>recto</string>
+										</type>
+										<label>
+											<string>publisher</string>
+										</label>
+										<lng>
+											<float>NaN</float>
+										</lng>
+										<lat>
+											<float>NaN</float>
+										</lat>
+									</net.metreeca.rover.shared.beans.Term>
+								</list>
+							</steps>
+							<expanded>
+								<boolean>false</boolean>
+							</expanded>
+						</net.metreeca.rover.shared.beans.Path>
+						<net.metreeca.rover.shared.beans.Path>
+							<constraint>
+								<net.metreeca.rover.shared.beans.Constraint..Options/>
+							</constraint>
+							<steps>
+								<list>
+									<net.metreeca.rover.shared.beans.Term>
+										<text>
+											<string>http://dbpedia.org/ontology/literaryGenre</string>
+										</text>
+										<type>
+											<string>recto</string>
+										</type>
+										<label>
+											<string>literary\20genre</string>
+										</label>
+										<lng>
+											<float>NaN</float>
+										</lng>
+										<lat>
+											<float>NaN</float>
+										</lat>
+									</net.metreeca.rover.shared.beans.Term>
+								</list>
+							</steps>
+							<expanded>
+								<boolean>false</boolean>
+							</expanded>
+						</net.metreeca.rover.shared.beans.Path>
+					</list>
+				</paths>
+				<label>
+					<string>book</string>
+				</label>
+			</net.metreeca.rover.shared.beans.Specs>
+		</specs>
+	</net.metreeca.rover.shared.Report>
+</bean>
