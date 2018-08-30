@@ -1,0 +1,62 @@
+<!-- Copyright © 2018 Metreeca srl. All rights reserved. -->
+
+<!DOCTYPE html>
+
+{% include meta.liquid %}
+
+<html>
+
+    <head>
+
+        <title>{% if page.title %}{{ page.title }} | {% endif %}{{ name }}</title>
+
+        <meta name="description" content="{{ page.excerpt | strip_html }}">
+        <meta name="copyright" content="{{ copyright }}"/>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1"/>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+
+        <link rel="shortcut icon" href="{{ '/assets/icons/logo.ico' | relative_url }}"/>
+        <link rel="stylesheet" type="text/css" href="{{ '/assets/default.css' | relative_url }}"/>
+        <link rel="stylesheet" type="text/css" href="{{ '/assets/rouge/github.css' | relative_url }}"/>
+
+    </head>
+
+    <body>
+
+        <input id="toggle" type="checkbox"> <!-- hidden menu toggle for mobile view -->
+
+        <nav>
+
+            <header>
+                <a class="logo" href="{{ home }}"></a>
+                <a class="root" href="{{ root }}">{{ project }}</a>
+                <label for="toggle" class="icon"></label> <!-- icon dynamically managed by default.css -->
+            </header>
+
+            <div class="title">{{ page.title }}</div>
+            <div class="version">Version {{ version }}</div>
+
+            <div class="toc">
+
+                {% include toc.liquid html=content %}
+
+            </div>
+
+        </nav>
+
+        <main>
+
+            <header>{{ page.title | default: page.caption | default: "" | remove: "Metreeca " }}</header>
+
+            <article>{{ content }}</article>
+
+            <small>{{ copyright }} {{ license }}</small>
+
+        </main>
+
+        <script type="text/javascript" src="{{ '/assets/default.js' | relative_url }}"></script>
+
+    </body>
+
+</html>

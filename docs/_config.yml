@@ -1,0 +1,5 @@
+baseurl: /self # no custom domain
+exclude: [Gemfile, Gemfile.lock]
+
+plugins:
+  - jekyll-redirect-from
