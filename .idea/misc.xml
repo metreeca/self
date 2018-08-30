@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="FrameworkDetectionExcludesConfiguration">
+    <file type="gwt" url="file://$PROJECT_DIR$/libs/bean" />
+    <file type="gwt" url="file://$PROJECT_DIR$/libs/info" />
+    <file type="gwt" url="file://$PROJECT_DIR$/libs/jeep" />
+    <file type="gwt" url="file://$PROJECT_DIR$/libs/tile" />
+    <file type="gwt" url="file://$PROJECT_DIR$/libs/tool" />
+    <file type="gwt" url="file://$PROJECT_DIR$/main" />
+  </component>
+  <component name="MavenProjectsManager">
+    <option name="originalFiles">
+      <list>
+        <option value="$PROJECT_DIR$/pom.xml" />
+      </list>
+    </option>
+  </component>
+</project>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="bean" />
+        <module name="info" />
+        <module name="jeep" />
+        <module name="main" />
+        <module name="tile" />
+        <module name="tool" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="bean" target="1.8" />
+      <module name="info" target="1.8" />
+      <module name="jeep" target="1.8" />
+      <module name="main" target="1.8" />
+      <module name="tile" target="1.8" />
+      <module name="tool" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>
