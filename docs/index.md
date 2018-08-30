@@ -1,19 +1,14 @@
 ---
-excerpt:    Lorem ipsum dolor sit amet, consectetur adipiscing elit
 ---
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+Metreeca/Self is a self-service linked data search and analysis tool enabling business users to visually interact with SPARQL endpoints.
 
-# One
+It features a streamlined and intuitive interface, built around very familiar concepts like tables, faceted filtering, drag&drop and link navigation.
 
-# Two
+It may be deployed as a standalone web app or embedded into web sites and data portals to power user-friendly faceted catalogs, linked data navigation and data-driven infographics.
 
-# Three
+---
 
-## One
+<p class="warning">Work in progress…</p>
 
-## Two
-
-## Three
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+- [Tutorial](tutorial)
