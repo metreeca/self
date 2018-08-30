@@ -4,43 +4,6 @@
 
 (function (window) {
 
-	//// Header Toggling ///////////////////////////////////////////////////////////////////////////////////////////////
-
-	var body=window.document.body;
-	var header=window.document.querySelector("body > nav > header");
-
-	var mark=0; // the previous scroll top
-	var toggle; // header toggling callback (null if not yet scheduled)
-
-	body.onscroll=function () {
-		if ( !toggle && body.clientWidth < 480 ) {
-			window.requestAnimationFrame(toggle=function () {
-				try {
-
-					var scroll=body.scrollTop;
-					var height=body.clientHeight;
-
-					var delta=scroll-mark;
-					var threshold=50;
-
-					if ( delta > threshold && (scroll+height) < body.scrollHeight ) { // downward (unless bouncing at bottom)
-
-						header.style.top=-(header.clientHeight+1)+"px";
-						mark=scroll;
-
-					} else if ( -delta > threshold && scroll > 0 ) { // upward (unless bouncing at top)
-
-						header.style.top=0;
-						mark=scroll;
-
-					}
-
-				} finally { toggle=null; }
-			});
-		}
-	};
-
-
 	//// TOC Toggling //////////////////////////////////////////////////////////////////////////////////////////////////
 
 	window.onhashchange=window.onresize=function () {

@@ -95,47 +95,71 @@ body > input {
 
 body > * {
 	display: flex;
-	flex-direction: column;
 	align-items: stretch;
+	flex-direction: column;
+	flex-grow: 1;
+	flex-shrink: 1;
 	overflow-x: hidden;
 	overflow-y: auto;
 }
 
-body > * > * {
-	padding: 1rem;
-	overflow-x: hidden;
-	overflow-y: auto;
+body > *::before { /* header placeholder */
+	content: '';
+	display: block;
+	height: 3rem;
+}
+
+body > nav > * {
+	padding-left: 0.5rem;
+	padding-right: 0.5rem;
+}
+
+body > main > * {
+	padding-left: 1rem;
+	padding-right: 1rem;
 }
 
 body > * > header {
+	padding-top: 0.5rem;
+	padding-bottom: 0.25rem;
 	font-size: 1.25rem;
 }
 
 body > * > section {
 	flex-grow: 1;
+	padding-top: 0;
+	padding-bottom: 1rem;
+}
+
+body > * > footer {
+	padding-top: 0.75rem;
+	padding-bottom: 0.75rem;
+	font-size: 80%;
+	color: #999;
 }
 
 /**** Navigation ******************************************************************************************************/
 
-body > input:not(:checked) ~ nav > :not(header) {
-	display: none;
-}
-
 body > nav > header {
+	z-index: 1;
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
 	display: flex;
 	flex-direction: row;
 	align-items: center;
 	justify-content: space-between;
-	padding: 0.5em;
 	border-bottom-style: solid;
-}
-
-body > nav > header {
-
+	background-color: rgba(255, 255, 255, 0.75);
 }
 
 body > nav > header > .project {
-	margin: 0.1em;
+	margin: 0 0.1em;
+}
+
+body > nav > header > label {
+	width:  1.25rem;
 }
 
 body > nav > header > label::before {
@@ -146,8 +170,8 @@ body > input:checked ~ nav > header > label::before {
 	content: '\f00d'; /* fa-times */
 }
 
-body > nav > section a {
-	font-weight: inherit;
+body > input:not(:checked) ~ nav > :not(header) {
+	display: none;
 }
 
 /**** Navigation/Meta *************************************************************************************************/
@@ -164,6 +188,10 @@ body > nav > section > .title {
 	margin-top: 1em;
 	font-size: 125%;
 	color: #999;
+}
+
+body > nav > section a {
+	font-weight: inherit;
 }
 
 
@@ -209,23 +237,14 @@ body > input:checked ~ main {
 	display: none;
 }
 
-body > main {
-	flex: 1 1 auto;
-}
-
 body > main > header {
 	font-weight: 300;
+	font-variant: small-caps;
 	color: #999;
 }
 
 body > main > section {
 	max-width: 45rem;
-}
-
-body > main > footer {
-	margin-top: 2em;
-	font-size: 80%;
-	color: #999;
 }
 
 body > main > footer > a {
@@ -451,7 +470,7 @@ img:not(:only-child) {
 
 hr {
 	margin-top: 1em;
-	margin-bottom: 1.5em;
+	margin-bottom: 1em;
 	border-top-style: solid;
 }
 
@@ -510,11 +529,15 @@ code {
 	font-size: 90%;
 }
 
+select {
+	border-style: solid;
+}
+
 /**** Left-Aligned Body ***********************************************************************************************/
 
 @media screen and (min-width: 480px) {
 
-	body {
+	body > main {
 		text-align: left;
 	}
 
@@ -545,19 +568,43 @@ code {
 		flex-direction: row;
 	}
 
+	body > *::before { /* header placeholder */
+		display: none;
+	}
+
 	body > * > header {
 		white-space: nowrap;
 		text-overflow: ellipsis;
+		font-size: 1.5rem;
+	}
+
+	body > * > section {
+		padding-top: 0.25rem;
 	}
 
 	body > nav {
 		display: flex !important;
 		width: 15rem;
 		border-right-style: solid;
+		text-align: left;
 	}
 
 	body > nav > * {
-		display: block !important;
+		display: block !important; /* force visibility */
+		padding-left: 0.75rem;
+		padding-right: 0.75rem;
+	}
+
+	body > nav > header {
+		position: static;
+	}
+
+	body > nav > header > label {
+		display: none !important;
+	}
+
+	body > nav > header {
+		border-bottom-style: none;
 	}
 
 	body > nav > header > label {
@@ -572,9 +619,14 @@ code {
 		width: 100%;
 	}
 
-	body > main {
-		padding-right: 1.5rem;
-		padding-left: 1.5rem;
+	body > main > * {
+		padding-left: 2.5rem;
+		padding-right: 2.5rem;
+	}
+
+	body > main > header > div {
+		padding-bottom: 0.25em;
+		border-bottom-style: solid;
 	}
 
 }
