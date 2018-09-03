@@ -159,7 +159,7 @@ body > nav > header > .project {
 }
 
 body > nav > header > label {
-	width:  1.25rem;
+	width: 1.25rem;
 }
 
 body > nav > header > label::before {
@@ -194,7 +194,6 @@ body > nav > section a {
 	font-weight: inherit;
 }
 
-
 /**** Navigation/TOC **************************************************************************************************/
 
 body > nav > section > .toc {
@@ -215,15 +214,19 @@ body > nav > section > .toc > h1 {
 	font-weight: 700;
 }
 
-body > nav > section > .toc > * + h1 {
+body > nav > section > .toc > h1 + h1 {
 	margin-top: 0.5em;
 }
 
-body > nav > section > .toc > * + h2 {
+body > nav > section > .toc > * + h1 {
+	margin-top: 0.75em;
+}
+
+body > nav > section > .toc > h2 + h2 {
 	margin-top: 0.25em;
 }
 
-body > nav > section > .toc > h1 + h2 {
+body > nav > section > .toc > * + h2 {
 	margin-top: 0.5em;
 }
 
@@ -245,6 +248,14 @@ body > main > header {
 
 body > main > section {
 	max-width: 45rem;
+}
+
+body > main > section > h1:target {
+	padding-top: 0.25em; /* coordinate with nav header to align when scrolling to anchor */
+}
+
+body > main > section > h2:target {
+	padding-top: 0.75em; /* coordinate with nav header to align when scrolling to anchor */
 }
 
 body > main > footer > a {
@@ -311,7 +322,7 @@ h1,
 h2,
 h3 {
 	clear: both;
-	padding-bottom: 0.2em;
+	margin-top: 1em;
 	margin-bottom: 0.5em;
 	font-weight: 300;
 	color: #333;
@@ -320,25 +331,22 @@ h3 {
 * + h1,
 * + h2,
 * + h3 {
-	margin-top: 0.25em;
 }
 
 h1 {
-	padding-top: 0.2em; /* coordinate with toc padding-top to align when scrolling to anchor */
+	padding-bottom: 0.2em;
 	border-bottom-style: solid;
 	font-size: 175%;
 }
 
 h2 {
-	padding-top: 0.5em; /* coordinate with toc padding-top to align when scrolling to anchor */
+	padding-bottom: 0.2em;
 	border-bottom-style: dotted;
 	font-size: 125%;
 }
 
 h3 {
-	padding-top: 0.1em;
-	border-bottom-style: dotted;
-	font-variant: small-caps;
+	font-weight: 700;
 	font-size: 100%;
 }
 
