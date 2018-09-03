@@ -7,7 +7,7 @@ node_modules/
 *~
 ~*
 
-# IntelliJ IDEA (see https://intellij-support.jetbrains.com/hc/en-us/articles/206544839)
+#### IntelliJ IDEA (see https://intellij-support.jetbrains.com/hc/en-us/articles/206544839) ############################
 
 /.idea/workspace.xml
 /.idea/modules.xml
