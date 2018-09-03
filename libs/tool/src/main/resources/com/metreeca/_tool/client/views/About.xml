@@ -21,6 +21,8 @@
 
 	<a class="logo" href="//www.metreeca.com/" target="_blank"/>
 
+	<span class="name">Metreeca/Self</span>
+
 	<div class="version">
 		Version
 		<span class='major'/>
@@ -28,7 +30,8 @@
 		<span class='minor'/>
 		<span>.</span>
 		<span class='patch'/>
-		(<span class='build'/>)
+		<br/>
+		Build <span class='build'/>
 	</div>
 
 	<div class="copyright">
@@ -42,9 +45,9 @@
 
 	</div>
 
-	<div class="legal">
+	<!--<div class="legal">
 		<a href="//docs.metreeca.com/legal#open-source-license" target="_blank">License</a>
 		<a href="//docs.metreeca.com/legal#acknowledgements" target="_blank">Credits</a>
-	</div>
+	</div>-->
 
 </div>

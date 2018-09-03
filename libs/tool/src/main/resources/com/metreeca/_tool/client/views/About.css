@@ -28,21 +28,28 @@
 }
 
 :scope > * {
+	display: block;
 	margin: 0;
 	padding: 0;
 }
 
-:scope > a {
+:scope > a { /* ;(ie) broken image scaling: provide exact size */
 	display: inline-block;
-	/* ;(ie) broken image scaling: provide exact size */
 	width: 128px;
-	height: 192px; /* vertical allotment for product name in icon */
+	height: 128px;
 }
 
 :scope > div {
 	max-width: 20em;
 	margin-top: 0.75em;
 	color: #666;
+}
+
+:scope .name {
+	margin-top: 1em;
+	margin-bottom: 0.5em;
+	font-size: 110%;
+	font-weight: 400;
 }
 
 :scope .version {
