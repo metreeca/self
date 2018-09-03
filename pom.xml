@@ -71,7 +71,6 @@
 
 		<java.version>1.8</java.version>
 		<gwt.version>2.8.2</gwt.version>
-		<rdf4j.version>2.2.2</rdf4j.version>
 
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
