@@ -45,9 +45,9 @@
 
 	</div>
 
-	<!--<div class="legal">
-		<a href="//docs.metreeca.com/legal#open-source-license" target="_blank">License</a>
-		<a href="//docs.metreeca.com/legal#acknowledgements" target="_blank">Credits</a>
-	</div>-->
+	<div class="legal">
+		<a href="https://metreeca.github.io/self/legals/license#open-source-license" target="_blank">License</a>
+		<a href="https://metreeca.github.io/self/legals/license#acknowledgements" target="_blank">Credits</a>
+	</div>
 
 </div>
