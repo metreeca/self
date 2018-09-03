@@ -37,7 +37,7 @@
 	<name>Metreeca GWT DOM Library (Legacy)</name>
 
 	<build>
-		tile
+
 		<plugins>
 
 			<plugin>
