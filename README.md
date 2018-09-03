@@ -6,6 +6,7 @@ Metreeca/Self is a self-service linked data search and analysis tool enabling bu
 It features a streamlined and intuitive interface, built around very familiar concepts like tables, faceted filtering, drag&drop, link navigation and charting.
 
 It may be deployed as a standalone client-side web app or embedded into web sites and data portals to power user-friendly faceted catalogs, linked data navigation and data-driven infographics.
+
 ---
 
 home / [www.metreeca.com](https://www.metreeca.com/)  
