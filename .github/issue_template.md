@@ -3,7 +3,7 @@
 - web browser: _name_ / _version_
 - operating system: _name_ / _version_
 
-# Steps to Reproduce
+# How to Reproduce
 
 - …
 
