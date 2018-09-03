@@ -30,7 +30,6 @@ import com.metreeca.self.shared.sparql.Query;
 import com.metreeca.self.shared.sparql.Table;
 
 import com.google.gwt.http.client.*;
-import com.google.gwt.user.client.Cookies;
 
 import java.util.Collection;
 import java.util.HashSet;
@@ -41,9 +40,6 @@ import static com.metreeca._tile.client.Plugin.clip;
 public final class SPARQLPort extends View {
 
 	private static final int Timeout=30*1000; // default query timeout [ms] {0 >> no timeout}
-
-	private static final String Base=Cookies.getCookie("com.metreeca.link"); // as advertised by the delivery server
-	private static final String Proxy=(Base != null ? Base : "/")+"proxy"; // SPARQL proxy endpoint on the delivery server
 
 
 	private Report report; // the last seen report (supports retry options)
@@ -85,15 +81,14 @@ public final class SPARQLPort extends View {
 
 	private void query(final Query query) {
 
-		final String base=query.getServer();
-		final String code=query.getSource();
+		final String server=query.getServer();
+		final String source=query.getSource();
 
-		final int timeout=query.getTimeout() > 0 ? query.getTimeout() : Timeout;
+		final int timeout=query.getTimeout();
 
-		// forward requests to the proxy endpoint on the delivery server, unless talking to a local server
+		final RequestBuilder builder=new RequestBuilder(RequestBuilder.POST, server);
 
-		final RequestBuilder builder=new RequestBuilder(
-				RequestBuilder.POST, Base != null && base.startsWith(Base) ? base : Proxy);
+		builder.setTimeoutMillis(timeout > 0 ? timeout : Timeout);
 
 		// application/x-www-form-urlencoded is compatible with simple CORS requests
 		// ;(sesame) explicitly state charset=UTF-8 to prevent encoding issues (https://openrdf.atlassian.net/browse/SES-2301)
@@ -104,18 +99,17 @@ public final class SPARQLPort extends View {
 		// setting custom headers (X-*) would turn on pre-flight CORS request with unknown impact on authorization
 		// (see https://developer.mozilla.org/en-US/docs/Web/HTTP/Access_control_CORS#Simple_requests)
 
-		builder.setIncludeCredentials(true); // authentication won't work with wildcard CORS headers
-		builder.setTimeoutMillis(timeout);
+		// Authentication requires full CORS support: wildcard 'Access-Control-Allow-Origin' headers won't work…
 
-		root().info(SPARQLPort.class, "retrieving data from endpoint").report(code);
+		builder.setIncludeCredentials(!server.contains("dbpedia.org/")); // ;( ignore wildcard origin for demos…
+
+		root().info(SPARQLPort.class, "retrieving data from endpoint").report(source);
 
 		final long rstart=System.currentTimeMillis();
 
 		try {
 
-			final String args
-					="query="+URL.encodeQueryString(code)
-					+"&endpoint="+URL.encodeQueryString(base);
+			final String args="query="+URL.encodeQueryString(source);
 
 			insert(builder.sendRequest(args, new RequestCallback() {
 
