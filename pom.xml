@@ -77,6 +77,8 @@
 		<maven.deploy.skip>true</maven.deploy.skip> <!-- !!! no public artifact deployment -->
 		<maven.build.timestamp.format>yyyyMMdd</maven.build.timestamp.format>
 
+		<timestamp>${maven.build.timestamp}</timestamp> <!-- ;( not directly available to filtered resources -->
+
 	</properties>
 
 	<dependencies>
@@ -105,6 +107,17 @@
 	</dependencies>
 
 	<build>
+
+		<finalName>metreeca-${project.artifactId}-${project.version}</finalName>
+
+		<resources>
+
+			<resource> <!-- enable resource filtering -->
+				<directory>src/main/resources</directory>
+				<filtering>true</filtering>
+			</resource>
+
+		</resources>
 
 		<pluginManagement>
 			<plugins>
