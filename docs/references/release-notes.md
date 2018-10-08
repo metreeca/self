@@ -4,7 +4,11 @@ excerpt:	Release notes and product roadmap
 redirect_to:   "https://github.com/metreeca/metreeca/releases/tag/${docs.version}"
 ---
 
-<!-- use absolute liks to https://docs.metreeca.com/ -->
+# v0.47+20181008
+
+This is a major beta release resuming stand-alone tool availability.
+
+# v.046 (skipped)
 
 # v0.45+20180125
 
