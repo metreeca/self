@@ -27,11 +27,11 @@
 	<parent>
 		<groupId>com.metreeca.self</groupId>
 		<artifactId>libs</artifactId>
-		<version>0.47</version>
+		<version>0.47.0</version>
 	</parent>
 
 	<artifactId>tool</artifactId>
-	<version>0.47</version>
+	<version>0.47.0</version>
 	<packaging>gwt-lib</packaging>
 
 	<name>Metreeca GWT App Framework (Legacy)</name>
@@ -41,19 +41,19 @@
 		<dependency>
 			<groupId>com.metreeca.self</groupId>
 			<artifactId>bean</artifactId>
-			<version>0.47</version>
+			<version>0.47.0</version>
 		</dependency>
 
 		<dependency>
 			<groupId>com.metreeca.self</groupId>
 			<artifactId>jeep</artifactId>
-			<version>0.47</version>
+			<version>0.47.0</version>
 		</dependency>
 
 		<dependency>
 			<groupId>com.metreeca.self</groupId>
 			<artifactId>tile</artifactId>
-			<version>0.47</version>
+			<version>0.47.0</version>
 		</dependency>
 
 	</dependencies>
