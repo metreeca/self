@@ -37,23 +37,23 @@ Metreeca/Self may be embedded within host HTML pages to provide faceted search, 
 
 To get started with embedded Metreeca/Self:
 
-1. include the `driver.min.js` script from your Metreeca/Self installation (e.g. <http://demo.metreeca.com/apps/self/driver.min.js>) anywhere in your page;
+1. include the `driver.min.js` script from your Metreeca/Self installation (e.g. <https://demo.metreeca.com/apps/self/driver.min.js>) anywhere in your page;
 2. embed one or more Metreeca/Self instances using `iframe` elements annotated with `data-*` attributes defining content and layout.
 
 ```html
 <script type="application/javascript"
- src="http://demo.metreeca.com/apps/self/driver.min.js"></script>
+ src="https://demo.metreeca.com/apps/self/driver.min.js"></script>
 ```
 
 ```html
 <iframe [name="<instance name>"]
- src="http://demo.metreeca.com/apps/self/"
+ src="https://demo.metreeca.com/apps/self/"
  [data-<content option>="<value>"]*
  [data-<layout option>="<value>"]*
 ></iframe>
 ```
 
-Basic, cut-and-paste ready samples are available at <http://demo.metreeca.com/apps/self/samples/>.
+Basic, cut-and-paste ready samples are available at <https://demo.metreeca.com/apps/self/samples/>.
 
 ## Content Options
 
