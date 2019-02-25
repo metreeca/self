@@ -33,7 +33,7 @@ If these these requirements are not met, consider routing SPARQL requests from M
 
 For the time being, to use Metreeca/Self follow the steps below:
 
-- clone and compile the `release/v0` branch of the github repository
+- clone and compile the `release/v0` branch of the GitHub repository
   ```sh
   git clone --branch release/v0 https://github.com/metreeca/self.git
   cd self
@@ -49,7 +49,7 @@ For the time being, to use Metreeca/Self follow the steps below:
       <dependency>
         <groupId>com.metreeca.self</groupId>
         <artifactId>main</artifactId>
-        <version>${project.version}</version>
+        <version>0.47.0</version>
         <type>war</type>
       </dependency>
   
@@ -85,10 +85,10 @@ For the time being, to use Metreeca/Self follow the steps below:
 
   </project>
   ```
-- to deploy to a local server copy static assets under `main/target/metreeca-main-${project.version}/self` to its static asset folder; the application will be available at `http(s)://{host}/{static}/{name}/`
+- deploy to a local server copying static assets under `main/target/metreeca-main-0.47.0/self` to its static asset folder; the application will be available at `http(s)://{host}/{static}/{name}/`
 
   ```bash
-  cp -R main/target/metreeca-main-${project.version}/self/ {static}/{name}/
+  cp -R main/target/metreeca-main-0.47.0/self/ {static}/{name}/
   ```
 
 In both cases, you may want to provide a self-configuring launch link to a predefined SPARQL endpoint as:
