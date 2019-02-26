@@ -51,6 +51,7 @@ For the time being, to use Metreeca/Self follow the steps below:
         <artifactId>main</artifactId>
         <version>0.47.0</version>
         <type>war</type>
+        <scope>runtime</scope>
       </dependency>
   
     </dependencies>

@@ -1,5 +1,5 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="deploy" type="MavenRunConfiguration" factoryName="Maven" singleton="true">
+  <configuration default="false" name="clean" type="MavenRunConfiguration" factoryName="Maven">
     <MavenSettings>
       <option name="myGeneralSettings" />
       <option name="myRunnerSettings" />
@@ -11,7 +11,6 @@
           <option name="goals">
             <list>
               <option value="clean" />
-              <option value="install" />
             </list>
           </option>
           <option name="pomFileName" />

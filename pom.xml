@@ -147,6 +147,7 @@
 
 					<configuration>
 						<skipModule>true</skipModule> <!-- ;(idea) https://youtrack.jetbrains.com/issue/IDEA-171158  -->
+						<style>DETAILED</style>
 					</configuration>
 
 				</plugin>
