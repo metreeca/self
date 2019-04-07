@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="FrameworkDetectionExcludesConfiguration">
+    <file type="gwt" url="file://$PROJECT_DIR$" />
     <file type="gwt" url="file://$PROJECT_DIR$/libs/bean" />
     <file type="gwt" url="file://$PROJECT_DIR$/libs/info" />
     <file type="gwt" url="file://$PROJECT_DIR$/libs/jeep" />
@@ -14,6 +15,16 @@
       <list>
         <option value="$PROJECT_DIR$/pom.xml" />
       </list>
+    </option>
+    <option name="ignoredFiles">
+      <set>
+        <option value="$PROJECT_DIR$/libs/bean/pom.xml" />
+        <option value="$PROJECT_DIR$/libs/jeep/pom.xml" />
+        <option value="$PROJECT_DIR$/libs/pom.xml" />
+        <option value="$PROJECT_DIR$/libs/tile/pom.xml" />
+        <option value="$PROJECT_DIR$/libs/tool/pom.xml" />
+        <option value="$PROJECT_DIR$/main/pom.xml" />
+      </set>
     </option>
   </component>
   <component name="ProjectRootManager" version="2" project-jdk-name="1.8" project-jdk-type="JavaSDK" />
