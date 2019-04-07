@@ -310,22 +310,4 @@ public final class Window extends JavaScriptObject {
 
 	}-*/;
 
-
-	//// Sounds ////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-	public Window tick() {
-		return play(GWT.getModuleBaseURL()+"sounds/tick.wav");
-	}
-
-
-	public native Window play(final String url) /*-{
-
-		if ( url ) {
-			new Audio(url).play();
-		}
-
-		return this;
-
-	}-*/;
-
 }
