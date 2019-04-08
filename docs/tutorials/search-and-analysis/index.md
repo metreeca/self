@@ -7,11 +7,11 @@ excerpt:        Hands-on guided tour of self-service search and analysis feature
 
 This example-driven tutorial introduces the self-service search and analysis features of Metreeca/Self. Basic familiarity with [business intelligence](http://en.wikipedia.org/wiki/Business_intelligence) and  [linked data](http://www.w3.org/standards/semanticweb/data) concepts is useful, but not required.
 
-To get started open [https://demo.metreeca.com/apps/self/](https://demo.metreeca.com/apps/self/#endpoint=https://demo.metreeca.com/sparql) with a [supported](../../handbooks/system#browser) web browser and connect to a SPARQL endpoint.
+To get started open [https://demo.metreeca.com/apps/self/](https://demo.metreeca.com/apps/self/#endpoint=https://demo.metreeca.com/sparql) with a [supported](../../how-to/integrate-with-your-system#browser) web browser and connect to a SPARQL endpoint.
 
 The tutorial refers to the [https://demo.metreeca.com/sparql](https://demo.metreeca.com/apps/self/#endpoint=https://demo.metreeca.com/sparql) endpoint, which serves a semantic version of the [BIRT](http://www.eclipse.org/birt/phoenix/db/) sample dataset, cross-linked to [GeoNames](http://www.geonames.org/) entities for cities and countries. The BIRT sample is a typical business database, containing tables such as *offices*, *customers*, *products*, *orders*, *order lines*, … for *Classic Models*, a fictional world-wide retailer of scale toy models.
 
-Should you want to try out Metreeca/Self on your own datasets, make sure that your SPARQL endpoint fully [supports](../../handbooks/system#sparql-endpoint) CORS requests and review [data usability](../../how-to/improve-user-experience#data-usability) guidelines.
+Should you want to try out Metreeca/Self on your own datasets, make sure that your SPARQL endpoint fully [supports](../../how-to/integrate-with-your-system#sparql-endpoint) CORS requests and review [data usability](../../how-to/improve-user-experience#data-usability) guidelines.
 
 You may also try out Metreeca/Self on DBpedia and other LOD endpoints: if you feel like, have a look at [https://www.metreeca.com/demos](https://www.metreeca.com/demos#analytics).
 
