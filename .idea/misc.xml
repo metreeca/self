@@ -2,13 +2,7 @@
 <project version="4">
   <component name="FrameworkDetectionExcludesConfiguration">
     <file type="gwt" url="file://$PROJECT_DIR$" />
-    <file type="gwt" url="file://$PROJECT_DIR$/libs/bean" />
-    <file type="gwt" url="file://$PROJECT_DIR$/libs/info" />
-    <file type="gwt" url="file://$PROJECT_DIR$/libs/jeep" />
-    <file type="gwt" url="file://$PROJECT_DIR$/libs/tile" />
-    <file type="gwt" url="file://$PROJECT_DIR$/libs/tool" />
-    <file type="gwt" url="file://$PROJECT_DIR$/main" />
-    <file type="web" url="file://$PROJECT_DIR$/main" />
+    <file type="web" url="file://$PROJECT_DIR$" />
   </component>
   <component name="MavenProjectsManager">
     <option name="originalFiles">
@@ -18,13 +12,7 @@
     </option>
     <option name="ignoredFiles">
       <set>
-        <option value="$PROJECT_DIR$/libs/bean/pom.xml" />
-        <option value="$PROJECT_DIR$/libs/jeep/pom.xml" />
-        <option value="$PROJECT_DIR$/libs/pom.xml" />
-        <option value="$PROJECT_DIR$/libs/tile/pom.xml" />
-        <option value="$PROJECT_DIR$/libs/tool/pom.xml" />
-        <option value="$PROJECT_DIR$/main/pom.xml" />
-      </set>
+       </set>
     </option>
   </component>
   <component name="ProjectRootManager" version="2" project-jdk-name="1.8" project-jdk-type="JavaSDK" />
