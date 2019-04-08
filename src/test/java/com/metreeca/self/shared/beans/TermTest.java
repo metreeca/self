@@ -49,21 +49,42 @@ public final class TermTest {
 		assertEquals("tagged", "text", plain("text", "@en").getValue());
 	}
 
-	@SuppressWarnings("deprecation")
-	// Date.UTC > Calendar not portable to GWT // !!! replace with client/server solution
+	@SuppressWarnings("deprecation") // Date.UTC > Calendar not portable to GWT // !!! replace with client/server solution
 	@Test public void testGetDateValue() {
-		assertEquals("date+time", new Date(Date.UTC(70, 0, 1, 0, 0, 0)), typed("1970-01-01T00:00:00", XSD.XSDDateTime).getValue());
-		assertEquals("date", new Date(Date.UTC(2005-1900, 0, 1, 0, 0, 0)), typed("2005-01-01", XSD.XSDDateTime).getValue());
-		assertEquals("date+time+ms", new Date(Date.UTC(70, 0, 1, 0, 0, 0)), typed("1970-01-01T00:00:00.000Z", XSD.XSDDateTime).getValue());
+
+		assertEquals("date+time",
+				new Date(Date.UTC(70, 0, 1, 0, 0, 0)),
+				typed("1970-01-01T00:00:00", XSD.XSDDateTime).getValue()
+		);
+
+		assertEquals("date",
+				new Date(Date.UTC(2005-1900, 0, 1, 0, 0, 0)),
+				typed("2005-01-01", XSD.XSDDateTime).getValue()
+		);
+
+		assertEquals("date+time+ms",
+				new Date(Date.UTC(70, 0, 1, 0, 0, 0)+123),
+				typed("1970-01-01T00:00:00.123", XSD.XSDDateTime).getValue()
+		);
 	}
 
-
-	@SuppressWarnings("deprecation")
-	// Date.UTC > Calendar not portable to GWT // !!! replace with client/server solution
+	@SuppressWarnings("deprecation") // Date.UTC > Calendar not portable to GWT // !!! replace with client/server solution
 	@Test public void testConstructDateTime() {
-		assertEquals("ac", typed("2015-03-26T12:06:01Z", XSD.XSDDateTime), typed(new Date(2015-1900, 3-1, 26, 12, 6, 1)));
-		assertEquals("bc", typed("-2015-03-26T12:06:01Z", XSD.XSDDateTime), typed(new Date(-1899-2015, 3-1, 26, 12, 6, 1)));
-		assertEquals("< 10", typed("0001-01-01T01:01:01Z", XSD.XSDDateTime), typed(new Date(1-1900, 1-1, 1, 1, 1, 1)));
+
+		assertEquals("ac",
+				typed("2015-03-26T12:06:01Z", XSD.XSDDateTime),
+				typed(new Date(2015-1900, 3-1, 26, 12, 6, 1))
+		);
+
+		assertEquals("bc",
+				typed("-2015-03-26T12:06:01Z", XSD.XSDDateTime),
+				typed(new Date(-1899-2015, 3-1, 26, 12, 6, 1))
+		);
+
+		assertEquals("< 10",
+				typed("0001-01-01T01:01:01Z", XSD.XSDDateTime),
+				typed(new Date(1-1900, 1-1, 1, 1, 1, 1))
+		);
 	}
 
 	@Test public void testEscapeLiterals() {

@@ -47,7 +47,7 @@ public abstract class BeanCodecTest {
 
 	//// Checks ////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-	@Test(expected=IllegalArgumentException.class) public void testCheckNullRoot() {
+	@Test(expected=NullPointerException.class) public void testCheckNullRoot() {
 		clone(null);
 	}
 

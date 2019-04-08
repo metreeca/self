@@ -37,6 +37,7 @@ import static java.lang.Character.toLowerCase;
 import static java.lang.Float.NaN;
 import static java.lang.Float.isNaN;
 import static java.lang.Integer.parseInt;
+import static java.lang.Long.parseLong;
 
 
 @Bean({"text", "type"}) public final class Term {
@@ -536,15 +537,20 @@ import static java.lang.Integer.parseInt;
 
 		try {
 
+			final int length=text.length();
+
 			return text == null ? null
 
-					: text.matches("\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}Z?") ? new Date(Date.UTC( // !!! timezone
+					: text.matches("\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?Z?") ? new Date(Date.UTC( // !!! timezone
 					parseInt(text.substring(0, 4))-1900,
 					parseInt(text.substring(5, 7))-1,
 					parseInt(text.substring(8, 10)),
 					parseInt(text.substring(11, 13)),
 					parseInt(text.substring(14, 16)),
-					parseInt(text.substring(17, 19))))
+					parseInt(text.substring(17, 19))
+			)+(
+					length > 20? parseLong(text.substring(20, text.charAt(length-1) == 'Z' ? length-1 : length)): 0)
+			)
 
 					: text.matches("\\d{4}-\\d{2}-\\d{2}") ? new Date(Date.UTC( // !!! timezone
 					parseInt(text.substring(0, 4))-1900,
