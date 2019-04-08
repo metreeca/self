@@ -1,19 +1,12 @@
 ---
-title: 		How To Improve User Experience
-excerpt:	Usability guidelines and other configuration tips
+title: 		    How To Improve User Experience
+excerpt:	    Usability guidelines and other configuration tips
+redirect_from:  /how-tos/improve-user-experience
 ---
-
-# Data Usability
 
 Metreeca/Self will search and navigate generic RDF data from any SPARQL 1.1 endpoint, but user experience can be improved by sticking to the following guidelines.
 
-## Identify Key Collections
-
-When opening a new report, Metreeca/Self will present the user with a springboard page, listing collections identified by introspecting *rdf:type* info from the endpoint.
-
-To fine-tune what's presented to the user or to improve performance on large datasets, you may explicitly identify RDF classes as key collections for your *dataset* by annotating them as:
-
-    <{dataset}> <http://rdfs.org/ns/void#rootResource> <{class}> .
+# Annotate Content
 
 ## Provide Labels
 
@@ -55,6 +48,16 @@ Where relevant, provide geographic coordinates for graph entities by annotating 
 ## Include Ontologies
 
 Upload relevant ontologies to the endpoint: Metreeca/Self will use human-readable labels and notes for classes and predicates to configure fields and facets names and linked data pages.
+
+# Assist Navigation
+
+## Identify Key Collections
+
+When opening a new report, Metreeca/Self will present the user with a springboard page, listing collections identified by introspecting *rdf:type* info from the endpoint.
+
+To fine-tune what's presented to the user or to improve performance on large datasets, you may explicitly identify RDF classes as key collections for your *dataset* by annotating them as:
+
+    <{dataset}> <http://rdfs.org/ns/void#rootResource> <{class}> .
 
 ## Include Inverse Links
 

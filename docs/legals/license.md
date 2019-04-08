@@ -3,6 +3,8 @@ title:		License Agreement
 excerpt:	License agreement and open source credits
 ---
 
+<!-- referenced by the About dialog in the UI -->
+
 This License Agreement governs your use of the Metreeca/Self application and any associated resources of Metreeca s.r.l. ("Metreeca"). By using the Application you are agreeing to abide by the terms and conditions described below.
 
 Metreeca may update this License Agreement from time to time, for example to address new licensing options or to clarify a provision. You can review at any time the most current version of the License Agreement at <https://metreeca.github.io/self/legals/license>. Before substantive changes, we will notify you by email, by posting a notice on our site ([www.metreeca.com](https://www.metreeca.com/)) or through usual channels for such announcements such as blog posts and forums. Your continued use of the Application after the effective date of such changes constitutes your acceptance of such changes.
