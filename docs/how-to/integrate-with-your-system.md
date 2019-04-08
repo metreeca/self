@@ -100,5 +100,5 @@ mvn clean install
 Then, deploy to a local server copying static assets under `main/target/metreeca-self-${project.verion}/self` to a static asset folder; the application will be available at `http(s)://{host}/{static}/{name}/`
 
 ```bash
-cp -R target/metreeca-self-${project.verion}/self/ {static}/{name}/
+cp -R target/metreeca-self-${project.version}/self/ {static}/{name}/
 ```
