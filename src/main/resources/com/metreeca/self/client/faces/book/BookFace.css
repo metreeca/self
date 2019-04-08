@@ -1,0 +1,294 @@
+/*
+ * Copyright © 2013-2019 Metreeca srl. All rights reserved.
+ *
+ * This file is part of Metreeca/Self.
+ *
+ * Metreeca/Self is free software: you can redistribute it and/or modify it under the terms
+ * of the GNU Affero General Public License as published by the Free Software Foundation,
+ * either version 3 of the License, or(at your option) any later version.
+ *
+ * Metreeca/Self is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;
+ * without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+ * See the GNU Affero General Public License for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public License along with Metreeca/Self.
+ * If not, see <http://www.gnu.org/licenses/>.
+ */
+
+:scope {
+	display: flex;
+	flex-direction: column;
+	align-items: stretch;
+}
+
+/**** Title+Navigation ************************************************************************************************/
+
+:scope > header {
+	display: flex;
+	flex-direction: row;
+	align-items: flex-end;
+	flex-shrink: 0;
+	padding-bottom: 0.25em;
+	padding-left: 0.25rem;
+	padding-right: 0.25em;
+	margin-top: -0.25em;
+	border-bottom-style: solid;
+	white-space: nowrap;
+}
+
+:scope > header > .term {
+	font-size: 120%;
+}
+
+:scope > header > menu {
+	flex-grow: 1;
+	flex-shrink: 0;
+	text-align: right;
+}
+
+:scope > header > menu > .page {
+	/* page indicator (currently unused) */
+	padding-right: 0.25rem;
+	vertical-align: text-top;
+	font-size: 90%;
+	font-weight: bold;
+	color: #AAA;
+}
+
+:scope > header > menu > .prev,
+:scope > header > menu > .next {
+	margin-left: 0.25em;
+	font-size: 150%;
+	font-weight: 400; /* broken right arrows with 300 */
+	line-height: 1rem;
+}
+
+:scope > header > menu > .prev::before {
+	content: '«';
+}
+
+:scope > header > menu > .next::before {
+	content: '»';
+}
+
+/**** Scrolling Port ***************************************************************************************************/
+
+:scope > div {
+	flex-grow: 1;
+	overflow-x: hidden;
+	overflow-y: auto;
+	padding-top: 1.5em;
+	padding-bottom: 1em;
+}
+
+:scope > div > *:empty {
+	display: none;
+}
+
+/**** Notes/Pictures **************************************************************************************************/
+
+:scope > div > p {
+	margin-top: 0;
+	margin-left: 0.25rem;
+	margin-bottom: 1.5em;
+	min-width: 10em;
+	max-height: 20em;
+	overflow-x: hidden;
+	overflow-y: auto;
+}
+
+:scope > div > a.image {
+	display: block;
+	float: right;
+	max-width: 15em;
+	max-height: 15em;
+	min-width: 9em;
+	min-height: 6em;
+	margin-bottom: 2em;
+	margin-left: 2em;
+	text-decoration: none;
+}
+
+:root.embedded :scope > div > a.image {
+	max-width: 12em;
+	max-height: 12em;
+	min-width: 7.5em;
+	min-height: 5em;
+}
+
+/**** Sections ********************************************************************************************************/
+
+:scope > div > section {
+	clear: both;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+}
+
+:scope > div section.primary {
+	clear: none; /* display beside picture */
+	min-width: 66%; /* prevent over-shrinking when displaying beside floating picture */
+}
+
+:scope > div > p:not(:empty) + section.primary:not(:empty) {
+	border-top-style: solid;
+}
+
+:scope > div > section.resources {
+	flex-wrap: wrap-reverse; /* roles below slots */
+}
+
+/**** Panels **********************************************************************************************************/
+
+:scope > div table {
+	display: block;
+	flex-grow: 1;
+	flex-shrink: 1;
+	flex-basis: auto; /* ;(safari) required to enable flex wrapping (see http://stackoverflow.com/questions/25284540/flex-wrap-issues-on-safari) */
+	width: 20rem; /* ;(safari/chrome) required to enable flex wrapping / coordinate with SpecsView > section { min-width } */
+	margin-right: 0.25rem; /* at right to align to left side when wrapping */
+	margin-bottom: 1.5rem; /* here rather than on section to space tables when wrapping */
+	background-color: #FAFAFA;
+	caption-side: top;
+	position: relative; /* anchor scrolling shadows */
+	overflow: hidden; /* clip scrolling shadow */
+}
+
+:scope > div table caption {
+	display: flex;
+	align-items: center;
+	width: 100%;
+	padding: 0.25rem 0.5rem 0.2rem;
+	margin-bottom: 0.25rem;
+	white-space: nowrap;
+	font-size: 90%;
+	font-weight: 400;
+	background-color: #999;
+	color: #FFF;
+}
+
+:scope > div table caption button:hover {
+	color: #B40 !important;
+}
+
+:scope > div table caption > span {
+	flex: 1 0 auto;
+}
+
+:scope > div table caption > button {
+	flex: 0 0 auto;
+	font-size: 90%;
+}
+
+:scope > div table caption > button::before {
+	margin-right: 0.5em;
+	transform: translateY(-10%) !important;
+}
+
+:scope > div table caption.collapsed ~ tbody {
+	display: block;
+	max-height: 30em;
+	overflow-y: auto;
+}
+
+:scope > div table caption.collapsed ~ tbody::before {
+	content: '';
+	display: block;
+	position: absolute;
+	height: 0;
+	bottom: 0;
+	left: 0;
+	right: 1em; /* don't cast shadows over the scrollbar */
+	pointer-events: none;
+	box-shadow: 0 0 3em 2em #FFF;
+	z-index: 1;
+}
+
+:scope > div table caption.collapsed ~ tbody::after {
+	/* keep overflow shadow out of the way when scrolled at bottom */
+	/* ;(ie) padding-bottom on tbody won't work */
+	content: '';
+	display: block;
+	height: 5em; /* keep aligned with overflow shadow, allotting for 3 items in the list at bottom */
+}
+
+:scope > div table tr {
+	border-bottom-style: solid;
+	background-color: #FFF;
+}
+
+:scope > div table tr:nth-child(even) {
+	background-color: #F8F8F8;
+}
+
+:scope > div table td {
+	padding: 0.5em 0.25em 0.25em 0.5em;
+}
+
+/**** Edges ***********************************************************************************************************/
+
+:scope > div table td:nth-child(1) {
+	width: 0; /* shrink */
+	max-width: 12em;
+	padding-left: 0.5rem;
+	white-space: nowrap;
+}
+
+/**** Term Lists ******************************************************************************************************/
+
+:scope > div table td:nth-child(2) {
+	width: 100%;
+	max-width: 5em; /* ;( enable cell to shrink if overflowing */
+	padding-left: 0.5em;
+}
+
+:scope > div table td:nth-child(2) ul {
+	margin: 0;
+}
+
+:scope > div table td:nth-child(2) li {
+	list-style: none;
+	width: 100%;
+	margin-left: 0;
+	margin-bottom: 0.25em;
+}
+
+:scope > div table td:nth-child(2) li > a:empty:after {
+	content: '…';
+	font-size: 90%;
+	font-weight: bold;
+	color: #666;
+}
+
+/**** Term Set Buttons ************************************************************************************************/
+
+:scope > div table td:nth-child(3) button {
+	padding-right: 0.5rem;
+	margin-top: -0.4rem;
+	font-size: 150%;
+	color: #555;
+}
+
+:scope > div table td:nth-child(3) button::after {
+	content: '»';
+}
+
+/**** Links ***********************************************************************************************************/
+
+:scope .link {
+	display: flex;
+	flex-direction: row;
+}
+
+:scope .link > :not(.term) {
+	color: #999;
+	flex-shrink: 0;
+}
+
+:scope .link > :not(.term):first-child {
+	padding-right: 0.25em;
+}
+
+:scope .link > :not(.term):last-child {
+	padding-left: 0.25em;
+}

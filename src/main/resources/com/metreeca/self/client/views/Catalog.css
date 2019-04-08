@@ -1,0 +1,72 @@
+/*
+ * Copyright © 2013-2019 Metreeca srl. All rights reserved.
+ *
+ * This file is part of Metreeca/Self.
+ *
+ * Metreeca/Self is free software: you can redistribute it and/or modify it under the terms
+ * of the GNU Affero General Public License as published by the Free Software Foundation,
+ * either version 3 of the License, or(at your option) any later version.
+ *
+ * Metreeca/Self is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;
+ * without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+ * See the GNU Affero General Public License for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public License along with Metreeca/Self.
+ * If not, see <http://www.gnu.org/licenses/>.
+ */
+
+:scope {
+	height: 25em;
+	width: 30em;
+}
+
+:scope > * {
+	position: absolute;
+	left: 1em;
+	right: 1em;
+}
+
+:scope > ul {
+	top: 1em;
+	bottom: 2.5em;
+	margin: 0;
+	padding: 0;
+	overflow-x: hidden;
+	overflow-y: auto;
+}
+
+:scope > .placeholder:empty::before {
+	content: '\F0CA'; /* fa-list-ul */
+	font-family: FontAwesome;
+	font-size: 7.5rem; /* ;(ie) use absolute units to override std size (connect.microsoft.com/IE/feedback/details/786969/) */
+	top: 35%;
+	left: calc(50% - 0.9 * 7.5rem / 2); /* see .placeholder @ visuals.css */
+}
+
+:scope > ul > li {
+	list-style: none;
+	margin: 0;
+	padding: 0.25em;
+}
+
+:scope > ul > li > button {
+	width: 100%;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+:scope > footer {
+	height: 2em;
+	bottom: 0.5em;
+	padding-top: 0.5em;
+	border-top-style: solid;
+	color: #999;
+	font-size: 90%;
+}
+
+:scope > footer > button {
+	position: absolute;
+	top: 0.5em;
+	right: 0.25em;
+	font-size: 120%;
+}

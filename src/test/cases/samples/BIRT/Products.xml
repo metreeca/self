@@ -1,0 +1,378 @@
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  Copyright © 2013-2019 Metreeca srl. All rights reserved.
+
+  This file is part of Metreeca/Self.
+
+  Metreeca/Self is free software: you can redistribute it and/or modify it under the terms
+  of the GNU Affero General Public License as published by the Free Software Foundation,
+  either version 3 of the License, or(at your option) any later version.
+
+  Metreeca/Self is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;
+  without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+  See the GNU Affero General Public License for more details.
+
+  You should have received a copy of the GNU Affero General Public License along with Metreeca/Self.
+  If not, see <http://www.gnu.org/licenses/>.
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+
+<bean>
+	<net.metreeca.rover.shared.Report version="20141024">
+		<UUID>
+			<string>f49be4d4-7475-47a6-a014-75a5e24b156c</string>
+		</UUID>
+		<lenses>
+			<list>
+				<net.metreeca.rover.shared.Report..Board/>
+				<net.metreeca._tool.shared.Item..Auto/>
+				<net.metreeca.rover.shared.Report..Pie>
+					<series>
+						<boolean>true</boolean>
+					</series>
+					<item>
+						<net.metreeca.rover.shared.beans.Path id="1">
+							<label>
+								<string>Product</string>
+							</label>
+						</net.metreeca.rover.shared.beans.Path>
+					</item>
+					<setup>
+						<string>{}</string>
+					</setup>
+					<value>
+						<net.metreeca.rover.shared.beans.Path id="0">
+							<steps>
+								<list>
+									<net.metreeca.rover.shared.beans.Term>
+										<text>
+											<string>tag:metreeca.net;2013:birt#buy</string>
+										</text>
+										<type>
+											<string>recto</string>
+										</type>
+										<label>
+											<string>buy\20price</string>
+										</label>
+										<lng>
+											<float>NaN</float>
+										</lng>
+										<lat>
+											<float>NaN</float>
+										</lat>
+									</net.metreeca.rover.shared.beans.Term>
+								</list>
+							</steps>
+						</net.metreeca.rover.shared.beans.Path>
+					</value>
+				</net.metreeca.rover.shared.Report..Pie>
+				<net.metreeca.rover.shared.Report..Bar>
+					<series>
+						<boolean>true</boolean>
+					</series>
+					<values>
+						<list>
+							<net.metreeca.rover.shared.beans.Path id="0"/>
+							<net.metreeca.rover.shared.beans.Path id="2">
+								<steps>
+									<list>
+										<net.metreeca.rover.shared.beans.Term>
+											<text>
+												<string>tag:metreeca.net;2013:birt#sell</string>
+											</text>
+											<type>
+												<string>recto</string>
+											</type>
+											<label>
+												<string>retail\20price</string>
+											</label>
+											<lng>
+												<float>NaN</float>
+											</lng>
+											<lat>
+												<float>NaN</float>
+											</lat>
+										</net.metreeca.rover.shared.beans.Term>
+									</list>
+								</steps>
+							</net.metreeca.rover.shared.beans.Path>
+						</list>
+					</values>
+					<item>
+						<net.metreeca.rover.shared.beans.Path id="1"/>
+					</item>
+					<setup>
+						<string>{}</string>
+					</setup>
+				</net.metreeca.rover.shared.Report..Bar>
+				<net.metreeca.rover.shared.Report..Line>
+					<series>
+						<boolean>true</boolean>
+					</series>
+					<ys>
+						<list>
+							<net.metreeca.rover.shared.beans.Path id="2"/>
+						</list>
+					</ys>
+					<setup>
+						<string>{}</string>
+					</setup>
+					<x>
+						<net.metreeca.rover.shared.beans.Path id="0"/>
+					</x>
+				</net.metreeca.rover.shared.Report..Line>
+				<net.metreeca.rover.shared.Report..Bubble>
+					<series>
+						<boolean>true</boolean>
+					</series>
+					<item>
+						<net.metreeca.rover.shared.beans.Path id="1"/>
+					</item>
+					<setup>
+						<string>{}</string>
+					</setup>
+					<group>
+						<net.metreeca.rover.shared.beans.Path id="3">
+							<steps>
+								<list>
+									<net.metreeca.rover.shared.beans.Term>
+										<text>
+											<string>tag:metreeca.net;2013:birt#code</string>
+										</text>
+										<type>
+											<string>recto</string>
+										</type>
+										<label>
+											<string>code</string>
+										</label>
+										<lng>
+											<float>NaN</float>
+										</lng>
+										<lat>
+											<float>NaN</float>
+										</lat>
+									</net.metreeca.rover.shared.beans.Term>
+								</list>
+							</steps>
+						</net.metreeca.rover.shared.beans.Path>
+					</group>
+					<y>
+						<net.metreeca.rover.shared.beans.Path id="2"/>
+					</y>
+					<x>
+						<net.metreeca.rover.shared.beans.Path id="0"/>
+					</x>
+				</net.metreeca.rover.shared.Report..Bubble>
+				<net.metreeca.rover.shared.Report..Marker>
+					<series>
+						<boolean>true</boolean>
+					</series>
+					<item>
+						<net.metreeca.rover.shared.beans.Path id="1"/>
+					</item>
+					<setup>
+						<string>
+							{"port":{"west":-88.24218749999999,"east":218.671875,"north":78.63000556774836,"south":-81.67242422726375}}
+						</string>
+					</setup>
+					<value>
+						<net.metreeca.rover.shared.beans.Path id="0"/>
+					</value>
+					<group>
+						<net.metreeca.rover.shared.beans.Path id="3"/>
+					</group>
+				</net.metreeca.rover.shared.Report..Marker>
+				<net.metreeca.rover.shared.Report..Table id="4"/>
+			</list>
+		</lenses>
+		<updated>
+			<long>1414156410707</long>
+		</updated>
+		<created>
+			<long>1413205636061</long>
+		</created>
+		<label>
+			<string>Products</string>
+		</label>
+		<checked>
+			<long>1413205644710</long>
+		</checked>
+		<arrayed>
+			<long>1414156916302</long>
+		</arrayed>
+		<lens>
+			<net.metreeca.rover.shared.Report..Table id="4"/>
+		</lens>
+		<endpoint>
+			<string>http://apps.metreeca.it/demo/birt</string>
+		</endpoint>
+		<specs>
+			<net.metreeca.rover.shared.beans.Specs>
+				<paths>
+					<list>
+						<net.metreeca.rover.shared.beans.Path>
+							<constraint>
+								<net.metreeca.rover.shared.beans.Constraint..Options>
+									<values>
+										<set>
+											<net.metreeca.rover.shared.beans.Term>
+												<text>
+													<string>tag:metreeca.net;2013:birt#Product</string>
+												</text>
+												<type>
+													<string>recto</string>
+												</type>
+												<label>
+													<string>Product</string>
+												</label>
+												<lng>
+													<float>NaN</float>
+												</lng>
+												<lat>
+													<float>NaN</float>
+												</lat>
+											</net.metreeca.rover.shared.beans.Term>
+										</set>
+									</values>
+								</net.metreeca.rover.shared.beans.Constraint..Options>
+							</constraint>
+							<steps>
+								<list>
+									<net.metreeca.rover.shared.beans.Term>
+										<text>
+											<string>http://www.w3.org/1999/02/22-rdf-syntax-ns#type</string>
+										</text>
+										<type>
+											<string>recto</string>
+										</type>
+										<lng>
+											<float>NaN</float>
+										</lng>
+										<lat>
+											<float>NaN</float>
+										</lat>
+									</net.metreeca.rover.shared.beans.Term>
+								</list>
+							</steps>
+						</net.metreeca.rover.shared.beans.Path>
+						<net.metreeca.rover.shared.beans.Path id="1"/>
+						<net.metreeca.rover.shared.beans.Path>
+							<constraint>
+								<net.metreeca.rover.shared.beans.Constraint..Range/>
+							</constraint>
+							<steps>
+								<list>
+									<net.metreeca.rover.shared.beans.Term>
+										<text>
+											<string>tag:metreeca.net;2013:birt#buy</string>
+										</text>
+										<type>
+											<string>recto</string>
+										</type>
+										<label>
+											<string>buy\20price</string>
+										</label>
+										<lng>
+											<float>NaN</float>
+										</lng>
+										<lat>
+											<float>NaN</float>
+										</lat>
+									</net.metreeca.rover.shared.beans.Term>
+								</list>
+							</steps>
+							<expanded>
+								<boolean>true</boolean>
+							</expanded>
+						</net.metreeca.rover.shared.beans.Path>
+						<net.metreeca.rover.shared.beans.Path>
+							<constraint>
+								<net.metreeca.rover.shared.beans.Constraint..Options/>
+							</constraint>
+							<steps>
+								<list>
+									<net.metreeca.rover.shared.beans.Term>
+										<text>
+											<string>tag:metreeca.net;2013:birt#line</string>
+										</text>
+										<type>
+											<string>recto</string>
+										</type>
+										<label>
+											<string>product\20line</string>
+										</label>
+										<lng>
+											<float>NaN</float>
+										</lng>
+										<lat>
+											<float>NaN</float>
+										</lat>
+									</net.metreeca.rover.shared.beans.Term>
+								</list>
+							</steps>
+							<expanded>
+								<boolean>true</boolean>
+							</expanded>
+						</net.metreeca.rover.shared.beans.Path>
+						<net.metreeca.rover.shared.beans.Path>
+							<constraint>
+								<net.metreeca.rover.shared.beans.Constraint..Options/>
+							</constraint>
+							<steps>
+								<list>
+									<net.metreeca.rover.shared.beans.Term>
+										<text>
+											<string>tag:metreeca.net;2013:birt#vendor</string>
+										</text>
+										<type>
+											<string>recto</string>
+										</type>
+										<label>
+											<string>vendor</string>
+										</label>
+										<lng>
+											<float>NaN</float>
+										</lng>
+										<lat>
+											<float>NaN</float>
+										</lat>
+									</net.metreeca.rover.shared.beans.Term>
+								</list>
+							</steps>
+							<expanded>
+								<boolean>true</boolean>
+							</expanded>
+						</net.metreeca.rover.shared.beans.Path>
+						<net.metreeca.rover.shared.beans.Path id="3"/>
+						<net.metreeca.rover.shared.beans.Path>
+							<steps>
+								<list>
+									<net.metreeca.rover.shared.beans.Term>
+										<text>
+											<string>http://www.w3.org/2000/01/rdf-schema#comment</string>
+										</text>
+										<type>
+											<string>recto</string>
+										</type>
+										<label>
+											<string>comment</string>
+										</label>
+										<lng>
+											<float>NaN</float>
+										</lng>
+										<lat>
+											<float>NaN</float>
+										</lat>
+									</net.metreeca.rover.shared.beans.Term>
+								</list>
+							</steps>
+						</net.metreeca.rover.shared.beans.Path>
+						<net.metreeca.rover.shared.beans.Path id="0"/>
+						<net.metreeca.rover.shared.beans.Path id="2"/>
+					</list>
+				</paths>
+				<label>
+					<string>Product</string>
+				</label>
+			</net.metreeca.rover.shared.beans.Specs>
+		</specs>
+	</net.metreeca.rover.shared.Report>
+</bean>

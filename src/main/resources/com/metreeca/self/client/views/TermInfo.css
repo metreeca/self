@@ -1,0 +1,115 @@
+/*
+ * Copyright © 2013-2019 Metreeca srl. All rights reserved.
+ *
+ * This file is part of Metreeca/Self.
+ *
+ * Metreeca/Self is free software: you can redistribute it and/or modify it under the terms
+ * of the GNU Affero General Public License as published by the Free Software Foundation,
+ * either version 3 of the License, or(at your option) any later version.
+ *
+ * Metreeca/Self is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;
+ * without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+ * See the GNU Affero General Public License for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public License along with Metreeca/Self.
+ * If not, see <http://www.gnu.org/licenses/>.
+ */
+
+:scope {
+	max-width: 15rem;
+	padding: 0.75em 1em !important;
+}
+
+:scope > *:empty {
+	display: none;
+}
+
+:scope > header > .term {
+	max-width: 100%;
+	white-space: nowrap;
+}
+
+:scope > header > .image {
+	float: right;
+	min-width: 3em;
+	min-height: 2.5em;
+	max-width: 8em;
+	max-height: 8em;
+	margin-left: 0.5em;
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+:scope > header > p {
+	font-size: 80%;
+	margin-top: 0.25em;
+}
+
+:scope > header:not(:empty) + footer {
+	padding-top: 0.5em;
+	margin-top: 0.5em;
+	border-top-style: solid;
+}
+
+:scope > footer {
+	clear: right;
+	font-size: 90%;
+}
+
+:scope > footer > section {
+	display: flex;
+	flex-direction: row;
+	align-items: flex-start;
+}
+
+:scope > footer > section > * {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	vertical-align: top;
+}
+
+:scope > footer > section > span {
+	flex-grow: 0;
+	flex-shrink: 0;
+	/*max-width: 10em;*/
+	padding-right: 0.5em;
+	font-weight: bold;
+	color: #999;
+}
+
+:scope > footer > section.highlight > span {
+	color: #333;
+}
+
+:scope > footer > section > div {
+	flex-grow: 1;
+	flex-shrink: 1;
+	padding-right: 0.5em;
+	text-align: right;
+}
+
+:scope > footer > section > div > * {
+	max-width: 100% !important;
+	max-height: 4.10em !important; /* 3 rows with Roboto */
+	overflow-y: auto;
+	vertical-align: bottom; /* ;(ff) fixes excessive vertical spacing */
+}
+
+:scope :not(img):empty,
+:scope img:not([src]) {
+	display: none;
+	min-width: 0 !important;
+}
+
+/**** Patches *********************************************************************************************************/
+
+/* ;(ie) prevents collapsing of field values when the header is empty, but breaks natural sizing near the right border… */
+
+.explorer .info .tooltip {
+	width: auto !important;
+}
+
+
+
+

@@ -1,0 +1,174 @@
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  Copyright © 2013-2019 Metreeca srl. All rights reserved.
+
+  This file is part of Metreeca/Self.
+
+  Metreeca/Self is free software: you can redistribute it and/or modify it under the terms
+  of the GNU Affero General Public License as published by the Free Software Foundation,
+  either version 3 of the License, or(at your option) any later version.
+
+  Metreeca/Self is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;
+  without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+  See the GNU Affero General Public License for more details.
+
+  You should have received a copy of the GNU Affero General Public License along with Metreeca/Self.
+  If not, see <http://www.gnu.org/licenses/>.
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+
+<bean>
+	<com.metreeca.self.shared.Report version="20170525">
+		<UUID>
+			<string>54289697-5d98-4a9b-9a66-d745deabbbda</string>
+		</UUID>
+		<arrayed>
+			<long>1436951172434</long>
+		</arrayed>
+		<specs>
+			<com.metreeca.self.shared.beans.Specs>
+				<paths>
+					<list>
+						<com.metreeca.self.shared.beans.Path>
+							<constraint>
+								<com.metreeca.self.shared.beans.Constraint..Options>
+									<values>
+										<set>
+											<com.metreeca.self.shared.beans.Term>
+												<text>
+													<string>http://dbpedia.org/ontology/ProtectedArea</string>
+												</text>
+												<type>
+													<string>recto</string>
+												</type>
+												<lng>
+													<float>NaN</float>
+												</lng>
+												<label>
+													<string>protected\20area</string>
+												</label>
+												<lat>
+													<float>NaN</float>
+												</lat>
+											</com.metreeca.self.shared.beans.Term>
+										</set>
+									</values>
+								</com.metreeca.self.shared.beans.Constraint..Options>
+							</constraint>
+							<steps>
+								<list>
+									<com.metreeca.self.shared.beans.Term>
+										<text>
+											<string>http://www.w3.org/1999/02/22-rdf-syntax-ns#type</string>
+										</text>
+										<type>
+											<string>recto</string>
+										</type>
+										<lng>
+											<float>NaN</float>
+										</lng>
+										<label>
+											<string>collection</string>
+										</label>
+										<lat>
+											<float>NaN</float>
+										</lat>
+									</com.metreeca.self.shared.beans.Term>
+								</list>
+							</steps>
+						</com.metreeca.self.shared.beans.Path>
+						<com.metreeca.self.shared.beans.Path id="0">
+							<label>
+								<string>protected\20area</string>
+							</label>
+						</com.metreeca.self.shared.beans.Path>
+						<com.metreeca.self.shared.beans.Path id="1">
+							<sort>
+								<int>-1</int>
+							</sort>
+							<steps>
+								<list>
+									<com.metreeca.self.shared.beans.Term>
+										<text>
+											<string>http://dbpedia.org/ontology/areaTotal</string>
+										</text>
+										<type>
+											<string>recto</string>
+										</type>
+										<lng>
+											<float>NaN</float>
+										</lng>
+										<label>
+											<string>area\20total\20(m2)</string>
+										</label>
+										<lat>
+											<float>NaN</float>
+										</lat>
+									</com.metreeca.self.shared.beans.Term>
+								</list>
+							</steps>
+						</com.metreeca.self.shared.beans.Path>
+						<com.metreeca.self.shared.beans.Path id="2">
+							<steps>
+								<list>
+									<com.metreeca.self.shared.beans.Term>
+										<text>
+											<string>http://dbpedia.org/ontology/iucnCategory</string>
+										</text>
+										<type>
+											<string>recto</string>
+										</type>
+										<lng>
+											<float>NaN</float>
+										</lng>
+										<label>
+											<string>iucn\20category</string>
+										</label>
+										<lat>
+											<float>NaN</float>
+										</lat>
+									</com.metreeca.self.shared.beans.Term>
+								</list>
+							</steps>
+						</com.metreeca.self.shared.beans.Path>
+					</list>
+				</paths>
+				<label>
+					<string>protected\20area</string>
+				</label>
+			</com.metreeca.self.shared.beans.Specs>
+		</specs>
+		<lenses>
+			<list>
+				<com.metreeca.self.shared.Report..Board/>
+				<com.metreeca._tool.shared.Item..Auto/>
+				<com.metreeca.self.shared.Report..Book/>
+				<com.metreeca.self.shared.Report..Table/>
+				<com.metreeca.self.shared.Report..Marker id="3">
+					<item>
+						<com.metreeca.self.shared.beans.Path id="0"/>
+					</item>
+					<setup>
+						<string>{"port":{"lat":18.646245142670608,"lng":-3.515625,"zoom":1}}</string>
+					</setup>
+					<value>
+						<com.metreeca.self.shared.beans.Path id="1"/>
+					</value>
+					<group>
+						<com.metreeca.self.shared.beans.Path id="2"/>
+					</group>
+				</com.metreeca.self.shared.Report..Marker>
+			</list>
+		</lenses>
+		<endpoint>
+			<string>https://dbpedia.org/sparql</string>
+		</endpoint>
+		<created>
+			<long>1436951172434</long>
+		</created>
+		<lens>
+			<com.metreeca.self.shared.Report..Marker id="3"/>
+		</lens>
+		<updated>
+			<long>1436951172434</long>
+		</updated>
+	</com.metreeca.self.shared.Report>
+</bean>

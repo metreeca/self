@@ -1,0 +1,53 @@
+/*
+ * Copyright © 2013-2019 Metreeca srl. All rights reserved.
+ *
+ * This file is part of Metreeca/Self.
+ *
+ * Metreeca/Self is free software: you can redistribute it and/or modify it under the terms
+ * of the GNU Affero General Public License as published by the Free Software Foundation,
+ * either version 3 of the License, or(at your option) any later version.
+ *
+ * Metreeca/Self is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;
+ * without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+ * See the GNU Affero General Public License for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public License along with Metreeca/Self.
+ * If not, see <http://www.gnu.org/licenses/>.
+ */
+
+:scope {
+	display: flex;
+	flex-direction: row;
+	align-items: stretch;
+	height: 2rem; /* coordinate with PathView > header */
+	overflow: hidden;
+	margin-bottom: 1.5rem;
+}
+
+:scope > :not(menu) {
+	flex-grow: 0;
+	flex-shrink: 0; /* don't collapse labels (see also FieldsView.align()) */
+}
+
+:scope > :not(menu) > header {
+	/* space using border to keep width aligned with cells in TableFace  */
+	/* ;(ie) place border in header: won't include padding in field width */
+	border-right: solid 3px #FFF;
+}
+
+:scope > menu {
+	display: flex;
+	justify-content: flex-end;
+	flex-grow: 1;
+	flex-shrink: 0;
+	padding: 0.1rem 0.5rem 0.1rem;
+	margin: 0;
+	font-size: 120%;
+	background-color: #DDD;
+}
+
+:scope > menu > :first-child {
+	flex-grow: 1;
+	position: relative;
+	left: -0.25em;
+}

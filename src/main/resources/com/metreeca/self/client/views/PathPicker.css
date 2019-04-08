@@ -1,0 +1,140 @@
+/*
+ * Copyright © 2013-2019 Metreeca srl. All rights reserved.
+ *
+ * This file is part of Metreeca/Self.
+ *
+ * Metreeca/Self is free software: you can redistribute it and/or modify it under the terms
+ * of the GNU Affero General Public License as published by the Free Software Foundation,
+ * either version 3 of the License, or(at your option) any later version.
+ *
+ * Metreeca/Self is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;
+ * without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+ * See the GNU Affero General Public License for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public License along with Metreeca/Self.
+ * If not, see <http://www.gnu.org/licenses/>.
+ */
+
+:scope {
+	display: flex !important; /* override .overlay */
+	flex-direction: row;
+	align-items: center; /* stretch + justify-content: center on children breaks scrolling (stackoverflow.com/a/24678299) */
+	width: 80% !important; /* override .overlay */
+	height: 80% !important; /* override .overlay */
+	max-width: 54em;
+	max-height: 36em;
+	padding: 1.5em 0.5em;
+	border-radius: 0.75em;
+	white-space: nowrap;
+}
+
+:scope > * {
+	display: inline-flex;
+	flex-direction: column;
+	width: 30%;
+}
+
+:scope > *:nth-child(2) {
+	display: flex;
+	flex-direction: column;
+	width: 40%;
+	align-self: stretch;
+	justify-content: space-between; /* center edges vertically */
+	padding-left: 1em;
+	padding-right: 1em;
+	margin-left: 0.25em; /* space from scrollbar */
+	margin-right: 0.25em; /* space from scrollbar */
+	border-style: none dotted;
+	border-color: #BBB;
+}
+
+:scope > * > header {
+	text-align: center;
+	padding-bottom: 2em;
+}
+
+:scope > * > footer {
+	padding-top: 0.5em;
+	text-align: center;
+	font-size: 175%;
+}
+
+:scope .filter {
+	font-size: 90%;
+}
+
+:scope .lane {
+	display: flex;
+	flex-direction: column;
+	max-height: 100%;
+	overflow-y: auto;
+	overflow-x: hidden;
+	font-size: 110%;
+}
+
+:scope .edges {
+	align-items: center;
+}
+
+:scope .edges > .link {
+	font-size: 150%;
+}
+
+:scope .edges > .link:first-of-type {
+	margin-bottom: 0.1em;
+	font-weight: bold;
+}
+
+:scope .roles {
+	align-items: flex-end;
+	padding-right: 0.5em; /* space from scrollbar */
+	color: #999;
+}
+
+:scope .slots {
+	align-items: flex-start;
+	padding-left: 0.5em; /* space from scrollbar */
+}
+
+:scope .link {
+	min-height: 1.25em;
+	max-width: 100%;
+	margin: 0;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	color: inherit; /* override link color */
+}
+
+:scope .link:hover {
+	text-decoration: none; /* override link underline */
+	color: #D60 !important;
+}
+
+:scope .link::before,
+:scope .link::after {
+	visibility: hidden; /* hide unused pseudo-elements to center links in middle lane */
+	color: #999;
+	font-weight: normal;
+	padding: 0 0.3em;
+}
+
+:scope .link.recto::before,
+:scope .link.recto::after,
+:scope .link.verso::after {
+	content: '-›';
+}
+
+:scope .link.verso::before {
+	content: '‹-';
+}
+
+:scope .edges .link.recto::before,
+:scope .edges .link.verso::before {
+	visibility: visible;
+}
+
+:scope .roles .link.verso::after,
+:scope .slots .link.recto::before {
+	visibility: visible;
+}

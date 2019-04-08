@@ -1,0 +1,76 @@
+/*
+ * Copyright © 2013-2019 Metreeca srl. All rights reserved.
+ *
+ * This file is part of Metreeca/Self.
+ *
+ * Metreeca/Self is free software: you can redistribute it and/or modify it under the terms
+ * of the GNU Affero General Public License as published by the Free Software Foundation,
+ * either version 3 of the License, or(at your option) any later version.
+ *
+ * Metreeca/Self is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;
+ * without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+ * See the GNU Affero General Public License for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public License along with Metreeca/Self.
+ * If not, see <http://www.gnu.org/licenses/>.
+ */
+
+:scope {
+	display: inline-block;
+	max-width: 75em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+:scope.numeric {
+	text-align: right;
+}
+
+:scope.textual:not(.inline) {
+	min-width: 10em;
+	max-height: 15em;
+	overflow-x: hidden;
+	overflow-y: auto;
+	white-space: normal;
+}
+
+:scope.image {
+	min-width: 3em;
+	min-height: 2.5em;
+	max-width: 10em;
+	max-height: 10em;
+	background-position: center left;
+}
+
+/**** External Links **************************************************************************************************/
+
+:scope.external {
+	display: inline-flex;
+	flex-direction: row;
+	align-items: baseline;
+}
+
+:scope.external :first-child {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+:scope.external :last-child {
+	flex-shrink: 0;
+	margin-left: 0.25em;
+	margin-right: 0.1em;
+	text-align: right;
+	font-size: 85%;
+	opacity: 0.75;
+}
+
+/**** Locking *********************************************************************************************************/
+
+.locked :scope,
+.locked :scope a:first-child {
+	text-decoration: none;
+	color: inherit;
+	cursor: default;
+}

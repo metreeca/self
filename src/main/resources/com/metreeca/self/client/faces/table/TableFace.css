@@ -1,0 +1,82 @@
+/*
+ * Copyright © 2013-2019 Metreeca srl. All rights reserved.
+ *
+ * This file is part of Metreeca/Self.
+ *
+ * Metreeca/Self is free software: you can redistribute it and/or modify it under the terms
+ * of the GNU Affero General Public License as published by the Free Software Foundation,
+ * either version 3 of the License, or(at your option) any later version.
+ *
+ * Metreeca/Self is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;
+ * without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+ * See the GNU Affero General Public License for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public License along with Metreeca/Self.
+ * If not, see <http://www.gnu.org/licenses/>.
+ */
+
+:scope {
+	overflow-x: hidden;
+	overflow-y: auto;
+}
+
+/**** Scrolling Frame *************************************************************************************************/
+
+:scope > div {
+	position: relative;
+	background-color: #F8F8F8; /* provide feedback on jump scrolling */
+}
+
+/**** Table ***********************************************************************************************************/
+
+:scope table {
+	display: block; /* app-controlled layout */
+	position: absolute;
+	width: 100%;
+	background-color: #FFF;
+}
+
+:scope table tr {
+	display: block; /* app-controlled layout */
+	white-space: nowrap;
+}
+
+:scope table tr:empty {
+	display: none;
+}
+
+:scope table tr:first-of-type {
+	border-top-style: solid;
+}
+
+:scope table tr::after {
+	display: inline-block; /* column placeholder matching header menu */
+	content: "\200B"; /* zero-width space prevents vertical collapsing */
+}
+
+:scope table td {
+	display: inline-block; /* app-controlled layout */
+}
+
+:scope table td, :scope table tr::after {
+	padding: 0.7rem 0.5rem 0.3rem 0.5rem;
+	vertical-align: top;
+}
+
+:scope table td:empty::after {
+	content: '\200B'; /* zero-width space prevents vertical collapsing */
+}
+
+:scope table td:first-child {
+	padding-left: 0.25rem;
+}
+
+:scope table td > * {
+	width: 100%;
+	max-height: 7em;
+	overflow-y: auto;
+}
+
+:scope table td > *.shadow {
+	opacity: 0.25;
+}

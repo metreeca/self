@@ -6,6 +6,17 @@ It may be deployed as a standalone client-side web app or embedded into web site
 
 ---
 
-- [Hands-On Tutorial](tutorials/search-and-analysis/)
-- [How To Improve User Experience](how-tos/improve-user-experience)
-- [System Handbook](handbooks/system)
+Tutorials
+
+: - [Search and Analysis](tutorials/search-and-analysis/)
+
+How To…
+
+: - [Integrate With Your System](how-to/integrate-with-your-system)
+- [Embed Into a HTML Page](how-to/embed-into-a-html-page)
+- [Improve User Experience](how-to/improve-user-experience)
+
+
+References
+
+: - [Known Issues](references/known-issues)

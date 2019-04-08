@@ -1,0 +1,128 @@
+/*
+ * Copyright © 2013-2019 Metreeca srl. All rights reserved.
+ *
+ * This file is part of Metreeca/Self.
+ *
+ * Metreeca/Self is free software: you can redistribute it and/or modify it under the terms
+ * of the GNU Affero General Public License as published by the Free Software Foundation,
+ * either version 3 of the License, or(at your option) any later version.
+ *
+ * Metreeca/Self is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;
+ * without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+ * See the GNU Affero General Public License for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public License along with Metreeca/Self.
+ * If not, see <http://www.gnu.org/licenses/>.
+ */
+
+:scope > * {
+	width: 100%;
+}
+
+/**** Filter **********************************************************************************************************/
+
+:scope > .input {
+	width: calc(100% + 0.2rem); /* compensate visually on the right */
+	border-radius: 0;
+	margin-bottom: .75em;
+	font-size: 90%;
+}
+
+/**** Status Line *****************************************************************************************************/
+
+:scope > .status {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	padding-top: 0.25em;
+	margin-top: 0.5em;
+	border-top-style: solid;
+	font-size: 90%;
+}
+
+:scope > .status > span {
+	flex-grow: 1;
+	color: #999;
+}
+
+:scope > .status > button {
+	font-size: 150%
+}
+
+:scope > .status > .prev::before {
+	content: '«';
+}
+
+:scope > .status > .next::before {
+	content: '»';
+}
+
+/**** Options *********************************************************************************************************/
+
+:scope > ul:empty::after {
+	display: block;
+	content: 'no options'; /* !!! i18n */
+	width: 100%;
+	color: #999;
+	font-style: italic;
+	text-align: center;
+}
+
+:scope > ul {
+	margin: 0;
+}
+
+:scope > ul > li {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	width: 100%;
+	list-style: none;
+	margin: 0;
+}
+
+:scope > ul > li.empty {
+	color: #CCC;
+}
+
+:scope > ul > li.empty * {
+	color: inherit !important; /* force color on inner links */
+}
+
+:scope > ul > li > input {
+	position: relative; /* why? flex vertical alignment? */
+	flex-shrink: 0;
+	min-width: 1em;
+	max-width: 1em;
+	margin-right: 0.5em;
+}
+
+:scope > ul > li > .term {
+	flex-grow: 1;
+	margin-right: 0.25em;
+}
+
+:scope > ul > li > .term img {
+	max-height: 3em;
+}
+
+:scope > ul > li > var {
+	flex-shrink: 0;
+	text-align: right;
+	color: gray;
+}
+
+:scope > ul > li > var::before {
+	margin-right: 0.5em;
+	font-size: 85%;
+	vertical-align: 15%;
+	color: #BBB;
+}
+
+:scope > ul > li > var.sampled::before {
+	content: '≥';
+}
+
+:scope > ul > li > var.sliced::before {
+	content: '≤';
+}
