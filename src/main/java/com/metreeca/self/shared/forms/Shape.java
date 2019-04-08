@@ -18,7 +18,6 @@
 package com.metreeca.self.shared.forms;
 
 import com.metreeca._jeep.shared.async.Promise;
-import com.metreeca._tool.shared.forms.Form;
 import com.metreeca.self.shared.beans.Specs;
 import com.metreeca.self.shared.sparql.Client;
 import com.metreeca.self.shared.sparql.Engine;

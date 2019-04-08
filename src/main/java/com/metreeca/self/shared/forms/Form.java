@@ -15,7 +15,7 @@
  * If not, see <http://www.gnu.org/licenses/>.
  */
 
-package com.metreeca._tool.shared.forms;
+package com.metreeca.self.shared.forms;
 
 import com.metreeca._jeep.shared.async.*;
 

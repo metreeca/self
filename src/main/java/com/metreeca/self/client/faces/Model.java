@@ -28,7 +28,7 @@ import com.metreeca.self.shared.sparql.Stats;
 
 import java.util.List;
 
-import static com.metreeca._tool.shared.Item.Lens;
+import static com.metreeca.self.shared.Item.Lens;
 
 import static java.lang.Float.NaN;
 

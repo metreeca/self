@@ -16,3 +16,6 @@
 #
 
 net.metreeca.self.shared.Report=com.metreeca.self.shared.Report
+
+com.metreeca._tool.shared.Item$Auto=com.metreeca.self.shared.Item$Auto
+com.metreeca._tool.client.ports.StorePort$Info=com.metreeca.self.client.ports.StorePort$Info

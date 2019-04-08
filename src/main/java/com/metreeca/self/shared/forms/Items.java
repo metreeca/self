@@ -15,41 +15,51 @@
  * If not, see <http://www.gnu.org/licenses/>.
  */
 
-package com.metreeca._tool.client.forms;
+package com.metreeca.self.shared.forms;
 
-import com.metreeca._tool.shared.Item;
+import com.metreeca.self.shared.Item;
 
-
-/**
- * Fired to request the state of an item to be stored into the browser history.
- */
-public final class State {
-
-	private final Item<?> item;
-	private final boolean push;
+import java.util.*;
 
 
-	public State(final Item<?> item) {
-		this(item, false);
+public final class Items extends Form<Items> {
+
+	private final Map<String, Item<?>> items=new LinkedHashMap<String, Item<?>>(); // uuid > item
+
+
+	@Override protected Items self() {
+		return this;
 	}
 
-	public State(final Item<?> item, final boolean push) {
+
+	public boolean isEmpty() {
+		return items.isEmpty();
+	}
+
+
+	public Collection<Item<?>> getItems() {
+		return Collections.unmodifiableCollection(items.values());
+	}
+
+	public Items insertItem(final Item<?> item) {
 
 		if ( item == null ) {
 			throw new NullPointerException("null item");
 		}
 
-		this.item=item;
-		this.push=push;
+		items.put(item.getUUID(), item);
+
+		return this;
 	}
 
+	public Items removeItem(final Item<?> item) {
 
-	public Item<?> item() {
-		return item;
+		if ( item == null ) {
+			throw new NullPointerException("null item");
+		}
+
+		items.remove(item.getUUID());
+
+		return this;
 	}
-
-	public boolean push() {
-		return push;
-	}
-
 }

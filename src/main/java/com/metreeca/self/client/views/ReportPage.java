@@ -26,14 +26,12 @@ import com.metreeca._tile.client.Event;
 import com.metreeca._tile.client.Tile;
 import com.metreeca._tile.client.plugins.Menu;
 import com.metreeca._tile.client.plugins.Overlay;
-import com.metreeca._tool.client.forms.Export;
-import com.metreeca._tool.client.forms.State;
-import com.metreeca._tool.client.views.Page;
-import com.metreeca._tool.shared.Item;
-import com.metreeca._tool.shared.Item.Lens;
+import com.metreeca.self.shared.forms.Export;
+import com.metreeca.self.shared.forms.State;
+import com.metreeca.self.shared.Item;
+import com.metreeca.self.shared.Item.Lens;
 import com.metreeca.self.client.Self;
 import com.metreeca.self.client.Self.Bus;
-import com.metreeca.self.client.Self.Mode;
 import com.metreeca.self.shared.Report;
 import com.metreeca.self.shared.beans.Path;
 import com.metreeca.self.shared.beans.Specs;
@@ -47,8 +45,8 @@ import java.util.*;
 
 import static com.metreeca._tile.client.Tile.$;
 import static com.metreeca._tile.client.plugins.Overlay.Align;
-import static com.metreeca._tool.client.Tool.Embedded;
-import static com.metreeca._tool.client.Tool.Setup;
+import static com.metreeca.self.client.Self.Embedded;
+import static com.metreeca.self.client.Self.Setup;
 
 
 public final class ReportPage extends Page<Report> {
@@ -68,7 +66,7 @@ public final class ReportPage extends Page<Report> {
 	}
 
 
-	private Setup<Report> setup;
+	private Setup setup;
 	private Cache<String> endpoints;
 
 	private final Map<String, String> storage=root().window().storage(true);
@@ -101,20 +99,20 @@ public final class ReportPage extends Page<Report> {
 
 				.<Bus>as()
 
-				.setup(new Action<Setup<Report>>() {
-					@Override public void execute(final Setup<Report> setup) { setup(setup); }
+				.setup(new Action<Setup>() {
+					@Override public void execute(final Setup setup) { setup(setup); }
 				});
 	}
 
 
 	//// Placeholders //////////////////////////////////////////////////////////////////////////////////////////////////
 
-	private Tile $tools(final Setup<Report> setup) {
+	private Tile $tools(final Setup setup) {
 		return $("<menu/>")
 
 				.append(setup.flag(Embedded) ? $() : editing())
 
-				.append(setup.token(Mode.Visualizer) ? $() : faces)
+				.append(setup.token(Self.Mode.Visualizer) ? $() : faces)
 
 				.append(setup.flag(Embedded) ? $() : $("<section/>")
 
@@ -255,7 +253,7 @@ public final class ReportPage extends Page<Report> {
 
 	//// Events ////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-	private void setup(final Setup<Report> setup) {
+	private void setup(final Setup setup) {
 
 		this.setup=setup;
 

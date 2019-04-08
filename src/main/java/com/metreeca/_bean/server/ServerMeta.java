@@ -33,7 +33,7 @@ import java.util.*;
 @SuppressWarnings("unchecked")
 public final class ServerMeta<T> implements Meta<T> {
 
-	private static final Collection<Class<?>> Supported=new HashSet<Class<?>>(Arrays.asList(
+	private static final Collection<Class<?>> Supported=new HashSet<>(Arrays.asList(
 			SortedSet.class, Set.class, List.class, Collection.class,
 			SortedMap.class, Map.class
 	));
@@ -42,11 +42,11 @@ public final class ServerMeta<T> implements Meta<T> {
 	public static Map<String, String> aliases() {
 		try {
 
-			final Map<String, String> aliases=new HashMap<String, String>();
+			final Map<String, String> aliases=new HashMap<>();
 
 			// !!! ;(idea) META-INF/com.metreeca._bean not on classpath while building artifacts…
 			//aliases.put("com.metreeca.rover.shared.Report", "com.metreeca.self.shared.Report");
-			//aliases.put("com.metreeca.tool.client.ports.StorePort$Memo", "com.metreeca._tool.client.ports.StorePort$Memo");
+			aliases.put("com.metreeca.tool.client.ports.StorePort$Memo", "com.metreeca.self.client.ports.StorePort$Memo");
 
 			final Enumeration<URL> maps=ClassLoader.getSystemResources("META-INF/com.metreeca._bean");
 
@@ -81,7 +81,7 @@ public final class ServerMeta<T> implements Meta<T> {
 	public static Factory factory() {
 		return new Factory() {
 
-			private final Map<String, Meta<?>> cache=new HashMap<String, Meta<?>>();
+			private final Map<String, Meta<?>> cache=new HashMap<>();
 
 			{
 				for (final Map.Entry<String, String> alias : aliases().entrySet()) {
@@ -307,7 +307,7 @@ public final class ServerMeta<T> implements Meta<T> {
 
 	private Map<String, Method> getters(final Class<?> type) {
 
-		final Map<String, Method> getters=new HashMap<String, Method>();
+		final Map<String, Method> getters=new HashMap<>();
 
 		for (final Method method : type.getMethods()) {
 
@@ -323,7 +323,7 @@ public final class ServerMeta<T> implements Meta<T> {
 
 	private Map<String, Method> setters(final Class<?> type) {
 
-		final Map<String, Method> setters=new HashMap<String, Method>();
+		final Map<String, Method> setters=new HashMap<>();
 
 		for (final Method method : type.getMethods()) { // list settable fields
 
@@ -425,7 +425,7 @@ public final class ServerMeta<T> implements Meta<T> {
 			throw new IllegalArgumentException("constructor args for enumerated type ["+type+"]");
 		}
 
-		final Map<String, Class<?>> key=new LinkedHashMap<String, Class<?>>();
+		final Map<String, Class<?>> key=new LinkedHashMap<>();
 
 		for (final String arg : bean.value()) {
 
@@ -451,7 +451,7 @@ public final class ServerMeta<T> implements Meta<T> {
 	private Map<String, Class<?>> fields(final Class<?> type,
 			final Map<String, Method> getters, final Map<String, Method> setters) {
 
-		final Map<String, Class<?>> fields=new HashMap<String, Class<?>>();
+		final Map<String, Class<?>> fields=new HashMap<>();
 
 		for (final Map.Entry<String, Method> entry : getters.entrySet()) {
 

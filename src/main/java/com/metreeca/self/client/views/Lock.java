@@ -15,12 +15,12 @@
  * If not, see <http://www.gnu.org/licenses/>.
  */
 
-package com.metreeca._tool.client.views;
+package com.metreeca.self.client.views;
 
 import com.metreeca._tile.client.Action;
 import com.metreeca._tile.client.Event;
 import com.metreeca._tile.client.View;
-import com.metreeca._tool.client.Tool.Bus;
+import com.metreeca.self.client.Self.Bus;
 
 import static com.metreeca._tile.client.Tile.$;
 
@@ -48,11 +48,11 @@ public final class Lock extends View {
 	public Lock() {
 		root("<script/>")
 
-				.<Bus<?, ?>>as()
+				.<Bus>as()
 
 				.error(new Action<Throwable>() {
 					@Override public void execute(final Throwable throwable) {
-						root().<Bus<?, ?>>as().activity((Boolean)null);
+						root().<Bus>as().activity((Boolean)null);
 					}
 				})
 
@@ -76,7 +76,7 @@ public final class Lock extends View {
 		try {
 			new Dialog().humanized().message("cancelled").open();
 		} finally {
-			root().<Bus<?, ?>>as().activity((Boolean)null);
+			root().<Bus>as().activity((Boolean)null);
 		}
 	}
 

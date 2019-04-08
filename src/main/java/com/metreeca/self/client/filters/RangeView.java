@@ -23,7 +23,7 @@ import com.metreeca._jeep.shared.async.Promise;
 import com.metreeca._tile.client.Action;
 import com.metreeca._tile.client.Event;
 import com.metreeca._tile.client.View;
-import com.metreeca._tool.client.views.Input;
+import com.metreeca.self.client.views.Input;
 import com.metreeca.self.client.Self.Bus;
 import com.metreeca.self.shared.Report;
 import com.metreeca.self.shared.beans.Path;

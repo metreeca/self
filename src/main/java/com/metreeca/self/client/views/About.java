@@ -15,14 +15,14 @@
  * If not, see <http://www.gnu.org/licenses/>.
  */
 
-package com.metreeca._tool.client.views;
+package com.metreeca.self.client.views;
 
 import com.metreeca._tile.client.Action;
 import com.metreeca._tile.client.View;
 import com.metreeca._tile.client.plugins.Overlay;
-import com.metreeca._tool.client.Tool.Bus;
-import com.metreeca._tool.client.Tool.Setup;
-import com.metreeca._tool.shared.Item;
+import com.metreeca.self.client.Self.Bus;
+import com.metreeca.self.client.Self.Setup;
+import com.metreeca.self.shared.Item;
 
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.resources.client.ClientBundle;
@@ -57,8 +57,8 @@ public final class About extends View {
 
 	public <T extends Item<T>> About open() {
 
-		root().<Bus<T, ?>>as().setup(new Action<Setup<T>>() {
-			@Override public void execute(final Setup<T> setup) {
+		root().<Bus>as().setup(new Action<Setup>() {
+			@Override public void execute(final Setup setup) {
 
 				root().find(".major").text(String.valueOf(setup.major()));
 				root().find(".minor").text(String.valueOf(setup.minor()));

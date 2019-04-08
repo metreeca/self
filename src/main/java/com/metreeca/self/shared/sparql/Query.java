@@ -17,7 +17,7 @@
 
 package com.metreeca.self.shared.sparql;
 
-import com.metreeca._tool.shared.forms.Form;
+import com.metreeca.self.shared.forms.Form;
 
 
 public final class Query extends Form<Query> {

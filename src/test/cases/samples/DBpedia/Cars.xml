@@ -41,7 +41,7 @@
 			<net.metreeca.rover.shared.Report..Board id="0"/>
 		</lens>
 		<endpoint>
-			<string>http://dbpedia.org/sparql</string>
+			<string>https://dbpedia.org/sparql</string>
 		</endpoint>
 		<specs>
 			<net.metreeca.rover.shared.beans.Specs>

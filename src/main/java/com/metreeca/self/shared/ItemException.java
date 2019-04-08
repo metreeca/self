@@ -15,7 +15,7 @@
  * If not, see <http://www.gnu.org/licenses/>.
  */
 
-package com.metreeca._tool.shared;
+package com.metreeca.self.shared;
 
 public final class ItemException extends IllegalStateException {
 

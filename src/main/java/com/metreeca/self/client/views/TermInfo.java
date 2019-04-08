@@ -19,7 +19,6 @@ package com.metreeca.self.client.views;
 
 import com.metreeca._tile.client.Tile;
 import com.metreeca._tile.client.View;
-import com.metreeca._tool.client.views.Image;
 import com.metreeca.self.shared.beans.Path;
 import com.metreeca.self.shared.beans.Term;
 

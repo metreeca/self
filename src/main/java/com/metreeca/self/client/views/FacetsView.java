@@ -21,8 +21,6 @@ import com.metreeca._jeep.shared.Command;
 import com.metreeca._jeep.shared.async.Handler;
 import com.metreeca._jeep.shared.async.Promise;
 import com.metreeca._tile.client.*;
-import com.metreeca._tool.client.views.Dialog;
-import com.metreeca._tool.client.views.Input;
 import com.metreeca.self.client.Self.Bus;
 import com.metreeca.self.shared.Report;
 import com.metreeca.self.shared.beans.Path;

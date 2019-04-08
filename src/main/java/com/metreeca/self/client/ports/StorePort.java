@@ -15,20 +15,20 @@
  * If not, see <http://www.gnu.org/licenses/>.
  */
 
-package com.metreeca._tool.client.ports;
+package com.metreeca.self.client.ports;
 
 import com.metreeca._bean.client.ClientMeta;
 import com.metreeca._bean.client.ClientNode;
 import com.metreeca._bean.shared.*;
 import com.metreeca._jeep.client.Options;
 import com.metreeca._tile.client.*;
-import com.metreeca._tool.client.Tool;
-import com.metreeca._tool.client.Tool.Bus;
-import com.metreeca._tool.client.forms.Items;
-import com.metreeca._tool.client.forms.State;
-import com.metreeca._tool.client.views.Dialog;
-import com.metreeca._tool.shared.Item;
-import com.metreeca._tool.shared.Item.Lens;
+import com.metreeca.self.client.Self;
+import com.metreeca.self.client.Self.Bus;
+import com.metreeca.self.shared.forms.Items;
+import com.metreeca.self.shared.forms.State;
+import com.metreeca.self.client.views.Dialog;
+import com.metreeca.self.shared.Item;
+import com.metreeca.self.shared.Item.Lens;
 
 import com.google.gwt.core.client.GWT;
 
@@ -37,7 +37,7 @@ import java.util.Map;
 import java.util.NoSuchElementException;
 
 import static com.metreeca._tile.client.Window.window;
-import static com.metreeca._tool.client.Tool.Setup;
+import static com.metreeca.self.client.Self.Setup;
 
 import static java.lang.Math.max;
 import static java.lang.System.currentTimeMillis;
@@ -68,7 +68,7 @@ public final class StorePort extends View {
 	private static final NodeCodec nodeCodec=new NodeCodec(metaFactory, nodeFactory);
 
 
-	private Setup<?> setup;
+	private Setup setup;
 
 	private long synced; // the timestamp of the last synchronization
 
@@ -102,10 +102,10 @@ public final class StorePort extends View {
 				})
 
 
-				.<Bus<T, ?>>as()
+				.<Bus>as()
 
-				.setup(new Action<Setup<T>>() {
-					@Override public void execute(final Setup<T> setup) { setup(setup); }
+				.setup(new Action<Setup>() {
+					@Override public void execute(final Setup setup) { setup(setup); }
 				})
 
 				.options(new Action<Options>() {
@@ -168,7 +168,7 @@ public final class StorePort extends View {
 		}
 	}
 
-	private void setup(final Setup<?> setup) {
+	private void setup(final Setup setup) {
 
 		if ( this.setup == null ) { // initializing > synchronize content to location
 			root().async(new Action<Event>() {
@@ -280,7 +280,7 @@ public final class StorePort extends View {
 
 	private <T extends Item<T>> void opts(final Options opts) {
 
-		final String hash=opts.string(Tool.Hash);
+		final String hash=opts.string(Self.Hash);
 
 		if ( hash.isEmpty() ) { // a definition form
 

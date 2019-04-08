@@ -36,16 +36,16 @@ public abstract class ClientMeta<T> implements Meta<T> {
 
 	private final Class<T> type;
 
-	private final Map<String, Class<?>> key=new LinkedHashMap<String, Class<?>>();
-	private final Map<String, Class<?>> fields=new LinkedHashMap<String, Class<?>>();
+	private final Map<String, Class<?>> key=new LinkedHashMap<>();
+	private final Map<String, Class<?>> fields=new LinkedHashMap<>();
 
 
 	private final Creator creator;
 	private final Coder encoder;
 	private final Coder decoder;
 
-	private final Map<String, Getter> getters=new HashMap<String, Getter>();
-	private final Map<String, Setter> setters=new HashMap<String, Setter>();
+	private final Map<String, Getter> getters=new HashMap<>();
+	private final Map<String, Setter> setters=new HashMap<>();
 
 
 	protected ClientMeta(final Class<T> type, final Creator creator, final Coder encoder, final Coder decoder) {
@@ -164,7 +164,7 @@ public abstract class ClientMeta<T> implements Meta<T> {
 
 	abstract static class Factory implements Meta.Factory {
 
-		private final Map<String, Meta<?>> metas=new HashMap<String, Meta<?>>();
+		private final Map<String, Meta<?>> metas=new HashMap<>();
 
 
 		@Override public Meta<?> meta(final String type) throws MetaException {

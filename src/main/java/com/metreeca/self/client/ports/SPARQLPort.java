@@ -20,7 +20,7 @@ package com.metreeca.self.client.ports;
 import com.metreeca._tile.client.Action;
 import com.metreeca._tile.client.Event;
 import com.metreeca._tile.client.View;
-import com.metreeca._tool.client.views.Dialog;
+import com.metreeca.self.client.views.Dialog;
 import com.metreeca.self.client.Self.Bus;
 import com.metreeca.self.client.sparql.JSONTable;
 import com.metreeca.self.shared.Report;

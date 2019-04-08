@@ -15,12 +15,12 @@
  * If not, see <http://www.gnu.org/licenses/>.
  */
 
-package com.metreeca._tool.client.views;
+package com.metreeca.self.client.views;
 
 import com.metreeca._tile.client.*;
 import com.metreeca._tile.client.plugins.Overlay;
-import com.metreeca._tool.client.forms.Items;
-import com.metreeca._tool.shared.Item;
+import com.metreeca.self.shared.forms.Items;
+import com.metreeca.self.shared.Item;
 
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.resources.client.ClientBundle;

@@ -18,7 +18,7 @@
 package com.metreeca.self.client.filters;
 
 import com.metreeca._tile.client.*;
-import com.metreeca._tool.client.views.Input;
+import com.metreeca.self.client.views.Input;
 import com.metreeca.self.client.Self.Bus;
 import com.metreeca.self.client.views.TermView;
 import com.metreeca.self.shared.Report;

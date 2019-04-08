@@ -15,7 +15,7 @@
  * If not, see <http://www.gnu.org/licenses/>.
  */
 
-package com.metreeca._tool.client.views;
+package com.metreeca.self.client.views;
 
 import com.metreeca._tile.client.*;
 import com.metreeca._tile.client.plugins.Editable;

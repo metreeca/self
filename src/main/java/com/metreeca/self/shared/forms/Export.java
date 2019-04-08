@@ -15,48 +15,39 @@
  * If not, see <http://www.gnu.org/licenses/>.
  */
 
-package com.metreeca._tool.client.forms;
+package com.metreeca.self.shared.forms;
 
 
-import com.metreeca._tool.shared.forms.Form;
+public final class Export<T> extends Form<Export<T>> {
 
-
-public final class Import<T> extends Form<Import<T>> {
-
-	private final T target;
+	private final T source;
 
 	private final String type;
-	private final String data;
 
 
-	public Import(final T target, final String type, final String data) {
+	public Export(final T source, final String type) {
 
-		if ( target == null ) {
-			throw new NullPointerException("null target");
+		if ( source == null ) {
+			throw new NullPointerException("null source");
 		}
 
 		if ( type == null ) {
-			throw new NullPointerException("null mime");
+			throw new NullPointerException("null type");
 		}
 
-		if ( data == null ) {
-			throw new NullPointerException("null data");
-		}
-
-		this.target=target;
+		this.source=source;
 
 		this.type=type;
-		this.data=data;
 	}
 
 
-	@Override protected Import<T> self() {
+	@Override protected Export<T> self() {
 		return this;
 	}
 
 
-	public T target() {
-		return target;
+	public T source() {
+		return source;
 	}
 
 
@@ -64,7 +55,7 @@ public final class Import<T> extends Form<Import<T>> {
 		return type;
 	}
 
-	public boolean type(final String... types) { // !!! factor with Export
+	public boolean type(final String... types) { // !!! factor with Import
 
 		if ( types == null ) {
 			throw new NullPointerException("null types");
@@ -82,10 +73,5 @@ public final class Import<T> extends Form<Import<T>> {
 		}
 
 		return false;
-	}
-
-
-	public String data() {
-		return data;
 	}
 }

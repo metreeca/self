@@ -15,12 +15,12 @@
  * If not, see <http://www.gnu.org/licenses/>.
  */
 
-package com.metreeca._tool.client.views;
+package com.metreeca.self.client.views;
 
 import com.metreeca._tile.client.*;
 import com.metreeca._tile.client.plugins.Menu;
 import com.metreeca._tile.client.plugins.Protocol;
-import com.metreeca._tool.client.Tool.Bus;
+import com.metreeca.self.client.Self.Bus;
 
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.resources.client.ClientBundle;
@@ -70,7 +70,7 @@ public final class Logo extends View {
 				})
 
 
-				.<Bus<?, ?>>as()
+				.<Bus>as()
 
 				.activity(new Action.Monitor() {
 					@Override protected void active(final boolean active) { busy(active); }
@@ -84,7 +84,7 @@ public final class Logo extends View {
 	}
 
 	private void reset() {
-		root().<Bus<?, ?>>as().reset(false);
+		root().<Bus>as().reset(false);
 	}
 
 

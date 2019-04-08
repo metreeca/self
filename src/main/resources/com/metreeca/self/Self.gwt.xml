@@ -20,13 +20,20 @@
 
 <module rename-to="self">
 
-	<inherits name='com.metreeca._tool.Tool'/>
+	<inherits name='com.metreeca._tile.Tile'/>
+	<inherits name='com.metreeca._bean.Bean'/>
+	<inherits name='com.metreeca._jeep.Jeep'/>
 	<inherits name='com.metreeca._info.Info'/>
+
+	<inherits name="com.google.gwt.resources.Resources"/>
 
 	<entry-point class="com.metreeca.self.client.Self"/>
 
 	<source path="client"/>
 	<source path="shared"/>
+
+	<!-- warnings managed by the application -->
+	<set-configuration-property name="user.agent.runtimeWarning" value="false"/>
 
 	<define-configuration-property name="version.major" is-multi-valued='false'/>
 	<define-configuration-property name="version.minor" is-multi-valued='false'/>

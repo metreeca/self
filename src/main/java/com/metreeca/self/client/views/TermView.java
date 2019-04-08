@@ -20,7 +20,6 @@ package com.metreeca.self.client.views;
 import com.metreeca._tile.client.Action;
 import com.metreeca._tile.client.Event;
 import com.metreeca._tile.client.View;
-import com.metreeca._tool.client.views.Image;
 import com.metreeca.self.shared.beans.Term;
 
 import com.google.gwt.core.client.GWT;

@@ -18,9 +18,7 @@
 package com.metreeca.self.client.faces;
 
 import com.metreeca._tile.client.*;
-import com.metreeca._tool.client.Tool.Setup;
-import com.metreeca.self.client.Self.Bus;
-import com.metreeca.self.client.Self.Mode;
+import com.metreeca.self.client.Self;
 import com.metreeca.self.client.views.PathView;
 import com.metreeca.self.shared.Report;
 
@@ -123,11 +121,11 @@ public final class Controls extends View {
 					}
 				})
 
-				.<Bus>as()
+				.<Self.Bus>as()
 
-				.setup(new Action<Setup<Report>>() {
-					@Override public void execute(final Setup<Report> setup) {
-						visualizer=setup.token(Mode.Visualizer);
+				.setup(new Action<Self.Setup>() {
+					@Override public void execute(final Self.Setup setup) {
+						visualizer=setup.token(Self.Mode.Visualizer);
 					}
 				});
 	}

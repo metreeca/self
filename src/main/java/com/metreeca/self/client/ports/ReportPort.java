@@ -23,7 +23,7 @@ import com.metreeca._jeep.shared.files.csv.Table;
 import com.metreeca._tile.client.Action;
 import com.metreeca._tile.client.Event;
 import com.metreeca._tile.client.View;
-import com.metreeca._tool.client.forms.Export;
+import com.metreeca.self.shared.forms.Export;
 import com.metreeca.self.shared.Report;
 import com.metreeca.self.shared.beans.Path;
 import com.metreeca.self.shared.beans.Term;
@@ -32,7 +32,7 @@ import com.metreeca.self.shared.forms.Tuples;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.metreeca._tool.client.ports.ItemPort.renameWarning;
+import static com.metreeca.self.client.ports.ItemPort.renameWarning;
 
 
 public final class ReportPort extends View {

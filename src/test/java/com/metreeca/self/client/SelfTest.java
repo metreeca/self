@@ -20,7 +20,7 @@ package com.metreeca.self.client;
 import com.metreeca._bean.server.ServerMeta;
 import com.metreeca._bean.server.ServerNode;
 import com.metreeca._bean.shared.NodeCodec;
-import com.metreeca._tool.shared.Item;
+import com.metreeca.self.shared.Item;
 
 import org.junit.runner.Description;
 import org.junit.runner.RunWith;

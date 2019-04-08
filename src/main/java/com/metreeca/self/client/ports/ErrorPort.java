@@ -15,13 +15,13 @@
  * If not, see <http://www.gnu.org/licenses/>.
  */
 
-package com.metreeca._tool.client.ports;
+package com.metreeca.self.client.ports;
 
 import com.metreeca._tile.client.Action;
 import com.metreeca._tile.client.Event;
 import com.metreeca._tile.client.View;
-import com.metreeca._tool.client.Tool.Bus;
-import com.metreeca._tool.client.views.Dialog;
+import com.metreeca.self.client.Self.Bus;
+import com.metreeca.self.client.views.Dialog;
 
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.core.client.JavaScriptException;
@@ -37,11 +37,11 @@ public final class ErrorPort extends View {
 
 				.error(new GWT.UncaughtExceptionHandler() {
 					@Override public void onUncaughtException(final Throwable throwable) {
-						root().<Bus<?, ?>>as().error(throwable);
+						root().<Bus>as().error(throwable);
 					}
 				})
 
-				.<Bus<?, ?>>as()
+				.<Bus>as()
 
 				.error(new Action<Throwable>() {
 					@Override public void execute(final Throwable throwable) {

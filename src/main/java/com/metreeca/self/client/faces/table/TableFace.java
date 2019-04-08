@@ -20,7 +20,7 @@ package com.metreeca.self.client.faces.table;
 
 import com.metreeca._jeep.shared.async.Handler;
 import com.metreeca._tile.client.*;
-import com.metreeca._tool.client.forms.State;
+import com.metreeca.self.shared.forms.State;
 import com.metreeca.self.client.faces.Face;
 import com.metreeca.self.client.faces.Header;
 import com.metreeca.self.client.views.TermView;

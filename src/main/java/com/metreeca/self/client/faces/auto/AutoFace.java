@@ -22,7 +22,7 @@ import com.metreeca._jeep.shared.async.Morpher;
 import com.metreeca._jeep.shared.async.Promise;
 import com.metreeca._tile.client.Action;
 import com.metreeca._tile.client.Event;
-import com.metreeca._tool.shared.Item.Auto;
+import com.metreeca.self.shared.Item.Auto;
 import com.metreeca.self.client.faces.Face;
 import com.metreeca.self.shared.Report;
 import com.metreeca.self.shared.Report.Board;

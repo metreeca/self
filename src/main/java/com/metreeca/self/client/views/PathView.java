@@ -22,7 +22,7 @@ import com.metreeca._jeep.shared.async.Handler;
 import com.metreeca._tile.client.*;
 import com.metreeca._tile.client.plugins.Editable;
 import com.metreeca._tile.client.plugins.Menu;
-import com.metreeca.self.client.Self;
+import com.metreeca.self.client.Self.Bus;
 import com.metreeca.self.client.filters.OptionsView;
 import com.metreeca.self.client.filters.RangeView;
 import com.metreeca.self.shared.Report;
@@ -797,7 +797,7 @@ public final class PathView extends View {
 			if ( path.isFacet() && !path.isAggregate()
 					&& !report.getSpecs().isProjected(path.getSteps()) && report.getSpecs().isSliced() ) {
 
-				root().<Self.Bus>as().slicing(true);
+				root().<Bus>as().slicing(true);
 
 			}
 		}

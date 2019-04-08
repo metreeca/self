@@ -15,7 +15,7 @@
  * If not, see <http://www.gnu.org/licenses/>.
  */
 
-package com.metreeca._tool.client.ports;
+package com.metreeca.self.client.ports;
 
 import com.metreeca._bean.client.ClientMeta;
 import com.metreeca._bean.client.ClientNode;
@@ -24,24 +24,27 @@ import com.metreeca._jeep.client.Options;
 import com.metreeca._tile.client.*;
 import com.metreeca._tile.client.js.JSArray;
 import com.metreeca._tile.client.plugins.Protocol;
-import com.metreeca._tool.client.Tool.Bus;
-import com.metreeca._tool.client.Tool.Setup;
-import com.metreeca._tool.client.forms.Export;
-import com.metreeca._tool.client.forms.Import;
-import com.metreeca._tool.client.views.Catalog;
-import com.metreeca._tool.client.views.Dialog;
-import com.metreeca._tool.shared.Item;
+import com.metreeca.self.client.views.Catalog;
+import com.metreeca.self.client.views.Dialog;
+import com.metreeca.self.shared.Item;
+import com.metreeca.self.client.Self.Bus;
+import com.metreeca.self.client.Self.Setup;
+import com.metreeca.self.shared.forms.Export;
+import com.metreeca.self.shared.forms.Import;
 
 import com.google.gwt.core.client.GWT;
 
 import java.util.Map;
 
 import static com.metreeca._tile.client.Tile.$;
-import static com.metreeca._tool.shared.Item.UUID;
+import static com.metreeca.self.shared.Item.UUID;
 
 
 /**
- * <ul> <li>handles file protocol</li> <li>handles item XML import/export</li> </ul>
+ * <ul>
+ * <li>handles file protocol</li>
+ * <li>handles item XML import/export</li>
+ * </ul>
  */
 public final class ItemPort extends View {
 
@@ -81,7 +84,7 @@ public final class ItemPort extends View {
 	}
 
 
-	private Setup<?> setup;
+	private Setup setup;
 
 	private Item<?> item; // the last opened item
 
@@ -137,10 +140,10 @@ public final class ItemPort extends View {
 					}
 				})
 
-				.<Bus<T, ?>>as()
+				.<Bus>as()
 
-				.setup(new Action<Setup<T>>() {
-					@Override public void execute(final Setup<T> setup) { setup(setup); }
+				.setup(new Action<Setup>() {
+					@Override public void execute(final Setup setup) { setup(setup); }
 				});
 	}
 
@@ -152,7 +155,7 @@ public final class ItemPort extends View {
 
 	//// Events ////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-	private void setup(final Setup<?> setup) {
+	private void setup(final Setup setup) {
 		this.setup=setup;
 	}
 

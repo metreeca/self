@@ -15,7 +15,7 @@
  * If not, see <http://www.gnu.org/licenses/>.
  */
 
-package com.metreeca._tool.client.views;
+package com.metreeca.self.client.views;
 
 import com.metreeca._jeep.shared.Command;
 import com.metreeca._tile.client.*;
@@ -24,9 +24,9 @@ import com.metreeca._tile.client.plugins.Menu;
 import com.metreeca._tile.client.plugins.Overlay;
 import com.metreeca._tile.client.plugins.Protocol.Exec;
 import com.metreeca._tile.client.plugins.Protocol.Home;
-import com.metreeca._tool.client.Tool.Bus;
-import com.metreeca._tool.shared.Item;
-import com.metreeca._tool.shared.Item.Lens;
+import com.metreeca.self.client.Self.Bus;
+import com.metreeca.self.shared.Item;
+import com.metreeca.self.shared.Item.Lens;
 
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.resources.client.ClientBundle;
@@ -38,8 +38,8 @@ import java.util.Objects;
 import static com.metreeca._tile.client.Tile.$;
 import static com.metreeca._tile.client.plugins.Overlay.Align;
 import static com.metreeca._tile.client.plugins.Protocol.File;
-import static com.metreeca._tool.client.Tool.Embedded;
-import static com.metreeca._tool.client.Tool.Setup;
+import static com.metreeca.self.client.Self.Embedded;
+import static com.metreeca.self.client.Self.Setup;
 
 
 public abstract class Page<T extends Item<T>> extends View {
@@ -60,7 +60,7 @@ public abstract class Page<T extends Item<T>> extends View {
 	}
 
 
-	private Setup<T> setup;
+	private Setup setup;
 
 	private T item; // the open item
 	private boolean locked; // if true, editing functions are disabled
@@ -137,10 +137,10 @@ public abstract class Page<T extends Item<T>> extends View {
 					@Override public void execute(final Event e) { if ( e.cancel() && !item.isLocked() ) { drop(); } }
 				})
 
-				.<Bus<T, ?>>as()
+				.<Bus>as()
 
-				.setup(new Action<Setup<T>>() {
-					@Override public void execute(final Setup<T> setup) { setup(setup); }
+				.setup(new Action<Setup>() {
+					@Override public void execute(final Setup setup) { setup(setup); }
 				});
 
 	}
@@ -417,7 +417,7 @@ public abstract class Page<T extends Item<T>> extends View {
 
 	//// Events ////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-	private void setup(final Setup<T> setup) {
+	private void setup(final Setup setup) {
 
 		if ( this.setup == null && !setup.flag(Embedded) ) { // show agreement/about if initializing and not embedded
 

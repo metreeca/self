@@ -18,7 +18,6 @@
 package com.metreeca.self.shared;
 
 import com.metreeca._bean.shared.Bean;
-import com.metreeca._tool.shared.Item;
 import com.metreeca.self.shared.beans.Path;
 import com.metreeca.self.shared.beans.Specs;
 

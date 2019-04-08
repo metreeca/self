@@ -23,7 +23,7 @@ import com.metreeca._jeep.shared.async.Promise;
 import com.metreeca._tile.client.Action;
 import com.metreeca._tile.client.Event;
 import com.metreeca._tile.client.View;
-import com.metreeca.self.client.Self;
+import com.metreeca.self.client.Self.Bus;
 import com.metreeca.self.shared.forms.Shape;
 import com.metreeca.self.shared.sparql.Client;
 import com.metreeca.self.shared.sparql.Engine;
@@ -46,7 +46,7 @@ public final class ShapePort extends View {
 
 			root().async(new Action<Event>() {
 				@Override public void execute(final Event event) {
-					root().<Self.Bus>as().query(query);
+					root().<Bus>as().query(query);
 				}
 			});
 
