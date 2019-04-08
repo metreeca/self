@@ -17,7 +17,7 @@
 
 package com.metreeca.self.client.faces.bubble;
 
-import com.metreeca._info.client.Info;
+import com.metreeca._tile.client.Info;
 import com.metreeca._tile.client.*;
 import com.metreeca._tile.client.js.JSObject;
 import com.metreeca.self.client.views.PathView;

@@ -15,9 +15,8 @@
  * If not, see <http://www.gnu.org/licenses/>.
  */
 
-package com.metreeca._info.client;
+package com.metreeca._tile.client;
 
-import com.metreeca._tile.client.Tile;
 import com.metreeca._tile.client.js.JSArray;
 import com.metreeca._tile.client.js.JSObject;
 
@@ -84,7 +83,7 @@ public final class Info extends JavaScriptObject {
 	public native Info controls(final Handler<Tile> handler) /*-{
 
 		var listener=(handler === null) ? null : $entry(function (d, i) {
-			return handler.@com.metreeca._info.client.Info.Handler::handle(Lcom/metreeca/_tile/client/js/JSObject;I)(d, i);
+			return handler.@com.metreeca._tile.client.Info.Handler::handle(Lcom/metreeca/_tile/client/js/JSObject;I)(d, i);
 		});
 
 		if ( typeof this.tool === "function" ) {
@@ -112,7 +111,7 @@ public final class Info extends JavaScriptObject {
 	public native Info handler(final String event, final Handler<?> handler) /*-{
 
 		var listener=(handler === null) ? null : $entry(function (d, i) {
-			return handler.@com.metreeca._info.client.Info.Handler::handle(Lcom/metreeca/_tile/client/js/JSObject;I)(
+			return handler.@com.metreeca._tile.client.Info.Handler::handle(Lcom/metreeca/_tile/client/js/JSObject;I)(
 					d !== undefined ? d : {}, i !== undefined ? i : 0
 			);
 		});
