@@ -1,16 +1,26 @@
+---
+name: Bug report
+about: Create a report to help us improve
+---
+
+**Environment**
 
 - metreeca/self: _version_
 - web browser: _name_ / _version_
 - operating system: _name_ / _version_
 
-# How to Reproduce
+**Description** / _A clear and concise description of what the bug is_
 
-- …
+**To Reproduce** / _Steps to reproduce the behavior_
 
-# Expected Behaviour
+1. …
+2. …
+3. …
 
-# Actual Behaviour
+**Expected behavior** / _A clear and concise description of what you expected to happen_
 
-# Workarounds
+**Actual behavior** / _A clear and concise description of what actually happens_
 
-# Notes
+**Workarounds** / _Share any workaround you found for the bug_
+
+**Notes** / _Additional observations and any other context about the bug_
