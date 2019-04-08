@@ -17,9 +17,9 @@
 
 package com.metreeca.self.client.ports;
 
-import com.metreeca._jeep.shared.async.Handler;
-import com.metreeca._jeep.shared.files.csv.CSVWriter;
-import com.metreeca._jeep.shared.files.csv.Table;
+import com.metreeca.self.shared.async.Handler;
+import com.metreeca.self.shared.csv.CSVWriter;
+import com.metreeca.self.shared.csv.Table;
 import com.metreeca._tile.client.Action;
 import com.metreeca._tile.client.Event;
 import com.metreeca._tile.client.View;

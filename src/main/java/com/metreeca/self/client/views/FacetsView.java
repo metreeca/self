@@ -17,9 +17,9 @@
 
 package com.metreeca.self.client.views;
 
-import com.metreeca._jeep.shared.Command;
-import com.metreeca._jeep.shared.async.Handler;
-import com.metreeca._jeep.shared.async.Promise;
+import com.metreeca.self.shared.Command;
+import com.metreeca.self.shared.async.Handler;
+import com.metreeca.self.shared.async.Promise;
 import com.metreeca._tile.client.*;
 import com.metreeca.self.client.Self.Bus;
 import com.metreeca.self.shared.Report;

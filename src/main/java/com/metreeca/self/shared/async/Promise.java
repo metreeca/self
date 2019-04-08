@@ -15,21 +15,25 @@
  * If not, see <http://www.gnu.org/licenses/>.
  */
 
-package com.metreeca._jeep.shared.files.csv;
+package com.metreeca.self.shared.async;
 
-import java.util.List;
+public interface Promise<V> {
+
+	public boolean fulfilled();
+
+	public boolean rejected();
 
 
-public abstract class TableHandler {
+	public Promise<V> value(final V value);
 
-	public void start() {}
+	public Promise<V> error(final Exception error);
 
-	public void table(final String name, final List<String> fields) {}
 
-	public void record(final int index, final List<String> values) {}
+	public Promise<V> then(final Handler<V> handler);
 
-	public void size(final int size) {}
+	public Promise<V> then(final Promise<V> promise);
 
-	public void end() {}
+
+	public <R> Promise<R> pipe(Morpher<V, R> morpher);
 
 }

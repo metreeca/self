@@ -17,9 +17,9 @@
 
 package com.metreeca.self.client.ports;
 
-import com.metreeca._jeep.shared.Cache;
-import com.metreeca._jeep.shared.async.Handler;
-import com.metreeca._jeep.shared.async.Promise;
+import com.metreeca.self.shared.Cache;
+import com.metreeca.self.shared.async.Handler;
+import com.metreeca.self.shared.async.Promise;
 import com.metreeca._tile.client.Action;
 import com.metreeca._tile.client.Event;
 import com.metreeca._tile.client.View;

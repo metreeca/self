@@ -20,7 +20,7 @@ package com.metreeca.self.client.ports;
 import com.metreeca._bean.client.ClientMeta;
 import com.metreeca._bean.client.ClientNode;
 import com.metreeca._bean.shared.*;
-import com.metreeca._jeep.client.Options;
+import com.metreeca.self.shared.Options;
 import com.metreeca._tile.client.*;
 import com.metreeca.self.client.Self;
 import com.metreeca.self.client.Self.Bus;

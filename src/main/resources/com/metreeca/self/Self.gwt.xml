@@ -22,9 +22,9 @@
 
 	<inherits name='com.metreeca._tile.Tile'/>
 	<inherits name='com.metreeca._bean.Bean'/>
-	<inherits name='com.metreeca._jeep.Jeep'/>
 	<inherits name='com.metreeca._info.Info'/>
 
+	<inherits name="com.google.gwt.http.HTTP"/>
 	<inherits name="com.google.gwt.resources.Resources"/>
 
 	<entry-point class="com.metreeca.self.client.Self"/>

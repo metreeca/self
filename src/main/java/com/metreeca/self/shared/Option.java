@@ -15,7 +15,7 @@
  * If not, see <http://www.gnu.org/licenses/>.
  */
 
-package com.metreeca._jeep.client;
+package com.metreeca.self.shared;
 
 public interface Option<T> {
 

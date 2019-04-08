@@ -17,9 +17,9 @@
 
 package com.metreeca.self.shared.sparql.basic;
 
-import com.metreeca._jeep.shared.async.Morpher;
-import com.metreeca._jeep.shared.async.Promise;
-import com.metreeca._jeep.shared.async.Promises;
+import com.metreeca.self.shared.async.Morpher;
+import com.metreeca.self.shared.async.Promise;
+import com.metreeca.self.shared.async.Promises;
 import com.metreeca.self.shared.beans.Path;
 import com.metreeca.self.shared.beans.Specs;
 import com.metreeca.self.shared.beans.Term;
@@ -29,9 +29,9 @@ import com.metreeca.self.shared.sparql.*;
 import java.util.*;
 import java.util.Map.Entry;
 
-import static com.metreeca._jeep.shared.async.Promises.all;
-import static com.metreeca._jeep.shared.async.Promises.maps;
-import static com.metreeca._jeep.shared.async.Promises.promise;
+import static com.metreeca.self.shared.async.Promises.all;
+import static com.metreeca.self.shared.async.Promises.maps;
+import static com.metreeca.self.shared.async.Promises.promise;
 
 import static java.lang.Math.max;
 

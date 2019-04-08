@@ -18,8 +18,8 @@
 
 package com.metreeca.self.client;
 
-import com.metreeca._jeep.client.Option;
-import com.metreeca._jeep.client.Options;
+import com.metreeca.self.shared.Option;
+import com.metreeca.self.shared.Options;
 import com.metreeca._tile.client.*;
 import com.metreeca._tile.client.plugins.Overlay;
 import com.metreeca._tile.client.plugins.Protocol;

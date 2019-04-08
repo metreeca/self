@@ -15,12 +15,12 @@
  * If not, see <http://www.gnu.org/licenses/>.
  */
 
-package com.metreeca._jeep.shared.async;
+package com.metreeca.self.shared.async;
 
 import java.util.Collection;
 import java.util.LinkedHashSet;
 
-import static com.metreeca._jeep.shared.async.Promises.promise;
+import static com.metreeca.self.shared.async.Promises.promise;
 
 
 public abstract class PromiseBase<V> implements Promise<V> {

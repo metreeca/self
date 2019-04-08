@@ -17,7 +17,7 @@
 
 package com.metreeca.self.shared.forms;
 
-import com.metreeca._jeep.shared.async.Handler;
+import com.metreeca.self.shared.async.Handler;
 import com.metreeca.self.shared.beans.Path;
 import com.metreeca.self.shared.beans.Term;
 import com.metreeca.self.shared.sparql.Engine;

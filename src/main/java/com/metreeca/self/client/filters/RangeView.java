@@ -17,9 +17,9 @@
 
 package com.metreeca.self.client.filters;
 
-import com.metreeca._jeep.shared.async.Handler;
-import com.metreeca._jeep.shared.async.Morpher;
-import com.metreeca._jeep.shared.async.Promise;
+import com.metreeca.self.shared.async.Handler;
+import com.metreeca.self.shared.async.Morpher;
+import com.metreeca.self.shared.async.Promise;
 import com.metreeca._tile.client.Action;
 import com.metreeca._tile.client.Event;
 import com.metreeca._tile.client.View;
@@ -42,7 +42,7 @@ import com.google.gwt.resources.client.TextResource;
 
 import java.util.Date;
 
-import static com.metreeca._jeep.shared.async.Promises.promise;
+import static com.metreeca.self.shared.async.Promises.promise;
 import static com.metreeca.self.shared.beans.Term.typed;
 
 import static java.lang.Math.abs;

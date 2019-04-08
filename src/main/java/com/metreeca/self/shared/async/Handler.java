@@ -15,25 +15,12 @@
  * If not, see <http://www.gnu.org/licenses/>.
  */
 
-package com.metreeca._jeep.shared.async;
+package com.metreeca.self.shared.async;
 
-public interface Promise<V> {
+public abstract class Handler<V> {
 
-	public boolean fulfilled();
+	public void value(final V v) throws Exception {}
 
-	public boolean rejected();
-
-
-	public Promise<V> value(final V value);
-
-	public Promise<V> error(final Exception error);
-
-
-	public Promise<V> then(final Handler<V> handler);
-
-	public Promise<V> then(final Promise<V> promise);
-
-
-	public <R> Promise<R> pipe(Morpher<V, R> morpher);
+	public void error(final Exception error) throws Exception {}
 
 }

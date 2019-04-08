@@ -17,9 +17,9 @@
 
 package com.metreeca.self.client.faces.auto;
 
-import com.metreeca._jeep.shared.async.Handler;
-import com.metreeca._jeep.shared.async.Morpher;
-import com.metreeca._jeep.shared.async.Promise;
+import com.metreeca.self.shared.async.Handler;
+import com.metreeca.self.shared.async.Morpher;
+import com.metreeca.self.shared.async.Promise;
 import com.metreeca._tile.client.Action;
 import com.metreeca._tile.client.Event;
 import com.metreeca.self.shared.Item.Auto;
@@ -33,7 +33,7 @@ import com.metreeca.self.shared.beans.Specs;
 import com.metreeca.self.shared.forms.Tuples;
 import com.metreeca.self.shared.sparql.Flake;
 
-import static com.metreeca._jeep.shared.async.Promises.promise;
+import static com.metreeca.self.shared.async.Promises.promise;
 
 
 public final class AutoFace extends Face<AutoFace> {

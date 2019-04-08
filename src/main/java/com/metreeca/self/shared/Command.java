@@ -15,7 +15,7 @@
  * If not, see <http://www.gnu.org/licenses/>.
  */
 
-package com.metreeca._jeep.shared;
+package com.metreeca.self.shared;
 
 import java.util.ArrayList;
 import java.util.List;

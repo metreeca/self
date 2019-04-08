@@ -15,7 +15,7 @@
  * If not, see <http://www.gnu.org/licenses/>.
  */
 
-package com.metreeca._jeep.shared.files.csv;
+package com.metreeca.self.shared.csv;
 
 import java.io.IOException;
 import java.util.ArrayList;

@@ -15,14 +15,14 @@
  * If not, see <http://www.gnu.org/licenses/>.
  */
 
-package com.metreeca._jeep.shared.async;
+package com.metreeca.self.shared.async;
 
 import org.junit.Test;
 
 import java.util.*;
 import java.util.concurrent.Semaphore;
 
-import static com.metreeca._jeep.shared.async.Promises.all;
+import static com.metreeca.self.shared.async.Promises.all;
 
 import static org.junit.Assert.assertEquals;
 

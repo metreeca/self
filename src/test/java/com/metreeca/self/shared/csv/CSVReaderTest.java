@@ -15,7 +15,7 @@
  * If not, see <http://www.gnu.org/licenses/>.
  */
 
-package com.metreeca._jeep.shared.files.csv;
+package com.metreeca.self.shared.csv;
 
 import org.junit.Test;
 
@@ -42,7 +42,7 @@ public final class CSVReaderTest {
 				asList("size", 3),
 				asList("end")
 
-		), new com.metreeca._jeep.shared.files.csv.CSVReader()
+		), new com.metreeca.self.shared.csv.CSVReader()
 				.read(source(), new TestHandler()).events);
 	}
 
@@ -56,7 +56,7 @@ public final class CSVReaderTest {
 				asList("size", 2),
 				asList("end")
 
-		), new com.metreeca._jeep.shared.files.csv.CSVReader().setLabeled(true)
+		), new com.metreeca.self.shared.csv.CSVReader().setLabeled(true)
 				.read(source(), new TestHandler()).events);
 	}
 
@@ -70,12 +70,12 @@ public final class CSVReaderTest {
 				asList("size", 2),
 				asList("end")
 
-		), new com.metreeca._jeep.shared.files.csv.CSVReader().setLabeled(true).setSeparator('\t')
+		), new com.metreeca.self.shared.csv.CSVReader().setLabeled(true).setSeparator('\t')
 				.read(source().replace(',', '\t'), new TestHandler()).events);
 	}
 
 
-	private static class TestHandler extends com.metreeca._jeep.shared.files.csv.TableHandler {
+	private static class TestHandler extends com.metreeca.self.shared.csv.TableHandler {
 
 		private final Collection<List<?>> events=new ArrayList<List<?>>();
 

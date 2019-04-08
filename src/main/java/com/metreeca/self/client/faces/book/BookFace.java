@@ -18,7 +18,7 @@
 package com.metreeca.self.client.faces.book;
 
 import com.metreeca._bean.shared.Bean;
-import com.metreeca._jeep.shared.async.Handler;
+import com.metreeca.self.shared.async.Handler;
 import com.metreeca._tile.client.Action;
 import com.metreeca._tile.client.Event;
 import com.metreeca._tile.client.Tile;

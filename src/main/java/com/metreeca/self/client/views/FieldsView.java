@@ -17,7 +17,7 @@
 
 package com.metreeca.self.client.views;
 
-import com.metreeca._jeep.shared.Command;
+import com.metreeca.self.shared.Command;
 import com.metreeca._tile.client.*;
 import com.metreeca._tile.client.plugins.Overlay;
 import com.metreeca.self.client.Self.Bus;

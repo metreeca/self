@@ -15,12 +15,21 @@
  * If not, see <http://www.gnu.org/licenses/>.
  */
 
-package com.metreeca._jeep.shared.async;
+package com.metreeca.self.shared.csv;
 
-public abstract class Morpher<V, R> {
+import java.util.List;
 
-	public Promise<R> value(final V v) throws Exception { return null; }
 
-	public Promise<R> error(final Exception error) throws Exception { throw error; }
+public abstract class TableHandler {
+
+	public void start() {}
+
+	public void table(final String name, final List<String> fields) {}
+
+	public void record(final int index, final List<String> values) {}
+
+	public void size(final int size) {}
+
+	public void end() {}
 
 }

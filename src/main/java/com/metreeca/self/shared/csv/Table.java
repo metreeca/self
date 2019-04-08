@@ -15,12 +15,20 @@
  * If not, see <http://www.gnu.org/licenses/>.
  */
 
-package com.metreeca._jeep.shared.async;
+package com.metreeca.self.shared.csv;
 
-public abstract class Handler<V> {
+import java.util.Collections;
+import java.util.List;
 
-	public void value(final V v) throws Exception {}
 
-	public void error(final Exception error) throws Exception {}
+public abstract class Table {
+
+	public List<String> labels() {
+		return Collections.emptyList();
+	}
+
+	public Iterable<List<String>> records() {
+		return Collections.emptyList();
+	}
 
 }

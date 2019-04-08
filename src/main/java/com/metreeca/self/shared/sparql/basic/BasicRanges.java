@@ -17,8 +17,8 @@
 
 package com.metreeca.self.shared.sparql.basic;
 
-import com.metreeca._jeep.shared.async.Morpher;
-import com.metreeca._jeep.shared.async.Promise;
+import com.metreeca.self.shared.async.Morpher;
+import com.metreeca.self.shared.async.Promise;
 import com.metreeca.self.shared.beans.Path;
 import com.metreeca.self.shared.beans.Specs;
 import com.metreeca.self.shared.beans.Term;
@@ -29,7 +29,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import static com.metreeca._jeep.shared.async.Promises.promise;
+import static com.metreeca.self.shared.async.Promises.promise;
 
 
 public final class BasicRanges {

@@ -15,7 +15,7 @@
  * If not, see <http://www.gnu.org/licenses/>.
  */
 
-package com.metreeca._jeep.shared.files.csv;
+package com.metreeca.self.shared.csv;
 
 import org.junit.Test;
 
@@ -28,17 +28,17 @@ import static org.junit.Assert.assertEquals;
 public final class CSVWriterTest {
 
 	@Test public void testWriteRecords() {
-		assertEquals("empty", "", new com.metreeca._jeep.shared.files.csv.CSVWriter().write(table()));
-		assertEquals("singleton", "a\n", new com.metreeca._jeep.shared.files.csv.CSVWriter().write(table("a")));
-		assertEquals("pair", "a,b\n", new com.metreeca._jeep.shared.files.csv.CSVWriter().write(table("a", "b")));
-		assertEquals("regular", "a,b,c\n", new com.metreeca._jeep.shared.files.csv.CSVWriter().write(table("a", "b", "c")));
+		assertEquals("empty", "", new com.metreeca.self.shared.csv.CSVWriter().write(table()));
+		assertEquals("singleton", "a\n", new com.metreeca.self.shared.csv.CSVWriter().write(table("a")));
+		assertEquals("pair", "a,b\n", new com.metreeca.self.shared.csv.CSVWriter().write(table("a", "b")));
+		assertEquals("regular", "a,b,c\n", new com.metreeca.self.shared.csv.CSVWriter().write(table("a", "b", "c")));
 	}
 
 	@Test public void testQuoteValues() {
-		assertEquals("separator", "\",\"\n", new com.metreeca._jeep.shared.files.csv.CSVWriter().write(table(",")));
-		assertEquals("delimiter", "\"\"\"\"\n", new com.metreeca._jeep.shared.files.csv.CSVWriter().write(table("\"")));
-		assertEquals("newline", "\"\n\"\n", new com.metreeca._jeep.shared.files.csv.CSVWriter().write(table("\n")));
-		assertEquals("return", "\"\r\"\n", new com.metreeca._jeep.shared.files.csv.CSVWriter().write(table("\r")));
+		assertEquals("separator", "\",\"\n", new com.metreeca.self.shared.csv.CSVWriter().write(table(",")));
+		assertEquals("delimiter", "\"\"\"\"\n", new com.metreeca.self.shared.csv.CSVWriter().write(table("\"")));
+		assertEquals("newline", "\"\n\"\n", new com.metreeca.self.shared.csv.CSVWriter().write(table("\n")));
+		assertEquals("return", "\"\r\"\n", new com.metreeca.self.shared.csv.CSVWriter().write(table("\r")));
 	}
 
 

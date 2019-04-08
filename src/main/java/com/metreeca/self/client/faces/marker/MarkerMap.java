@@ -17,7 +17,7 @@
 
 package com.metreeca.self.client.faces.marker;
 
-import com.metreeca._jeep.shared.async.Handler;
+import com.metreeca.self.shared.async.Handler;
 import com.metreeca._tile.client.Action;
 import com.metreeca._tile.client.Event;
 import com.metreeca.self.client.faces.Controls;
