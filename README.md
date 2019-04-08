@@ -1,4 +1,6 @@
 
+[![Maven Central](https://img.shields.io/maven-central/v/com.metreeca/self.svg)](https://search.maven.org/artifact/com.metreeca/self/)
+
 # Metreeca/Self
 
 Metreeca/Self is a self-service linked data search and analysis tool enabling business users to visually interact with SPARQL endpoints.
