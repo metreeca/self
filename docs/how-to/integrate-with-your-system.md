@@ -7,7 +7,7 @@ excerpt:    System requirements, installation and other system-related info
 
 ## Browser
 
-Metreeca/Self is a client-side web application: to run it you need the latest version of a supported web browser ([Firefox](http://www.mozilla.org/firefox/new/), [Chrome](https://www.google.com/chrome/), [Safari](https://www.apple.com/safari/), [Edge](http://microsoft.com/en-us/windows/microsoft-edge), [Explorer](http://windows.microsoft.com/en-us/internet-explorer/download-ie)); unsupported browsers may work as well, but they are not tested and your mileage may vary…
+Metreeca/Self is a client-side web application: to run it you need the latest version of an evergreen web browser ([Firefox](http://www.mozilla.org/firefox/new/), [Chrome](https://www.google.com/chrome/), [Safari](https://www.apple.com/safari/), [Edge](http://microsoft.com/en-us/windows/microsoft-edge)); unsupported browsers may work as well, but they are not tested and your mileage may vary…
 
 ## SPARQL Endpoint
 
@@ -27,28 +27,28 @@ Access-Control-Allow-Origin: *
 
 If these these requirements are not met, consider routing SPARQL requests from Metreeca/Self through a compliant CORS-enabled proxy.
 
-# Installation
+# Integration
 
-<p class="warning">Metreeca/Self code base is being repackaged: delivery and installation procedures are not stable and yet to be fully automated.</p>
+Metreeca/Self may be integrated with your system either as a Maven WAR overlay or as a standalone static web app. In both cases, you may want to provide a self-configuring launch link including a predefined SPARQL endpoint or other content configuration [options](embed-into-a-html-page#content-options) as:
 
-For the time being, to use Metreeca/Self follow the steps below:
+```
+http(s)://{host}/{static}/{name}/#endpoint={URL}
+```
 
-- clone and compile the `master` branch of the GitHub repository
-  ```sh
-  git clone https://github.com/metreeca/self.git
-  cd self
-  mvn clean install
-  ```
+<p class="warning">The target endpoint must be either <a href="#sparql-endpoint">CORS-enabled</a>, as discussed above, or managed by the same deployment server.</p>
 
-- integrate into another project as a Maven WAR overlay; the application will be available at `http(s)://{host}/{static}/self/`
+
+## As a Maven WAR Overlay
+
+Add the following to the `pom.xml` of your project; the application will be available at `http(s)://{host}/{app}/{static}/self/`.
   ```xml
-  <project>
+<project>
 
     <dependencies>
   
       <dependency>
-        <groupId>com.metreeca.self</groupId>
-        <artifactId>main</artifactId>
+        <groupId>com.metreeca</groupId>
+        <artifactId>self</artifactId>
         <version>${project.version}</version>
         <type>war</type>
         <scope>runtime</scope>
@@ -70,8 +70,8 @@ For the time being, to use Metreeca/Self follow the steps below:
                 <overlays>
       
                   <overlay>
-                    <groupId>com.metreeca.self</groupId>
-                    <artifactId>main</artifactId>
+                    <groupId>com.metreeca</groupId>
+                    <artifactId>self</artifactId>
                     <targetPath>/{static}/</targetPath> <!-- static file deployment area -->
                   </overlay>
       
@@ -86,18 +86,19 @@ For the time being, to use Metreeca/Self follow the steps below:
 
   </project>
   ```
-- deploy to a local server copying static assets under `main/target/metreeca-main-0.47.0/self` to its static asset folder; the application will be available at `http(s)://{host}/{static}/{name}/`
 
-  ```bash
-  cp -R main/target/metreeca-main-0.47.0/self/ {static}/{name}/
-  ```
+## As a Standalone Static Web App
 
-In both cases, you may want to provide a self-configuring launch link to a predefined SPARQL endpoint as:
+First, clone and compile the `master` branch of the GitHub repository:
 
+```sh
+git clone https://github.com/metreeca/self.git
+cd self
+mvn clean install
 ```
-http(s)://{host}/{static}/{name}/#endpoint={URL}
+
+Then, deploy to a local server copying static assets under `main/target/metreeca-self-${project.verion}/self` to a static asset folder; the application will be available at `http(s)://{host}/{static}/{name}/`
+
+```bash
+cp -R target/metreeca-self-${project.verion}/self/ {static}/{name}/
 ```
-
-See below for more content configuration [options](#content-options).
-
-<p class="warning">The target endpoint must be either <a href="#sparql-endpoint">CORS-enabled</a>, as discussed above, or managed by the same deployment server.</p>

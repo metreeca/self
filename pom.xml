@@ -25,7 +25,6 @@
 	<version>0.0.0-SNAPSHOT</version>
 	<packaging>gwt-app</packaging>
 
-
 	<name>Metreeca Self-Service SPARQL Tool</name>
 	<description>Metreeca self-service SPARQL tool for linked data search and analysis.</description>
 	<url>https://metreeca.github.io/self/</url>
@@ -47,6 +46,15 @@
 		</license>
 	</licenses>
 
+	<developers>
+		<developer>
+			<name>Metreeca</name>
+			<email>info@metreeca.com</email>
+			<organization>Metreeca</organization>
+			<organizationUrl>https://www.metreeca.com/</organizationUrl>
+		</developer>
+	</developers>
+
 	<scm>
 		<connection>scm:git:git@github.com:metreeca/self.git</connection>
 		<developerConnection>scm:git:git@github.com:metreeca/self.git</developerConnection>
@@ -57,6 +65,25 @@
 		<system>GitHub</system>
 		<url>https://github.com/metreeca/self/issues</url>
 	</issueManagement>
+
+	<distributionManagement>
+
+		<repository>
+			<id>ossrh</id>
+			<url>https://oss.sonatype.org/content/repositories/releases</url>
+		</repository>
+
+		<snapshotRepository>
+			<id>ossrh</id>
+			<url>https://oss.sonatype.org/content/repositories/snapshots</url>
+		</snapshotRepository>
+
+		<site>
+			<id>github-pages</id>
+			<url>https://metreeca.github.io/self/</url>
+		</site>
+
+	</distributionManagement>
 
 	<properties>
 
@@ -119,19 +146,44 @@
 
 		<plugins>
 
+			<plugin> <!-- https://maven.apache.org/enforcer/maven-enforcer-plugin/ -->
+
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-enforcer-plugin</artifactId>
+				<version>3.0.0-M2</version>
+
+				<executions>
+					<execution>
+
+						<id>enforce-maven</id>
+
+						<goals>
+							<goal>enforce</goal>
+						</goals>
+
+						<configuration>
+							<rules>
+								<requireMavenVersion>
+									<version>3.3</version>
+								</requireMavenVersion>
+							</rules>
+						</configuration>
+
+					</execution>
+				</executions>
+
+			</plugin>
+
 			<plugin> <!-- java compiler / https://maven.apache.org/plugins/maven-compiler-plugin -->
 
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
-				<version>3.7.0</version>
+				<version>3.8.0</version>
 
 				<configuration>
 
 					<source>${java.version}</source>
 					<target>${java.version}</target>
-
-					<!-- ;(https://issues.apache.org/jira/browse/MCOMPILER-209) -->
-					<useIncrementalCompilation>false</useIncrementalCompilation>
 
 				</configuration>
 
@@ -152,8 +204,71 @@
 
 			</plugin>
 
+			<plugin> <!-- https://maven.apache.org/surefire/maven-surefire-plugin/ -->
+
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>2.22.0</version>
+
+			</plugin>
+
 		</plugins>
 
 	</build>
+	<profiles>
+		<profile>
+
+			<id>release</id>
+
+			<build>
+				<plugins>
+
+					<plugin> <!-- http://maven.apache.org/plugins/maven-gpg-plugin/ -->
+
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-gpg-plugin</artifactId>
+						<version>1.6</version>
+
+						<configuration>
+							<executable>gpg2</executable>
+							<passphraseServerId>gpg.metreeca</passphraseServerId>
+						</configuration>
+
+						<executions>
+							<execution>
+
+								<id>sign-artifacts</id>
+								<phase>verify</phase>
+
+								<goals>
+									<goal>sign</goal>
+								</goals>
+
+							</execution>
+						</executions>
+
+					</plugin>
+
+					<plugin> <!-- https://github.com/sonatype/nexus-maven-plugins/tree/master/staging/maven-plugin -->
+
+						<groupId>org.sonatype.plugins</groupId>
+						<artifactId>nexus-staging-maven-plugin</artifactId>
+						<version>1.6.8</version>
+
+						<extensions>true</extensions>
+
+						<configuration>
+							<serverId>ossrh</serverId>
+							<nexusUrl>https://oss.sonatype.org/</nexusUrl>
+							<autoReleaseAfterClose>true</autoReleaseAfterClose>
+						</configuration>
+
+					</plugin>
+
+				</plugins>
+			</build>
+
+		</profile>
+	</profiles>
 
 </project>
