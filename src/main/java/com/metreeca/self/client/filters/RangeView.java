@@ -48,6 +48,9 @@ import static com.metreeca.self.shared.beans.Term.typed;
 import static java.lang.Math.abs;
 
 
+/**
+ * Numeric/temporal range facet filter.
+ */
 public final class RangeView extends View {
 
 	public static final double MinDecimal=10.0e-2; // the smallest number to be formatted as decimal

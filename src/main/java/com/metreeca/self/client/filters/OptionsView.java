@@ -32,17 +32,19 @@ import com.google.gwt.i18n.client.NumberFormat;
 import com.google.gwt.resources.client.ClientBundle;
 import com.google.gwt.resources.client.TextResource;
 
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 import static com.metreeca._tile.client.Tile.$;
 
 import static java.lang.Math.ceil;
 import static java.lang.Math.log10;
 import static java.lang.Math.max;
+import static java.util.Collections.unmodifiableSet;
 
 
+/**
+ * Multi-valued facet filter.
+ */
 public final class OptionsView extends View {
 
 	private static final int Detail=10; // the maximum number of values shown in expanded facets
@@ -60,8 +62,8 @@ public final class OptionsView extends View {
 
 	private Report report;
 
-	private Set<Term> options;
 	private Values values;
+	private Set<Term> selection;
 
 	private String pattern="";
 	private int page;
@@ -133,13 +135,29 @@ public final class OptionsView extends View {
 		return render();
 	}
 
+
+	public Values values() {
+		return values;
+	}
+
+	public OptionsView values(final Values values) {
+
+		this.values=values;
+
+		this.pattern="";
+		this.page=0;
+
+		return render();
+	}
+
+
 	public Set<Term> selection() {
-		return options;
+		return selection == null ? null : unmodifiableSet(selection);
 	}
 
 	public OptionsView selection(final Set<Term> selection) {
 
-		this.options=new HashSet<>(selection); // ensure is writable
+		this.selection=new LinkedHashSet<>(selection); // ensure is writable
 
 		this.pattern="";
 		this.page=0;
@@ -196,29 +214,14 @@ public final class OptionsView extends View {
 	}
 
 
-	private Values values() {
-		return values;
-	}
-
-	public OptionsView values(final Values values) { // !!! private
-
-		this.values=values;
-
-		this.pattern="";
-		this.page=0;
-
-		return render();
-	}
-
-
 	//// Actions ///////////////////////////////////////////////////////////////////////////////////////////////////////
 
 	private void select(final Term value, final boolean selected) {
 
 		if ( selected ) {
-			options.add(value);
+			selection.add(value);
 		} else {
-			options.remove(value);
+			selection.remove(value);
 		}
 
 		root().change();
@@ -334,7 +337,7 @@ public final class OptionsView extends View {
 
 	private String width(final Map<Term, Integer> entries) {
 
-		// compute the allotted with for the count field
+		// compute the allotted width for the count field
 		// take into account all values to avoid accordion effects when altering selection
 
 		int max=1;
