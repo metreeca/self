@@ -45,6 +45,9 @@ import static com.metreeca.self.shared.beans.Constraint.Options;
 import static com.metreeca.self.shared.beans.Constraint.Range;
 
 
+/**
+ * Field/facet widget.
+ */
 public final class PathView extends View {
 
 	private static final Resources resources=GWT.create(Resources.class);
@@ -468,7 +471,7 @@ public final class PathView extends View {
 			root().fire(values=new Values()
 
 					.setEndpoint(report.getEndpoint())
-					.setSpecs(report.getSpecs())
+					.setSpecs(report.getSpecs().copy().removePath(path)) // support disjoint selection
 					.setPath(path)
 					.setLabel(true)
 
@@ -781,7 +784,7 @@ public final class PathView extends View {
 				final Values values=values();
 
 				if ( values != null ) {
-					port.is("small busy", false).clear().append(filter(path, values));
+					port.is("small busy", false).clear().append( filter(path, values));
 				} else {
 					port.is("small busy", port.children().size() == 0); // preserve facet until updates are ready
 				}
