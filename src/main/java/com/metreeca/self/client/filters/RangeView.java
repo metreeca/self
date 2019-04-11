@@ -17,15 +17,15 @@
 
 package com.metreeca.self.client.filters;
 
-import com.metreeca.self.shared.async.Handler;
-import com.metreeca.self.shared.async.Morpher;
-import com.metreeca.self.shared.async.Promise;
 import com.metreeca._tile.client.Action;
 import com.metreeca._tile.client.Event;
 import com.metreeca._tile.client.View;
-import com.metreeca.self.client.views.Input;
 import com.metreeca.self.client.Self.Bus;
+import com.metreeca.self.client.views.Input;
 import com.metreeca.self.shared.Report;
+import com.metreeca.self.shared.async.Handler;
+import com.metreeca.self.shared.async.Morpher;
+import com.metreeca.self.shared.async.Promise;
 import com.metreeca.self.shared.beans.Path;
 import com.metreeca.self.shared.beans.Specs;
 import com.metreeca.self.shared.beans.Term;
@@ -92,11 +92,11 @@ public final class RangeView extends View {
 	private Term lower;
 	private Term upper;
 
+	private Promise<Values> baseline;
+	private Promise<Stats> stats;
+
 	private boolean sampling;
 	private boolean slicing;
-
-	private Promise<Values> values;
-	private Promise<Stats> stats;
 
 	private boolean changed;
 
@@ -202,7 +202,7 @@ public final class RangeView extends View {
 	public RangeView report(final Report report) {
 
 		this.report=report;
-		this.values=null;
+		this.baseline=null;
 		this.stats=null;
 
 		return render();
@@ -233,53 +233,37 @@ public final class RangeView extends View {
 	}
 
 
-	private RangeView sampling(final Boolean sampling) {
+	public RangeView baseline(final Values values) {
 
-		this.sampling=sampling;
-
-		return render();
-	}
-
-	private RangeView slicing(final Boolean slicing) {
-
-		this.slicing=slicing;
-
-		return render();
-	}
-
-
-	private Promise<Values> values() {
-
-		if ( values == null ) {
-			values=promise();
-		}
-
-		return values;
-	}
-
-	public RangeView values(final Values values) { // !!! private
-
-		values().value(values); // !!! review
+		this.baseline=promise(values);
 		this.stats=null;
 
 		return render();
 	}
 
 
+	private Promise<Values> baseline() {
+
+		if ( baseline == null ) {
+			baseline=promise();
+		}
+
+		return baseline;
+	}
+
+
 	private Promise<Stats> stats() {
 
 		if ( stats == null ) {
-			stats=values().pipe(new Morpher<Values, Stats>() {
+			stats=baseline().pipe(new Morpher<Values, Stats>() {
 				@Override public Promise<Stats> value(final Values values) {
 
-					final long entries=values.getEntries().size();
-					final long limit=values.getLimit();
-
-					return entries == 0 ? fallback(lower, upper) // no values stats: fallback to range limits
-							: limit > 0 && entries == limit ? computed(values.getPath()) // clipped values: compute stats with ad-hoc query
-							: promise(values.getStats());
+					return values.getEntries().isEmpty()
+							? fallback(lower, upper) // fallback to range limits
+							: computed(values.getPath()); // compute stats with ad-hoc query
 				}
 			});
+
 		}
 
 		return stats;
@@ -309,17 +293,32 @@ public final class RangeView extends View {
 	}
 
 
+	private RangeView sampling(final Boolean sampling) {
+
+		this.sampling=sampling;
+
+		return render();
+	}
+
+	private RangeView slicing(final Boolean slicing) {
+
+		this.slicing=slicing;
+
+		return render();
+	}
+
+
 	//// View //////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 	private RangeView render() {
 
-		values().then(new Handler<Values>() {
-			@Override public void value(final Values values) {
+		baseline().then(new Handler<Values>() {
+			@Override public void value(final Values baseline) {
 				stats().then(new Handler<Stats>() {
 					@Override public void value(final Stats stats) {
 
-						final Specs specs=values.getSpecs();
-						final Path path=values.getPath();
+						final Specs specs=baseline.getSpecs();
+						final Path path=baseline.getPath();
 
 						final boolean locked=report.isLocked();
 						final boolean sliced=slicing && !path.isAggregate() && !specs.isProjected(path.getSteps()); // !!! review
@@ -327,8 +326,8 @@ public final class RangeView extends View {
 						final Term lower=lower();
 						final Term upper=upper();
 
-						final boolean empty=values.getEntries().isEmpty();
-						final boolean year=values.getPath().getTransform() == Path.Transform.Year; // !!! review
+						final boolean empty=baseline.getEntries().isEmpty();
+						final boolean year=baseline.getPath().getTransform() == Path.Transform.Year; // !!! review
 
 						final String pattern=pattern(stats, year);
 
@@ -336,14 +335,14 @@ public final class RangeView extends View {
 								.pattern(pattern)
 								.enabled(!locked)
 								.placeholder((sampling ? "≤ " : sliced ? "≥ " : "")
-										+format(stats, lower != null ? lower.getValue() : !empty ? stats.getMin() : null, year))
+										+format(stats, lower != null ? lower.getValue() : empty ? null : stats.getMin(), year))
 								.value(format(stats, lower != null ? lower.getValue() : null, year));
 
 						upperInput
 								.pattern(pattern)
 								.enabled(!locked)
 								.placeholder((sampling ? "≥ " : sliced ? "≤ " : "")
-										+format(stats, upper != null ? upper.getValue() : !empty ? stats.getMax() : null, year))
+										+format(stats, upper != null ? upper.getValue() : empty ? null : stats.getMax(), year))
 								.value(format(stats, upper != null ? upper.getValue() : null, year));
 					}
 				});

@@ -18,10 +18,11 @@
 package com.metreeca.self.client.filters;
 
 import com.metreeca._tile.client.*;
-import com.metreeca.self.client.views.Input;
 import com.metreeca.self.client.Self.Bus;
+import com.metreeca.self.client.views.Input;
 import com.metreeca.self.client.views.TermView;
 import com.metreeca.self.shared.Report;
+import com.metreeca.self.shared.async.Handler;
 import com.metreeca.self.shared.beans.Path;
 import com.metreeca.self.shared.beans.Specs;
 import com.metreeca.self.shared.beans.Term;
@@ -32,7 +33,9 @@ import com.google.gwt.i18n.client.NumberFormat;
 import com.google.gwt.resources.client.ClientBundle;
 import com.google.gwt.resources.client.TextResource;
 
-import java.util.*;
+import java.util.LinkedHashSet;
+import java.util.Map;
+import java.util.Set;
 
 import static com.metreeca._tile.client.Tile.$;
 
@@ -40,6 +43,7 @@ import static java.lang.Math.ceil;
 import static java.lang.Math.log10;
 import static java.lang.Math.max;
 import static java.util.Collections.unmodifiableSet;
+import static java.util.stream.Collectors.toMap;
 
 
 /**
@@ -62,8 +66,10 @@ public final class OptionsView extends View {
 
 	private Report report;
 
-	private Values values;
 	private Set<Term> selection;
+
+	private Values baseline;
+	private Values matching;
 
 	private String pattern="";
 	private int page;
@@ -136,21 +142,6 @@ public final class OptionsView extends View {
 	}
 
 
-	public Values values() {
-		return values;
-	}
-
-	public OptionsView values(final Values values) {
-
-		this.values=values;
-
-		this.pattern="";
-		this.page=0;
-
-		return render();
-	}
-
-
 	public Set<Term> selection() {
 		return selection == null ? null : unmodifiableSet(selection);
 	}
@@ -166,11 +157,42 @@ public final class OptionsView extends View {
 	}
 
 
-	public String pattern() {
-		return pattern;
+	public OptionsView baseline(final Values baseline) {
+
+		this.baseline=baseline;
+		this.matching=null;
+
+		this.pattern="";
+		this.page=0;
+
+		return render();
 	}
 
-	public OptionsView pattern(final String pattern) {
+
+	private Values baseline() {
+		return baseline;
+	}
+
+	private Values matching() {
+
+		if ( baseline() != null && matching == null ) {
+			root().fire(matching=new Values()
+
+					.setEndpoint(report.getEndpoint())
+					.setSpecs(report.getSpecs()) // retrieve taking into account facets
+					.setPath(baseline.getPath())
+					.setLabel(true)
+
+					.then(new Handler<Values>() {
+						@Override public void value(final Values values) { render(); }
+					}));
+		}
+
+		return matching != null && matching.fulfilled() ? matching : null;
+	}
+
+
+	private OptionsView pattern(final String pattern) {
 
 		if ( pattern == null ) {
 			throw new NullPointerException("null pattern");
@@ -182,12 +204,7 @@ public final class OptionsView extends View {
 		return render();
 	}
 
-
-	public int page() {
-		return page;
-	}
-
-	public OptionsView page(final int page) {
+	private OptionsView page(final int page) {
 
 		if ( page < 0 ) {
 			throw new IllegalArgumentException("illegal page ["+page+"]");
@@ -233,50 +250,49 @@ public final class OptionsView extends View {
 	private OptionsView render() {
 
 		final Set<Term> selection=selection();
-		final Values values=values();
 
-		if ( selection != null && values != null ) {
+		final Values baseline=baseline();
+		final Values matching=matching();
 
-			final Specs specs=values.getSpecs();
-			final Path path=values.getPath();
+		if ( selection != null && baseline != null ) {
 
-			final Map<Term, Integer> entries=values.getEntries();
+			final Specs specs=baseline.getSpecs();
+			final Path path=baseline.getPath();
 
-			final boolean filtered=entries.size() > Detail || !$(input).value().isEmpty();
+			final Map<Term, Integer> options=baseline.getEntries();
+			final Map<Term, Integer> matches=(matching != null) ? matching.getEntries() : options.entrySet().stream()
+					.filter(entry -> selection.contains(entry.getKey()))
+					.collect(toMap(Map.Entry::getKey, Map.Entry::getValue));
+
+			final boolean filtered=options.size() > Detail || !$(input).value().isEmpty();
 			final boolean locked=report.isLocked();
 			final boolean sliced=slicing && !path.isAggregate() && !specs.isProjected(path.getSteps()); // !!! review
 			final String pattern=this.pattern.toUpperCase();
-			final String width=width(entries);
-
-			int options=0; // visible options count
+			final String width=width(options);
 
 			$(input).visible(filtered);
 
 			items.clear();
 
-			for (final Map.Entry<Term, Integer> entry : entries.entrySet()) { // matched user-selected options
+			for (final Map.Entry<Term, Integer> entry : matches.entrySet()) { // user-selected matched options
 
 				final Term term=entry.getKey();
 				final Integer count=entry.getValue();
 
 				if ( selection.contains(term) ) {
-
 					items.append(item(term, count, width, locked, true, sampling, sliced));
-
-					++options;
 				}
 			}
 
-			for (final Term term : selection) { // unmatched user-selected options
-				if ( !entries.containsKey(term) ) {
-
+			for (final Term term : selection) { // user-selected unmatched options
+				if ( !matches.containsKey(term) ) {
 					items.append(item(term, 0, width, locked, true, sampling, sliced).is("empty", true));
-
-					++options;
 				}
 			}
 
-			for (final Map.Entry<Term, Integer> entry : entries.entrySet()) { // matched unselected options
+			int visible=0; // visible unselected options count
+
+			for (final Map.Entry<Term, Integer> entry : matches.entrySet()) { // unselected matched options
 
 				final Term term=entry.getKey();
 				final Integer count=entry.getValue();
@@ -284,23 +300,36 @@ public final class OptionsView extends View {
 				if ( !selection.contains(term) ) {
 					if ( term != null && (pattern.isEmpty() || term.label().toUpperCase().contains(pattern)) ) {
 
-						if ( options >= page*Detail && options < (page+1)*Detail ) {
+						if ( visible >= page*Detail && visible < (page+1)*Detail ) {
 							items.append(item(term, count, width, locked, false, sampling, sliced));
 						}
 
-						++options;
+						++visible;
 					}
 				}
 			}
 
-			status.visible(filtered && options > Detail);
-			count.text(options == 0 ? "no options"
-					: options == 1 ? "1 option"
-					: entries.size() < values.getLimit() ? options+" options"
-					: "more than "+NumberFormat.getDecimalFormat().format(values.getLimit())+" options");
+			for (final Term term : options.keySet()) { // unselected unmatched options
+				if ( !selection.contains(term) && !matches.containsKey(term) ) {
+					if ( term != null && (pattern.isEmpty() || term.label().toUpperCase().contains(pattern)) ) {
+
+						if ( visible >= page*Detail && visible < (page+1)*Detail ) {
+							items.append(item(term, 0, width, locked, false, sampling, sliced).is("empty", true));
+						}
+
+						++visible;
+					}
+				}
+			}
+
+			status.visible(filtered);
+			count.text(visible == 0 ? "no options"
+					: visible == 1 ? "1 option"
+					: options.size() < baseline.getLimit() ? visible+" options"
+					: "more than "+NumberFormat.getDecimalFormat().format(baseline.getLimit())+" options");
 
 			prev.enabled(page > 0);
-			next.enabled(page < options/Detail);
+			next.enabled(page < visible/Detail);
 		}
 
 		return this;
