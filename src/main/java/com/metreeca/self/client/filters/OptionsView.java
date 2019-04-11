@@ -179,7 +179,9 @@ public final class OptionsView extends View {
 			root().fire(matching=new Values()
 
 					.setEndpoint(report.getEndpoint())
-					.setSpecs(report.getSpecs()) // retrieve taking into account facets
+					.setSpecs(report.getSpecs().copy()
+							.removePath(baseline.getPath()) // ignore this facet to support disjunctive selection
+					)
 					.setPath(baseline.getPath())
 					.setLabel(true)
 

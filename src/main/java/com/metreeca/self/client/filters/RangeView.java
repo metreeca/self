@@ -280,7 +280,9 @@ public final class RangeView extends View {
 		root().fire(new Ranges()
 
 				.setEndpoint(report.getEndpoint())
-				.setSpecs(report.getSpecs())
+				.setSpecs(report.getSpecs().copy()
+						.removePath(path) // ignore this facet to support disjunctive selection
+				)
 				.setPath(path)
 
 				.then(new Handler<Ranges>() {

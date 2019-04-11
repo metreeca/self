@@ -472,7 +472,7 @@ public final class PathView extends View {
 
 					.setEndpoint(report.getEndpoint())
 					.setSpecs(report.getSpecs().copy().setPaths(() -> report.getSpecs().getPaths().stream()
-							.filter(path -> !path.isFacet()) // retrieve baseline ignoring facets
+							.filter(path -> !path.isFacet()) // baseline ignores facets
 							.iterator()
 					))
 					.setPath(path)
