@@ -405,7 +405,7 @@ public abstract class Plugin extends JavaScriptObject {
 			throw new NullPointerException("null throwable");
 		}
 
-		log(message+": "+throwable.toString());
+		log(message+": "+throwable);
 
 		return this;
 	}
@@ -413,7 +413,25 @@ public abstract class Plugin extends JavaScriptObject {
 
 	public final native Plugin log(final String message) /*-{
 
-		$wnd.console.log(message);
+		var level=(message.match(/^\s*(!{1,3})\s/) || [])[1]; // ;( hack
+
+		if ( level === "!!!" ) {
+
+			$wnd.console.error(message);
+
+		} else if ( level === "!!" ) {
+
+			$wnd.console.warn(message);
+
+		} else if ( level === "!" ) {
+
+			$wnd.console.info(message);
+
+		} else {
+
+			$wnd.console.log(message);
+
+		}
 
 		return this;
 
@@ -437,4 +455,5 @@ public abstract class Plugin extends JavaScriptObject {
 		return object;
 
 	}-*/;
+
 }
