@@ -17,15 +17,15 @@
 
 package com.metreeca.self.client.views;
 
-import com.metreeca.self.shared.Command;
-import com.metreeca.self.shared.async.Handler;
 import com.metreeca._tile.client.*;
 import com.metreeca._tile.client.plugins.Editable;
 import com.metreeca._tile.client.plugins.Menu;
 import com.metreeca.self.client.Self.Bus;
 import com.metreeca.self.client.filters.OptionsView;
 import com.metreeca.self.client.filters.RangeView;
+import com.metreeca.self.shared.Command;
 import com.metreeca.self.shared.Report;
+import com.metreeca.self.shared.async.Handler;
 import com.metreeca.self.shared.beans.Constraint;
 import com.metreeca.self.shared.beans.Path;
 import com.metreeca.self.shared.beans.Path.Summary;
@@ -45,6 +45,9 @@ import static com.metreeca.self.shared.beans.Constraint.Options;
 import static com.metreeca.self.shared.beans.Constraint.Range;
 
 
+/**
+ * Field/facet widget.
+ */
 public final class PathView extends View {
 
 	private static final Resources resources=GWT.create(Resources.class);
@@ -60,7 +63,7 @@ public final class PathView extends View {
 	private Report report;
 
 	private Path path;
-	private Values values;
+	private Values baseline;
 
 	private Boolean expanded; // null > header only / true > expanded / false > collapsed
 
@@ -427,7 +430,7 @@ public final class PathView extends View {
 
 		this.report=report;
 		this.path=null;
-		this.values=null;
+		this.baseline=null;
 
 		return render();
 	}
@@ -444,7 +447,7 @@ public final class PathView extends View {
 		}
 
 		this.path=path;
-		this.values=null;
+		this.baseline=null;
 
 		return render();
 	}
@@ -462,13 +465,16 @@ public final class PathView extends View {
 	}
 
 
-	private Values values() {
+	private Values baseline() {
 
-		if ( report() != null && path() != null && values == null ) {
-			root().fire(values=new Values()
+		if ( report() != null && path() != null && baseline == null ) {
+			root().fire(baseline=new Values()
 
 					.setEndpoint(report.getEndpoint())
-					.setSpecs(report.getSpecs())
+					.setSpecs(report.getSpecs().copy().setPaths(() -> report.getSpecs().getPaths().stream()
+							.filter(path -> !path.isFacet()) // baseline ignores facets
+							.iterator()
+					))
 					.setPath(path)
 					.setLabel(true)
 
@@ -477,7 +483,7 @@ public final class PathView extends View {
 					}));
 		}
 
-		return values != null && values.fulfilled() ? values : null;
+		return baseline != null && baseline.fulfilled() ? baseline : null;
 	}
 
 
@@ -763,8 +769,8 @@ public final class PathView extends View {
 					.is("ascending", path.getSort() > 0)
 					.is("descending", path.getSort() < 0)
 
-					.is("present", path.getExisting() == Boolean.TRUE)
-					.is("missing", path.getExisting() == Boolean.FALSE)
+					.is("present", Boolean.TRUE.equals(path.getExisting()))
+					.is("missing", Boolean.FALSE.equals(path.getExisting()))
 
 					.text(text)
 					.title(text); // show complete label as tooltip if text is truncated // !!! vs show path as tooltip if field is renamed
@@ -776,12 +782,12 @@ public final class PathView extends View {
 
 					.title(focus ? "Open a related set" : "Remove "+role());
 
-			if ( expanded == Boolean.TRUE ) {
+			if ( Boolean.TRUE.equals(expanded) ) {
 
-				final Values values=values();
+				final Values baseline=baseline();
 
-				if ( values != null ) {
-					port.is("small busy", false).clear().append(filter(path, values));
+				if ( baseline != null ) {
+					port.is("small busy", false).clear().append(filter(path, baseline));
 				} else {
 					port.is("small busy", port.children().size() == 0); // preserve facet until updates are ready
 				}
@@ -806,22 +812,22 @@ public final class PathView extends View {
 	}
 
 
-	private Tile filter(final Path path, final Values values) { // preserve current constraint if non-empty
-		return path.getConstraint() instanceof Options && !path.getConstraint().isEmpty() ? options(path, values)
-				: path.getConstraint() instanceof Range && !path.getConstraint().isEmpty() ? range(path, values)
+	private Tile filter(final Path path, final Values baseline) { // preserve current constraint if non-empty
+		return path.getConstraint() instanceof Options && !path.getConstraint().isEmpty() ? options(path, baseline)
+				: path.getConstraint() instanceof Range && !path.getConstraint().isEmpty() ? range(path, baseline)
 
-				: values.getStats().isNumeric() ? range(path.setConstraint(new Range()), values)
-				: values.getStats().isTemporal() ? range(path.setConstraint(new Range()), values)
+				: baseline.getStats().isNumeric() ? range(path.setConstraint(new Range()), baseline)
+				: baseline.getStats().isTemporal() ? range(path.setConstraint(new Range()), baseline)
 
-				: options(path.setConstraint(new Options()), values);
+				: options(path.setConstraint(new Options()), baseline);
 	}
 
-	private Tile options(final Path path, final Values values) {
+	private Tile options(final Path path, final Values baseline) {
 
 		final OptionsView options=new OptionsView()
 				.report(report)
 				.selection(((Options)path.getConstraint()).getValues())
-				.values(values);
+				.baseline(baseline);
 
 		return $(options).change(new Action<Event>() {
 			@Override public void execute(final Event e) {
@@ -830,13 +836,13 @@ public final class PathView extends View {
 		});
 	}
 
-	private Tile range(final Path path, final Values values) {
+	private Tile range(final Path path, final Values baseline) {
 
 		final RangeView range=new RangeView()
 				.report(report)
 				.lower(((Range)path.getConstraint()).getLower())
 				.upper(((Range)path.getConstraint()).getUpper())
-				.values(values);
+				.baseline(baseline);
 
 		return $(range).change(new Action<Event>() {
 			@Override public void execute(final Event e) {
