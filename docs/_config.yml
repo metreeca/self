@@ -12,6 +12,6 @@ defaults:
       path: ""
     values:
       project: "self"
-      version: "0.48.0"
+      version: "0.49.0"
       tagline: "Metreeca Self-Service SPARQL Tool"
-      release: "https://github.com/metreeca/self/releases/tag/v0.48.0"
+      release: "https://github.com/metreeca/self/releases/tag/v0.49.0"

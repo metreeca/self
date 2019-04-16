@@ -32,8 +32,11 @@ public interface Constraint {
 
 	public boolean isLiteral(); // true if this constraint is implicitly applied to a literal
 
+
 	public Constraint merge(final Constraint constraint);
 
+
+	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 	@Bean("specs") public static final class Base implements Constraint {
 

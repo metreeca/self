@@ -30,7 +30,7 @@
 		var escape=metreeca+":escape";
 
 
-		//// Utilities ///////////////////////////////////////////////////////////////////// ;(ff) before event com.metreeca.next.handlers
+		//// Utilities ///////////////////////////////////////////////////////////////////// ;(ff) before event handlers
 
 		function each(items, handler) { // call a handler on each item in an array-like object
 

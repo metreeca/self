@@ -207,7 +207,7 @@ module.exports=function marker(defaults) {
 											self.tooltip({ disabled: false });
 										});
 
-								[ // configure interactive com.metreeca.next.handlers (http://leafletjs.com/reference.html#map-properties)
+								[ // configure interactive handlers (http://leafletjs.com/reference.html#map-properties)
 
 									map.dragging,
 									map.touchZoom,

@@ -127,6 +127,8 @@ import static java.util.Collections.unmodifiableList;
 	}
 
 
+	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 	private String label="";
 	private String pattern=""; // pattern for textual filtering
 
@@ -150,6 +152,8 @@ import static java.util.Collections.unmodifiableList;
 		return specs;
 	}
 
+
+	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 	public boolean isEmpty() { // pristine specs
 		return paths.isEmpty() && pattern.isEmpty();
@@ -207,6 +211,8 @@ import static java.util.Collections.unmodifiableList;
 		return false;
 	}
 
+
+	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 	public String getLabel() {
 		return label;
@@ -385,6 +391,8 @@ import static java.util.Collections.unmodifiableList;
 	}
 
 
+	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 	public Specs center(final Path axis) {
 
 		if ( axis == null ) {
@@ -400,7 +408,7 @@ import static java.util.Collections.unmodifiableList;
 		this.paths.clear();
 		this.paths.addAll(paths);
 
-		return this.setLabel(axis.label());
+		return setLabel(axis.label());
 	}
 
 
@@ -476,6 +484,8 @@ import static java.util.Collections.unmodifiableList;
 		return specs;
 	}
 
+
+	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 	public String label() {
 		return label.isEmpty() ? getAxis() != null ? getAxis().label() : "Item" : label;

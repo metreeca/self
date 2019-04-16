@@ -340,9 +340,6 @@ public abstract class Action<E> {
 
 				try {
 
-					com.metreeca.next.handlers
-					com.metreeca.next.handlers
-
 					this.@com.metreeca._tile.client.Action.Drop::drop(Lcom/metreeca/_tile/client/Event;)(e);
 
 				} finally {

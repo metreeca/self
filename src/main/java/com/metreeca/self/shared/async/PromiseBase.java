@@ -108,7 +108,7 @@ public abstract class PromiseBase<V> implements Promise<V> {
 		} else {
 
 			if ( handlers == null ) {
-				handlers=new LinkedHashSet<>(); // unique com.metreeca.next.handlers in insertion order
+				handlers=new LinkedHashSet<>(); // unique handlers in insertion order
 			}
 
 			handlers.add(handler);
