@@ -23,6 +23,6 @@ References
 
 ---
 
-home / [www.metreeca.com](https://www.metreeca.com/)
-code / [github.com/metreeca/self](https://github.com/metreeca/self)
+home / [www.metreeca.com](https://www.metreeca.com/)  
+code / [github.com/metreeca/self](https://github.com/metreeca/self)  
 forum / [groups.google.com/d/forum/metreeca](https://groups.google.com/d/forum/metreeca)
