@@ -690,13 +690,17 @@ public abstract class Editor {
 				var(id(flake, transform));
 				text(")\n");
 
-			} else if ( probe.isField() && flake.term() != null ) { // project inlined constant
+			} else {
 
-				text("bind (");
-				term(flake.term());
-				text(" as ");
-				var(id(flake));
-				text(")\n");
+				final Term term=flake.term();
+
+				if ( term != null && probe.isField() ) { // project inlined constant
+
+					text("values ?(0) { (1) }\f",
+							id(flake), term.isVerso()? term.reverse().format() : term.format()
+					);
+
+				}
 
 			}
 		}
