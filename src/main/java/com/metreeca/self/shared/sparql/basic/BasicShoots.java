@@ -80,10 +80,9 @@ public class BasicShoots {
 
 							if ( path.isEmpty() && singleton != null ) { // optimize for singletons
 
-								text(inverse
-												? "?term ?link (0) .\f"
-												: "(0) ?link ?term .\f"
-										, singleton.format());
+								text(inverse ? "?term ?link (0) .\f" : "(0) ?link ?term .\f",
+										singleton.isVerso()? singleton.reverse().format() : singleton.format()
+								);
 
 							} else {
 

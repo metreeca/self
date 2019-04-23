@@ -495,7 +495,7 @@ public abstract class Editor {
 							text("values ?(0) {\n", id(flake));
 
 							for (final Term term : values) {
-								text(term.format());
+								text(term.isVerso()? term.reverse().format() : term.format());
 								text('\n');
 							}
 
@@ -660,7 +660,7 @@ public abstract class Editor {
 
 	private void term(final Term term) {
 		text(' ');
-		text(term.format());
+		text(term.isVerso()? term.reverse().format() : term.format());
 	}
 
 

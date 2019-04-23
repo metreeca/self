@@ -152,7 +152,9 @@ public final class BasicLeaves {
 
 							if ( singleton != null ) { // optimize for singletons
 
-								text(inverse ? "?term ?link (0) ." : "(0) ?link ?term .", singleton.format());
+								text(inverse ? "?term ?link (0) ." : "(0) ?link ?term .",
+										singleton.isVerso()? singleton.reverse().format() : singleton.format()
+								);
 
 							} else {
 
@@ -253,7 +255,9 @@ public final class BasicLeaves {
 
 							if ( singleton != null ) { // optimize for singletons
 
-								text(inverse ? "?term (1) (0) ." : "(0) (1) ?term .", singleton.format(), predicate);
+								text(inverse ? "?term (1) (0) ." : "(0) (1) ?term .",
+										singleton.isVerso()? singleton.reverse().format() : singleton.format(),
+										predicate);
 
 							} else {
 
@@ -299,7 +303,7 @@ public final class BasicLeaves {
 								text("values ?link {\f");
 
 								for (final Term term : batch.values()) {
-									text((inverse ? term.reverse() : term).format());
+									text((term.isVerso() ? term.reverse() : term).format());
 									text('\n');
 								}
 

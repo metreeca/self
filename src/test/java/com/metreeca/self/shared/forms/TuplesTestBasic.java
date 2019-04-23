@@ -254,7 +254,7 @@ public final class TuplesTestBasic extends TuplesTest {
 	@Test public void testConstraintWithInverseTerm() {
 		assertEquals("<Employee> [@, title] | @ = ^birt:Employee",
 
-				"select ?0 where { values ?0 { birt:Employee } }",
+				"select ?0 ?0_label where { values ?0 { birt:Employee } optional { ?0 rdfs:label ?0_label } }",
 
 				new Tuples().setSpecs(new Specs()
 						.insertPath(new Path())
