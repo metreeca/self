@@ -21,6 +21,6 @@ If you just want some help with the tool or your project, try asking a specific 
 
 # Suggesting Features
 
-If you think you have a good idea about improving or extending Metreeca/Self, feel free to open a ticket on the project's [issues](https://github.com/metreeca/self/issues) page, ignoring the issue reporting template.
+If you think you have a good idea about improving or extending Metreeca/Self, feel free to open a ticket on the project's [issues](https://github.com/metreeca/self/issues) page, using the dedicated template.
 
 Again search already reported suggestions and, if something is found, just add any additional details in the comments.

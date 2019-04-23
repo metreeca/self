@@ -22,7 +22,7 @@
 
 	<groupId>com.metreeca</groupId>
 	<artifactId>self</artifactId>
-	<version>0.48.0</version>
+	<version>0.49.0</version>
 	<packaging>gwt-app</packaging>
 
 	<name>Metreeca Self-Service SPARQL Tool</name>
@@ -137,8 +137,14 @@
 
 		<resources>
 
-			<resource> <!-- enable resource filtering -->
-				<directory>src/main/resources</directory>
+			<resource>
+				<directory>${basedir}/src/main/resources</directory>
+				<filtering>true</filtering>
+			</resource>
+
+			<resource>
+				<directory>${basedir}/docs/_resources</directory>
+				<targetPath>${basedir}/docs</targetPath>
 				<filtering>true</filtering>
 			</resource>
 
@@ -212,9 +218,57 @@
 
 			</plugin>
 
+			<plugin> <!-- https://maven.apache.org/plugins/maven-site-plugin -->
+
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-site-plugin</artifactId>
+				<version>3.7.1</version>
+
+				<configuration>
+
+					<skipDeploy>true</skipDeploy> <!-- manual deployment -->
+
+					<stagingDirectory>${maven.multiModuleProjectDirectory}/docs/reports</stagingDirectory>
+
+				</configuration>
+
+			</plugin>
+
 		</plugins>
 
 	</build>
+
+	<reporting>
+		<plugins>
+
+			<plugin> <!-- https://maven.apache.org/plugins/maven-project-info-reports-plugin/ -->
+
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-project-info-reports-plugin</artifactId>
+				<version>3.0.0</version>
+
+				<reportSets>
+
+					<reportSet>
+
+						<reports>
+							<report>index</report>
+							<report>dependencies</report>
+						</reports>
+
+						<configuration>
+							<dependencyDetailsEnabled>false</dependencyDetailsEnabled>
+						</configuration>
+
+					</reportSet>
+
+				</reportSets>
+
+			</plugin>
+
+		</plugins>
+	</reporting>
+
 	<profiles>
 		<profile>
 
