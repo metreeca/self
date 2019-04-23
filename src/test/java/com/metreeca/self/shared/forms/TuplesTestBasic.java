@@ -30,35 +30,13 @@ import static com.metreeca.self.shared.beans.Term.plain;
 import static com.metreeca.self.shared.beans.Term.typed;
 import static com.metreeca.self.shared.beans.schemas.OWL.OWLClass;
 import static com.metreeca.self.shared.beans.schemas.RDF.RDFType;
+import static com.metreeca.self.shared.beans.schemas.RDFS.RDFSLabel;
 
 import static java.lang.Boolean.FALSE;
 import static java.lang.Boolean.TRUE;
 
 
 public final class TuplesTestBasic extends TuplesTest {
-
-	@Test public void testSummaryWithInversePaths() {
-		assertEquals("<Customer> [representative, count(/), representative/office]",
-
-				"select ?representative ?office (count(?customer) as ?customers) {\n"
-						+"\n"
-						+"\t?representative a birt:Employee;\n"
-						+"\t\tbirt:office ?office;\n"
-						+" \t\tbirt:account ?customer.\n"
-						+"\n"
-						+"} group by ?representative ?office",
-
-				new Tuples().setSpecs(new Specs()
-
-						.insertPath(new Path())
-						.insertPath(new Path(birt("office")))
-						.insertPath(new Path(birt("representative", true))
-								.setSummary(Path.Summary.Count))
-
-						.insertPath(new Path(birt("representative", true), RDFType)
-								.setConstraint(new Options(birt("Customer"))))));
-	}
-
 
 	//// Projection ////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -271,6 +249,20 @@ public final class TuplesTestBasic extends TuplesTest {
 						.insertPath(new Path()
 								.setConstraint(new Options(named("tag:metreeca.net;2013:birt/employees/1611"))))));
 
+	}
+
+	@Test public void testConstraintWithInverseTerm() {
+		assertEquals("<Employee> [@, title] | @ = ^birt:Employee",
+
+				"select ?0 where { values ?0 { birt:Employee } }",
+
+				new Tuples().setSpecs(new Specs()
+						.insertPath(new Path())
+						.insertPath(new Path(RDFSLabel))
+						.insertPath(new Path().setConstraint(new Options(birt("Employee").reverse())))
+				)
+
+		);
 	}
 
 

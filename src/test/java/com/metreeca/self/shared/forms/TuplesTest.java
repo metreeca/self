@@ -37,7 +37,6 @@ import static java.util.Collections.singletonList;
 
 public abstract class TuplesTest extends ShapeTest {
 
-
 	protected static void assertEquals(final String message,
 			final String expected, final Tuples actual) {
 

@@ -212,4 +212,27 @@ public final class TuplesTestSummary extends TuplesTest {
 						.insertPath(new Path(birt("product"), birt("buy")).setSummary(Max))));
 	}
 
+
+	@Test public void testSummaryWithInversePaths() {
+		assertEquals("<Customer> [representative, count(/), representative/office]",
+
+				"select ?representative ?office (count(?customer) as ?customers) {\n"
+						+"\n"
+						+"\t?representative a birt:Employee;\n"
+						+"\t\tbirt:office ?office;\n"
+						+" \t\tbirt:account ?customer.\n"
+						+"\n"
+						+"} group by ?representative ?office",
+
+				new Tuples().setSpecs(new Specs()
+
+						.insertPath(new Path())
+						.insertPath(new Path(birt("office")))
+						.insertPath(new Path(birt("representative", true))
+								.setSummary(Path.Summary.Count))
+
+						.insertPath(new Path(birt("representative", true), RDFType)
+								.setConstraint(new Options(birt("Customer"))))));
+	}
+
 }
