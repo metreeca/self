@@ -57,7 +57,17 @@ When opening a new report, Metreeca/Self will present the user with a springboar
 
 To fine-tune what's presented to the user or to improve performance on large datasets, you may explicitly identify RDF classes as key collections for your *dataset* by annotating them as:
 
-    <{dataset}> <http://rdfs.org/ns/void#rootResource> <{class}> .
+```
+<{dataset}> <http://rdfs.org/ns/void#rootResource> <{class}> .
+```
+
+where `{dataset}` is the identifier of any dataset stored in the endpoint.
+
+As far as Metreeca/Self is concerned the dataset identifier is immaterial and any class marked as a root resource will be included in the springboard page: if no more sensible option is available, just use the canonical base URL of the endpoint, e.g.:
+
+```
+<http://data.example.com/> void:rootResource <http://data.example.com/terms#Products> .
+```
 
 ## Include Inverse Links
 
