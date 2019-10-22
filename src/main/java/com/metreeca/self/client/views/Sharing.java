@@ -35,15 +35,15 @@ public final class Sharing extends View {
 
 	private static native void select(final Tile tile) /*-{
 
-		(tile[0] || document.documentElement).select();
+		(tile[0] || $doc.documentElement).select();
 
 	}-*/;
 
 	private static native boolean copy(final Tile tile) /*-{
 
-		(tile[0] || document.documentElement).select();
+		(tile[0] || $doc.documentElement).select();
 
-		return document.execCommand('copy');
+		return $doc.execCommand('copy');
 
 	}-*/;
 
