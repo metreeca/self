@@ -47,6 +47,12 @@ public final class Sharing extends View {
 
 	}-*/;
 
+	private static native void shorten(final String url) /*-{
+
+		$wnd.open("http://tinyurl.com/api-create.php?url="+encodeURIComponent(url), "_blank");
+
+	}-*/;
+
 
 	public static interface Resources extends ClientBundle {
 
@@ -60,6 +66,7 @@ public final class Sharing extends View {
 	private String link="";
 
 	private final Tile text;
+	private final Tile copy;
 
 
 	public Sharing() {
@@ -83,14 +90,16 @@ public final class Sharing extends View {
 							@Override public void execute(final Event e) { select(e.target()); }
 						}))
 
-				.append($("<button/>").is("fa fa-copy", true)
+				.append(this.copy=$("<button/>").is("fa fa-copy", true).title("Copy link to clipboard")
 
 						.click(new Action<Event>() {
-							@Override public void execute(final Event e) { copy(); }
+							@Override public void execute(final Event e) {
+								if ( e.alt() ) { shorten(); } else { copy(); }
+							}
 						})
 				)
 
-				.append($("<button/>").is("fa fa-check", true)
+				.append($("<button/>").is("fa fa-check", true).title("Done")
 
 						.click(new Action<Event>() {
 							@Override public void execute(final Event e) { close(); }
@@ -130,15 +139,21 @@ public final class Sharing extends View {
 		return this;
 	}
 
-	public Sharing copy() {
+
+	private Sharing copy() {
 
 		if ( !copy(text) ) {
 			root().warning(getClass(), "unable to copy link");
 		}
 
-		//return close();
+		return close();
+	}
 
-		return this;
+	private Sharing shorten() {
+
+		shorten(link);
+
+		return close();
 	}
 
 
@@ -147,6 +162,7 @@ public final class Sharing extends View {
 	private Sharing render() {
 
 		text.value(link);
+		copy.enabled(!link.isEmpty());
 
 		return this;
 

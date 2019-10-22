@@ -20,7 +20,7 @@
 }
 
 :scope > input {
-	min-width: 50em;
+	width: 50em;
 	font-size: 80%;
 }
 
