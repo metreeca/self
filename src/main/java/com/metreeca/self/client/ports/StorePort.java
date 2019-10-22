@@ -67,6 +67,21 @@ public final class StorePort extends View {
 	private static final NodeCodec nodeCodec=new NodeCodec(metaFactory, nodeFactory);
 
 
+	private static native String decodeURIComponent(final String uri) /*-{
+
+		return $wnd.decodeURIComponent(uri);
+
+	}-*/;
+
+	private static native String decodeBase64(final String base64) /*-{
+
+		return $wnd.atob(base64);
+
+	}-*/;
+
+
+	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 	private Setup setup;
 
 	private long synced; // the timestamp of the last synchronization
@@ -289,7 +304,7 @@ public final class StorePort extends View {
 
 			try { // encodeURIComponent(btoa())-encoded report
 
-				root().async(nodeCodec.<T>decode(base64decode(decodeURIComponent(hash))));
+				root().async(nodeCodec.<T>decode(decodeBase64(decodeURIComponent(hash))));
 
 			} catch ( final Exception e ) { // malformed document
 
@@ -302,19 +317,6 @@ public final class StorePort extends View {
 
 		}
 	}
-
-
-	private static native String decodeURIComponent(final String uri) /*-{
-
-		return $wnd.decodeURIComponent(uri);
-
-	}-*/;
-
-	private static native String base64decode(final String base64) /*-{
-
-		return $wnd.atob(base64);
-
-	}-*/;
 
 
 	//// State /////////////////////////////////////////////////////////////////////////////////////////////////////////

@@ -58,8 +58,6 @@
     <inspection_tool class="BadOddness" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="BashReplaceWithSubshell" enabled="true" level="INFO" enabled_by_default="true" />
     <inspection_tool class="BashWrapWord" enabled="true" level="WEAK WARNING" enabled_by_default="true" />
-    <inspection_tool class="BeforeClassOrAfterClassIsPublicStaticVoidNoArg" enabled="true" level="WARNING" enabled_by_default="true" />
-    <inspection_tool class="BeforeOrAfterIsPublicVoidNoArg" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="BigDecimalEquals" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="BigDecimalLegacyMethod" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="BlockMarkerComments" enabled="true" level="WARNING" enabled_by_default="true" />
@@ -73,7 +71,6 @@
     <inspection_tool class="BreakStatementWithLabel" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="BreakStatementWithLabelJS" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="BusyWait" enabled="true" level="WARNING" enabled_by_default="true" />
-    <inspection_tool class="CStyleArrayDeclaration" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="CallToNativeMethodWhileLocked" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="CallToSimpleGetterInClass" enabled="true" level="WARNING" enabled_by_default="true">
       <option name="ignoreGetterCallsOnOtherObjects" value="false" />
@@ -162,6 +159,9 @@
     <inspection_tool class="ConstantMathCall" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="ConstantOnLHSOfComparison" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="ConstantOnLHSOfComparisonJS" enabled="true" level="WARNING" enabled_by_default="true" />
+    <inspection_tool class="ConstantOnWrongSideOfComparison" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="myConstantShouldGoLeft" value="false" />
+    </inspection_tool>
     <inspection_tool class="ConstantValueVariableUse" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="ConstructorCount" enabled="true" level="WARNING" enabled_by_default="true">
       <option name="ignoreDeprecatedConstructors" value="false" />
@@ -265,6 +265,13 @@
     </inspection_tool>
     <inspection_tool class="FieldMayBeFinal" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="FieldMayBeStatic" enabled="true" level="WARNING" enabled_by_default="true" />
+    <inspection_tool class="FieldNamingConvention" enabled="true" level="WARNING" enabled_by_default="true">
+      <extension name="StaticVariableNamingConvention" enabled="true">
+        <option name="m_regex" value="s_[a-z][A-Za-z\d]*" />
+        <option name="m_minLength" value="5" />
+        <option name="m_maxLength" value="32" />
+      </extension>
+    </inspection_tool>
     <inspection_tool class="FieldNotUsedInToString" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="FinalMethodInFinalClass" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="Finalize" enabled="true" level="WARNING" enabled_by_default="true">
@@ -334,7 +341,6 @@
     <inspection_tool class="InconsistentLanguageLevel" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="InconsistentLineSeparators" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="IncrementDecrementResultUsedJS" enabled="true" level="WARNING" enabled_by_default="true" />
-    <inspection_tool class="InnerClassMayBeStatic" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="InnerClassReferencedViaSubclass" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="InnerClassVariableHidesOuterClassVariable" enabled="true" level="WARNING" enabled_by_default="true">
       <option name="m_ignoreInvisibleFields" value="true" />
@@ -471,6 +477,7 @@
     </inspection_tool>
     <inspection_tool class="MultipleTopLevelClassesInFile" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="MultipleTypedDeclaration" enabled="true" level="WARNING" enabled_by_default="true" />
+    <inspection_tool class="MultipleVariablesInDeclaration" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="NakedNotify" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="NegatedConditional" enabled="true" level="WARNING" enabled_by_default="true">
       <option name="m_ignoreNegatedNullComparison" value="true" />
@@ -507,6 +514,7 @@
     <inspection_tool class="NonFinalGuard" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="NonFinalStaticVariableUsedInClassInitialization" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="NonFinalUtilityClass" enabled="true" level="WARNING" enabled_by_default="true" />
+    <inspection_tool class="NonJREEmulationClassesInClientCode" enabled="true" level="WEAK WARNING" enabled_by_default="true" />
     <inspection_tool class="NonProtectedConstructorInAbstractClass" enabled="true" level="WARNING" enabled_by_default="true">
       <option name="m_ignoreNonPublicClasses" value="false" />
     </inspection_tool>
@@ -600,7 +608,6 @@
     <inspection_tool class="ParametersPerMethod" enabled="true" level="WARNING" enabled_by_default="true">
       <option name="m_limit" value="5" />
     </inspection_tool>
-    <inspection_tool class="PlaceholderCountMatchesArgumentCount" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="PlatformDetectionJS" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="PointlessIndexOfComparison" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="ProblematicVarargsMethodOverride" enabled="true" level="WARNING" enabled_by_default="true" />
@@ -646,7 +653,6 @@
       <option name="ignoreCloneable" value="false" />
     </inspection_tool>
     <inspection_tool class="RedundantMethodOverride" enabled="true" level="WARNING" enabled_by_default="true" />
-    <inspection_tool class="RedundantSuppression" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="RedundantThrowsDeclaration" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="ReplaceAssignmentWithOperatorAssignment" enabled="true" level="WARNING" enabled_by_default="true">
       <option name="ignoreLazyOperators" value="true" />
@@ -711,7 +717,6 @@
     <inspection_tool class="StaticInheritance" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="StaticMethodOnlyUsedInOneClass" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="StaticNonFinalField" enabled="true" level="WARNING" enabled_by_default="true" />
-    <inspection_tool class="StaticSuite" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="StaticVariableInitialization" enabled="true" level="WARNING" enabled_by_default="true">
       <option name="m_ignorePrimitives" value="false" />
     </inspection_tool>
@@ -753,9 +758,6 @@
     </inspection_tool>
     <inspection_tool class="SwitchStatementWithConfusingDeclaration" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="SwitchStatementWithNoDefaultBranchJS" enabled="true" level="WARNING" enabled_by_default="true" />
-    <inspection_tool class="SwitchStatementWithTooFewBranches" enabled="true" level="WARNING" enabled_by_default="true">
-      <option name="m_limit" value="2" />
-    </inspection_tool>
     <inspection_tool class="SwitchStatementWithTooManyBranches" enabled="true" level="WARNING" enabled_by_default="true">
       <option name="m_limit" value="10" />
     </inspection_tool>
@@ -785,12 +787,10 @@
       <option name="ignoreSupers" value="false" />
     </inspection_tool>
     <inspection_tool class="TestMethodInProductCode" enabled="true" level="WARNING" enabled_by_default="true" />
-    <inspection_tool class="TestMethodIsPublicVoidNoArg" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="TestMethodWithoutAssertion" enabled="true" level="WARNING" enabled_by_default="true">
       <option name="assertionMethods" value="org.junit.Assert,assert.*|fail.*,junit.framework.Assert,assert.*|fail.*,org.mockito.Mockito,verify.*,org.mockito.InOrder,verify,org.junit.rules.ExpectedException,expect.*,org.hamcrest.MatcherAssert,assertThat,net.metreeca.rover.shared.forms.ValuesTest,assert.*,net.metreeca.rover.shared.forms.TuplesTest,assert.*,net.metreeca.rover.shared.forms.ShootsTest,assert.*,net.metreeca.rover.shared.forms.LeavesTest,assert.*" />
     </inspection_tool>
     <inspection_tool class="TestOnlyProblems" enabled="true" level="WARNING" enabled_by_default="true" />
-    <inspection_tool class="TextLabelInSwitchStatement" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="TextLabelInSwitchStatementJS" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="ThisEscapedInConstructor" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="ThisExpressionReferencesGlobalObjectJS" enabled="false" level="WARNING" enabled_by_default="false" />
@@ -798,7 +798,6 @@
     <inspection_tool class="ThreadDumpStack" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="ThreadLocalNotStaticFinal" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="ThreadPriority" enabled="true" level="WARNING" enabled_by_default="true" />
-    <inspection_tool class="ThreadRun" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="ThreadStartInConstruction" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="ThreadStopSuspendResume" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="ThreadWithDefaultRunMethod" enabled="true" level="WARNING" enabled_by_default="true" />
@@ -844,7 +843,6 @@
     <inspection_tool class="UnaryPlus" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="UncheckedExceptionClass" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="UnconditionalWait" enabled="true" level="WARNING" enabled_by_default="true" />
-    <inspection_tool class="UnconstructableTestCase" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="UnknownGuard" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="UnnecessarilyQualifiedInnerClassAccess" enabled="true" level="WARNING" enabled_by_default="true">
       <option name="ignoreReferencesNeedingImport" value="true" />
@@ -858,10 +856,8 @@
     <inspection_tool class="UnnecessaryBlockStatement" enabled="true" level="WARNING" enabled_by_default="true">
       <option name="ignoreSwitchBranches" value="false" />
     </inspection_tool>
-    <inspection_tool class="UnnecessaryCallToStringValueOf" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="UnnecessaryConstantArrayCreationExpression" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="UnnecessaryConstructor" enabled="true" level="WARNING" enabled_by_default="true" />
-    <inspection_tool class="UnnecessaryDefault" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="UnnecessaryExplicitNumericCast" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="UnnecessaryFullyQualifiedName" enabled="true" level="WARNING" enabled_by_default="true">
       <option name="m_ignoreJavadoc" value="false" />
