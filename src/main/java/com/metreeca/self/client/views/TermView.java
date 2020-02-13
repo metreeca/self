@@ -30,6 +30,7 @@ import com.google.gwt.resources.client.TextResource;
 import java.math.BigDecimal;
 
 import static com.metreeca._tile.client.Tile.$;
+import static com.metreeca.self.shared.beans.schemas.XSD.XSDString;
 
 
 public final class TermView extends View {
@@ -156,7 +157,7 @@ public final class TermView extends View {
 						.mouseenter(title)
 						.click(action);
 
-			} else if ( term.isTyped() ) {
+			} else if ( term.isTyped() && !term.isTyped(XSDString)) {
 
 				root("<a/>")
 						.attribute("href", "term:"+term.format()) // enable term copying
