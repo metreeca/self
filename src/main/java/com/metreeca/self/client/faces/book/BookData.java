@@ -22,6 +22,8 @@ import com.metreeca.self.shared.beans.Term;
 
 import java.util.*;
 
+import static com.metreeca.self.shared.beans.schemas.XSD.XSDString;
+
 import static java.util.Collections.emptyMap;
 import static java.util.Collections.singletonMap;
 
@@ -136,7 +138,7 @@ final class BookData {
 			}
 
 			for (final Term term : terms) { // fall back to the first plain term
-				if ( term.isPlain() ) {
+				if ( term.isPlain() || term.isTyped(XSDString)) {
 					try { return term.getText(); } finally { terms.remove(term); }
 				}
 			}
