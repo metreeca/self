@@ -6,19 +6,11 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="self" />
+        <module name="metreeca-self" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="bean" target="1.8" />
-      <module name="info" target="1.8" />
-      <module name="jeep" target="1.8" />
-      <module name="libs" target="1.5" />
-      <module name="main" target="1.8" />
-      <module name="root" target="1.8" />
-      <module name="self" target="1.8" />
-      <module name="tile" target="1.8" />
-      <module name="tool" target="1.8" />
+      <module name="metreeca-self" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
