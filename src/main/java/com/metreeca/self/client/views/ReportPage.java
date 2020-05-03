@@ -44,6 +44,7 @@ import com.google.gwt.resources.client.TextResource;
 import java.util.*;
 
 import static com.metreeca._tile.client.Tile.$;
+import static com.metreeca._tile.client.Window.window;
 import static com.metreeca._tile.client.plugins.Overlay.Align;
 import static com.metreeca.self.client.Self.Embedded;
 import static com.metreeca.self.client.Self.Setup;
@@ -59,12 +60,27 @@ public final class ReportPage extends Page<Report> {
 	private static final Resources resources=GWT.create(Resources.class);
 
 
+	private static native String encodeURIComponent(final String uri) /*-{
+
+		return $wnd.encodeURIComponent(uri);
+
+	}-*/;
+
+	private static native String encodeBase64(final String base64) /*-{
+
+		return $wnd.btoa(base64);
+
+	}-*/;
+
+
 	public static interface Resources extends ClientBundle {
 
 		@Source("ReportPage.css") TextResource skin();
 
 	}
 
+
+	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 	private Setup setup;
 	private Cache<String> endpoints;
@@ -223,11 +239,22 @@ public final class ReportPage extends Page<Report> {
 				.append(opening())
 				.append(connecting())
 				.append(archiving())
+				.append(sharing())
 				.append(porting())
 
 				.append(exporting())
 
 				.as();
+	}
+
+	private Tile sharing() {
+		return $("<section/>")
+
+				.append($("<command/>").text("Share…").click(new Action<Event>() {
+					@Override public void execute(final Event e) {
+						new Sharing().link(window().location()+"#"+encodeURIComponent(encodeBase64(codec.encode(item())))).open();
+					}
+				}));
 	}
 
 	private Tile connecting() {

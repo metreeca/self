@@ -71,7 +71,7 @@ Add the following to the `pom.xml` of your project; the application will be avai
       
                   <overlay>
                     <groupId>com.metreeca</groupId>
-                    <artifactId>self</artifactId>
+                    <artifactId>metreeca-self</artifactId>
                     <targetPath>/{static}/</targetPath> <!-- static file deployment area -->
                   </overlay>
       
