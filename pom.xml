@@ -280,7 +280,6 @@
 						<version>1.6</version>
 
 						<configuration>
-							<executable>gpg2</executable>
 							<passphraseServerId>gpg.metreeca</passphraseServerId>
 						</configuration>
 
