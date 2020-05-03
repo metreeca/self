@@ -1,11 +1,11 @@
 <component name="ProjectRunConfigurationManager">
   <configuration default="false" name="Self" type="GWT.ConfigurationType" factoryName="GWT Configuration">
     <option name="SHELL_PARAMETERS" value="-style DETAILED" />
-    <option name="RUN_PAGE" value="/self/index.html" />
+    <option name="RUN_PAGE" value="self/index.html" />
     <option name="BROWSER" value="98ca6316-2f89-46d9-a9e5-fa9e2b0625b3" />
     <option name="USE_SUPER_DEV_MODE" value="true" />
     <option name="WORKING_DIRECTORY" value="" />
-    <module name="self" />
+    <module name="metreeca-self" />
     <method v="2">
       <option name="Make" enabled="true" />
     </method>
