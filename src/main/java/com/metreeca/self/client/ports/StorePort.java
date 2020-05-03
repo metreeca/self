@@ -1,5 +1,5 @@
 /*
- * Copyright © 2013-2019 Metreeca srl. All rights reserved.
+ * Copyright © 2013-2020 Metreeca srl. All rights reserved.
  *
  * This file is part of Metreeca/Self.
  *
@@ -37,7 +37,6 @@ import java.util.Map;
 
 import static com.metreeca._tile.client.Window.window;
 import static com.metreeca.self.client.Self.Setup;
-
 import static java.lang.Math.max;
 import static java.lang.System.currentTimeMillis;
 
@@ -299,6 +298,10 @@ public final class StorePort extends View {
 		if ( hash.isEmpty() ) { // a definition form
 
 			root().async(setup.item(opts).created());
+
+		} else if ( hash.startsWith("<") ) { // an xml-encoded exported item
+
+			root().async(nodeCodec.<T>decode(hash));
 
 		} else {
 
