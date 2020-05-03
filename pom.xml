@@ -40,9 +40,6 @@
 			<url>https://www.gnu.org/licenses/agpl.html</url>
 			<distribution>repo</distribution>
 		</license>
-		<license>
-			<name>Custom Commercial License</name>
-		</license>
 	</licenses>
 
 	<developers>
