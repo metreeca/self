@@ -1,5 +1,5 @@
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-  Copyright © 2013-2019 Metreeca srl. All rights reserved.
+  Copyright © 2013-2020 Metreeca srl. All rights reserved.
 
   This file is part of Metreeca/Self.
 
@@ -140,8 +140,8 @@
 			</resource>
 
 			<resource>
-				<directory>${basedir}/docs/_resources</directory>
-				<targetPath>${basedir}/docs</targetPath>
+				<directory>src/docs/_resources</directory>
+				<targetPath>src/docs</targetPath>
 				<filtering>true</filtering>
 			</resource>
 
@@ -212,6 +212,19 @@
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-surefire-plugin</artifactId>
 				<version>2.22.0</version>
+
+			</plugin>
+
+			<plugin> <!-- https://github.com/metreeca/mark -->
+
+				<groupId>com.metreeca</groupId>
+				<artifactId>mark-maven-plugin</artifactId>
+				<version>0.2</version>
+
+				<configuration>
+					<target>docs</target>
+					<assets>@/docs</assets>
+				</configuration>
 
 			</plugin>
 

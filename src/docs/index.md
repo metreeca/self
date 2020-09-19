@@ -8,18 +8,18 @@ It may be deployed as a standalone client-side web app or embedded into web site
 
 Tutorials
 
-: - [Search and Analysis](tutorials/search-and-analysis/)
+: - [Search and Analysis](tutorials/search-and-analysis/index.md)
 
 How To…
 
-: - [Integrate With Your System](how-to/integrate-with-your-system)
-- [Embed Into a HTML Page](how-to/embed-into-a-html-page)
-- [Improve User Experience](how-to/improve-user-experience)
+: - [Integrate With Your System](how-to/integrate-with-your-system.md)
+- [Embed Into a HTML Page](how-to/embed-into-a-html-page.md)
+- [Improve User Experience](how-to/improve-user-experience.md)
 
 
 References
 
-: - [Known Issues](references/known-issues)
+: - [Known Issues](references/known-issues.md)
 
 ---
 
