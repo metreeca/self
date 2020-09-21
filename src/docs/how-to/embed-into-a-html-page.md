@@ -32,11 +32,11 @@ Content options control what an embedded Metreeca/Self instance presents to the 
 
 `document = <Document URL>`
 
-: Presents a complex pre-configured report available as an exported document at the given URL (see [Exporting Reports](../tutorials/search-and-analysis#exporting-reports)). Make sure the hosting page is able to retrieve the document, as the [same-origin policy](https://developer.mozilla.org/en-US/docs/Web/Security/Same-origin_policy) applies.
+: Presents a complex pre-configured report available as an exported document at the given URL (see [Exporting Reports](../tutorials/search-and-analysis/index.md#exporting-reports)). Make sure the hosting page is able to retrieve the document, as the [same-origin policy](https://developer.mozilla.org/en-US/docs/Web/Security/Same-origin_policy) applies.
 
 `endpoint = <SPARQL Endpoint URL>`
 
-: Connects to the SPARQL endpoint at the given URL and presents the available key collections (see [Identify Key Collections](../how-to/improve-user-experience#identify-key-collections)), unless either the `collection` or the `resource` option is also specified.
+: Connects to the SPARQL endpoint at the given URL and presents the available key collections (see [Identify Key Collections](../how-to/improve-user-experience.md#identify-key-collections)), unless either the `collection` or the `resource` option is also specified.
 
 `collection = <RDF Type IRI>`
 

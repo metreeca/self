@@ -29,7 +29,7 @@ If these these requirements are not met, consider routing SPARQL requests from M
 
 # Integration
 
-Metreeca/Self may be integrated with your system either as a Maven WAR overlay or as a standalone static web app. In both cases, you may want to provide a self-configuring launch link including a predefined SPARQL endpoint or other content configuration [options](embed-into-a-html-page#content-options) as:
+Metreeca/Self may be integrated with your system either as a Maven WAR overlay or as a standalone static web app. In both cases, you may want to provide a self-configuring launch link including a predefined SPARQL endpoint or other content configuration [options](embed-into-a-html-page.md#content-options) as:
 
 ```
 http(s)://{host}/{static}/{name}/#endpoint={URL}

@@ -186,7 +186,7 @@ This is a minor beta release with lots of diffused improvements to linked data n
 
 Browser requirements have been upgraded to Firefox 36+, Chrome 41+, Explorer 11, Safari 8.
 
-We were again forced to modify the pattern used to [identify key collections](how-tos/improve-user-experience#identify-key-collections), as previous ones didn't behave with inferencing repositories…
+We were again forced to modify the pattern used to [identify key collections](../how-to/improve-user-experience.md#identify-key-collections), as previous ones didn't behave with inferencing repositories…
 
 New Features and Improvements
 
@@ -208,7 +208,7 @@ This is a major beta release, improving linked data navigation and introducing a
 
 Browser requirements have been upgraded to Firefox 35+, Chrome 40+, Explorer 11, Safari 8.
 
-Note that the pattern used to [identify key collections]how-tos/improve-user-experience#identify-key-collections) was changed again since version 0.34: we hope this is the last time a change is required…
+Note that the pattern used to [identify key collections](../how-to/improve-user-experience.md#identify-key-collections) was changed again since version 0.34: we hope this is the last time a change is required…
 
 New Features and Improvements
 
@@ -361,7 +361,7 @@ Fixed Bugs
 
 This is an incremental beta release, introducing some new features, but with an overall focus on stability and bug fixes.
 
-Note that the pattern used to [identify key collections](how-tos/improve-user-experience#identify-key-collections) was changed since version 0.28.
+Note that the pattern used to [identify key collections](../how-to/improve-user-experience.md#identify-key-collections) was changed since version 0.28.
 
 New Features and Improvements
 
