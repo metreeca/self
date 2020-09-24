@@ -139,8 +139,8 @@
 			</resource>
 
 			<resource>
-				<directory>${basedir}/docs/_resources</directory>
-				<targetPath>${basedir}/docs</targetPath>
+				<directory>src/docs/_resources</directory>
+				<targetPath>src/docs</targetPath>
 				<filtering>true</filtering>
 			</resource>
 
@@ -212,6 +212,37 @@
 				<artifactId>maven-surefire-plugin</artifactId>
 				<version>2.22.0</version>
 
+			</plugin>
+
+			<plugin> <!-- https://github.com/metreeca/mark -->
+
+				<groupId>com.metreeca</groupId>
+				<artifactId>mark-maven-plugin</artifactId>
+				<version>0.4.0</version>
+
+				<configuration>
+
+					<target>docs</target>
+					<assets>@/docs</assets>
+
+					<options>
+						<markdown-smart-links>true</markdown-smart-links>
+						<markdown-external-links>true</markdown-external-links>
+					</options>
+
+				</configuration>
+
+				<executions>
+					<execution>
+
+						<goals>
+							<goal>clean</goal>
+							<goal>build</goal>
+							<goal>check</goal>
+						</goals>
+
+					</execution>
+				</executions>
 			</plugin>
 
 			<plugin> <!-- https://maven.apache.org/plugins/maven-site-plugin -->
