@@ -139,12 +139,6 @@
 				<filtering>true</filtering>
 			</resource>
 
-			<resource>
-				<directory>src/docs/_resources</directory>
-				<targetPath>src/docs</targetPath>
-				<filtering>true</filtering>
-			</resource>
-
 		</resources>
 
 		<plugins>
