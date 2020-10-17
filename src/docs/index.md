@@ -1,4 +1,7 @@
-Metreeca/Self is a self-service linked data search and analysis tool enabling business users to visually interact with SPARQL endpoints.
+---
+---
+
+Metreeca/Self is a self-service search and analysis tool enabling interactive exploration of SPARQL endpoints.
 
 It features a streamlined and intuitive interface, built around very familiar concepts like tables, faceted filtering, drag&drop, link navigation and charting.
 
