@@ -1,5 +1,5 @@
 
-[![Maven Central](https://img.shields.io/maven-central/v/com.metreeca/self.svg)](https://search.maven.org/artifact/com.metreeca/metreeca-self/)
+[![Maven Central](https://img.shields.io/maven-central/v/com.metreeca/metreeca-self.svg)](https://search.maven.org/artifact/com.metreeca/metreeca-self/)
 
 # Metreeca/Self
 
