@@ -1,0 +1,157 @@
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  Copyright © 2013-2020 Metreeca srl. All rights reserved.
+
+  This file is part of Metreeca/Self.
+
+  Metreeca/Self is free software: you can redistribute it and/or modify it under the terms
+  of the GNU Affero General Public License as published by the Free Software Foundation,
+  either version 3 of the License, or(at your option) any later version.
+
+  Metreeca/Self is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;
+  without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+  See the GNU Affero General Public License for more details.
+
+  You should have received a copy of the GNU Affero General Public License along with Metreeca/Self.
+  If not, see <http://www.gnu.org/licenses/>.
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+
+<!DOCTYPE html>
+<html lang="en">
+	<head><title>How To Embed Into a HTML Page | Metreeca Self-Service SPARQL Tool</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1">
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<link rel="shortcut icon" href="../index.svg">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.21.0/themes/prism.min.css">
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.21.0/components/prism-core.min.js"></script>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.21.0/plugins/autoloader/prism-autoloader.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="../index.css">
+	</head>
+	<body><input id="toggle" type="checkbox">
+		<nav>
+			<header>
+				<span><a href="https://www.metreeca.com/">metreeca</a><a href="../index.html">self<span>v0.51.0</span></a></span><label for="toggle"></label>
+			</header>
+			<section><a class="title" onclick="document.querySelector('main').scrollTo(0, 0)">How To Embed Into a HTML
+				Page</a><h1><a href="#embedding-options">Embedding Options</a></h1><h2><a href="#content-options">Content
+				Options</a></h2><h2><a href="#layout-options">Layout Options</a></h2><h1>
+				<a href="#host-page-integration">Host Page Integration</a></h1><h2><a href="#markup-integration">Markup
+				Integration</a></h2><h2><a href="#javascript-integration">Javascript Integration</a></h2></section>
+		</nav>
+		<main>
+			<header>How To Embed Into a HTML Page</header>
+			<section><p>Metreeca/Self may be embedded within host HTML pages to provide faceted search, linked data
+				navigation and data-driven infographics for third-party sites.</p>
+				<p>To get started with embedded Metreeca/Self:</p>
+				<ol>
+					<li>include the <code>driver.min.js</code> script from your Metreeca/Self installation (e.g.
+						<a href="https://demo.metreeca.com/apps/self/driver.min.js">https://demo.metreeca.com/apps/self/driver.min.js</a>)
+						anywhere in your page;
+					</li>
+					<li>embed one or more Metreeca/Self instances using <code>iframe</code> elements annotated with
+						<code>data-*</code> attributes defining content and layout.
+					</li>
+				</ol>
+				<pre><code class="language-html">&lt;script type=&quot;application/javascript&quot;
+ src=&quot;https://demo.metreeca.com/apps/self/driver.min.js&quot;&gt;&lt;/script&gt;
+</code></pre>
+				<pre><code class="language-html">&lt;iframe [name=&quot;&lt;instance name&gt;&quot;]
+ src=&quot;https://demo.metreeca.com/apps/self/&quot;
+ [data-&lt;content option&gt;=&quot;&lt;value&gt;&quot;]*
+ [data-&lt;layout option&gt;=&quot;&lt;value&gt;&quot;]*
+&gt;&lt;/iframe&gt;
+</code></pre>
+				<p>Basic, cut-and-paste ready samples are available at
+					<a href="https://demo.metreeca.com/apps/self/samples/">https://demo.metreeca.com/apps/self/samples/</a>.
+				</p>
+				<h1 id="embedding-options">Embedding Options</h1>
+				<h2 id="content-options">Content Options</h2>
+				<p>Content options control what an embedded Metreeca/Self instance presents to the user.</p>
+				<dl>
+					<dt><code>document = &lt;Document URL&gt;</code></dt>
+					<dd>
+						<p>Presents a complex pre-configured report available as an exported document at the given URL
+							(see <a href="../tutorials/search-and-analysis/#exporting-reports">Exporting Reports</a>).
+							Make sure the hosting page is able to retrieve the document, as the
+							<a href="https://developer.mozilla.org/en-US/docs/Web/Security/Same-origin_policy" target="_blank">same-origin
+								policy</a> applies.</p>
+					</dd>
+					<dt><code>endpoint = &lt;SPARQL Endpoint URL&gt;</code></dt>
+					<dd>
+						<p>Connects to the SPARQL endpoint at the given URL and presents the available key collections
+							(see <a href="../how-to/improve-user-experience#identify-key-collections">Identify Key
+								Collections</a>), unless either the <code>collection</code> or the <code>resource</code>
+							option is also specified.</p>
+					</dd>
+					<dt><code>collection = &lt;RDF Type IRI&gt;</code></dt>
+					<dd>
+						<p>Presents a list of resources with the given RDF type extracted from the endpoint specified by
+							the <code>endpoint</code> option.</p>
+					</dd>
+					<dt><code>resource = &lt;RDF Resource IRI&gt;</code></dt>
+					<dd>
+						<p>Presents linked data information about the given RDF resource extracted from the endpoint
+							specified by the <code>endpoint</code> option.</p>
+					</dd>
+					<dt><code>label = &lt;RDF Resource IRI&gt;</code></dt>
+					<dd>
+						<p>Provides a human-readable label for the field holding the presented information, to be used in
+							the fields area of the user interface and in browser history entries.</p>
+					</dd>
+				</dl>
+				<h2 id="layout-options">Layout Options</h2>
+				<p>Layout options control how the content is visually presented to the user.</p>
+				<p>Unless otherwise specified, layout options default to the first listed value.</p>
+				<dl>
+					<dt><code>mode = catalog | navigator | visualizer</code></dt>
+					<dd>
+						<p>Controls the overall layout of the interface and selectively enables required control widgets.
+							Available modes are optimized respectively for faceted catalog search, linked data navigation
+							and infographics visualization.</p>
+					</dd>
+					<dt><code>toolbar = bottom | none</code></dt>
+					<dd>
+						<p>Controls the positioning of the main toolbar.
+							​ Defaults to <code>none</code>, if <code>mode</code> is set to <code>visualizer</code>.</p>
+					</dd>
+					<dt><code>fields = top | none</code></dt>
+					<dd>
+						<p>Controls the positioning of the fields area.
+							​ Defaults to <em>none</em>, if <code>mode</code> is set either to <code>navigator</code> or
+							<code>visualizer</code>.</p>
+					</dd>
+					<dt><code>facets = right | left | none</code></dt>
+					<dd>
+						<p>Controls the positioning of the facets area.
+							​ Defaults to <code>none</code>, if <code>mode</code> is set either to <code>navigator</code>
+							or <code>visualizer</code>.</p>
+					</dd>
+				</dl>
+				<h1 id="host-page-integration">Host Page Integration</h1>
+				<h2 id="markup-integration">Markup Integration</h2>
+				<p>The host page may enable the user to change the content of an embedded Metreeca/Self instance by
+					including <code>anchor</code> elements annotated with <code>data-*</code> attributes defining the
+					required content.</p>
+				<pre><code class="language-html">&lt;a target=&quot;&lt;instance name&gt;&quot;
+ [data-&lt;default&gt;=&quot;true&quot;]
+ [data-&lt;content option=&quot;&lt;value&gt;&quot;]*
+&gt;label&lt;/a&gt;
+</code></pre>
+				<p>If the <code>data-default</code> attribute is set to <code>true</code>, the content options for the
+					anchor define also the initial content of the target Metreeca/Self instance.</p>
+				<h2 id="javascript-integration">Javascript Integration</h2>
+				<p>The host page may programmatically change the content of an embedded Metreeca/Self instance by
+					invoking the <em>metreeca</em> JavaScript driver function, passing the name of the target instance
+					and either the URL of a complex pre-configured report or a JavaScript object defining the required
+					content using the same <a href="#content-options">content options</a> previously introduced in
+					relation to <em>data-*</em> attributes.</p>
+				<pre><code class="language-javascript">metreeca(&quot;&lt;instance name&gt;&quot;,
+ &lt;document URL&gt; | { [‹content option›: &quot;&lt;value&gt;&quot;]* });
+</code></pre>
+			</section>
+			<footer>© 2020 Metreeca srl. This work is licensed under the
+				<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons BY-NC-SA 4.0 License</a>
+			</footer>
+		</main>
+		<script type="text/javascript" src="../index.js"></script>
+	</body>
+</html>
