@@ -48,7 +48,7 @@ Add the following to the `pom.xml` of your project; the application will be avai
   
       <dependency>
         <groupId>com.metreeca</groupId>
-        <artifactId>self</artifactId>
+        <artifactId>metreeca-self</artifactId>
         <version>${project.version}</version>
         <type>war</type>
         <scope>runtime</scope>
