@@ -29,7 +29,7 @@
 	<body><input id="toggle" type="checkbox">
 		<nav>
 			<header>
-				<span><a href="https://www.metreeca.com/">metreeca</a><a href="../index.html">self<span>v0.50.0</span></a></span><label for="toggle"></label>
+				<span><a href="https://www.metreeca.com/">metreeca</a><a href="../index.html">self<span>v0.51.0</span></a></span><label for="toggle"></label>
 			</header>
 			<section><a class="title" onclick="document.querySelector('main').scrollTo(0, 0)">How To Integrate With Your
 				System</a><h1><a href="#system-requirements">System Requirements</a></h1><h2>
@@ -80,7 +80,7 @@
     &lt;dependency&gt;
       &lt;groupId&gt;com.metreeca&lt;/groupId&gt;
       &lt;artifactId&gt;self&lt;/artifactId&gt;
-      &lt;version&gt;0.50.0&lt;/version&gt;
+      &lt;version&gt;0.51.0&lt;/version&gt;
       &lt;type&gt;war&lt;/type&gt;
       &lt;scope&gt;runtime&lt;/scope&gt;
     &lt;/dependency&gt;
@@ -119,14 +119,14 @@
 </code></pre>
 				<h2 id="as-a-standalone-static-web-app">As a Standalone Static Web App</h2>
 				<p>First, clone and compile the <code>master</code> branch of the GitHub repository:</p>
-				<pre><code class="language-sh">git clone https://github.com/metreeca/self.git
+				<pre><code class="language-shell">git clone https://github.com/metreeca/self.git
 cd self
 mvn clean install
 </code></pre>
 				<p>Then, deploy to a local server copying static assets under <code>main/target/metreeca-self-{{
 					page.version }}/self</code> to a static asset folder; the application will be available at <code>http(s)://{host}/{static}/{name}/</code>
 				</p>
-				<pre><code class="language-bash">cp -R target/metreeca-self-{{ page.version }}/self/ {static}/{name}/
+				<pre><code class="language-shell">cp -R target/metreeca-self-{{ page.version }}/self/ {static}/{name}/
 </code></pre>
 			</section>
 			<footer>© 2020 Metreeca srl. This work is licensed under the
