@@ -48,7 +48,7 @@ Add the following to the `pom.xml` of your project; the application will be avai
   
       <dependency>
         <groupId>com.metreeca</groupId>
-        <artifactId>self</artifactId>
+        <artifactId>metreeca-self</artifactId>
         <version>${project.version}</version>
         <type>war</type>
         <scope>runtime</scope>
@@ -91,7 +91,7 @@ Add the following to the `pom.xml` of your project; the application will be avai
 
 First, clone and compile the `master` branch of the GitHub repository:
 
-```sh
+```shell
 git clone https://github.com/metreeca/self.git
 cd self
 mvn clean install
@@ -99,6 +99,6 @@ mvn clean install
 
 Then, deploy to a local server copying static assets under `main/target/metreeca-self-{{ page.version }}/self` to a static asset folder; the application will be available at `http(s)://{host}/{static}/{name}/`
 
-```bash
+```shell
 cp -R target/metreeca-self-{{ page.version }}/self/ {static}/{name}/
 ```
