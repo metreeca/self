@@ -1,5 +1,5 @@
 /*
- * Copyright © 2013-2019 Metreeca srl. All rights reserved.
+ * Copyright © 2013-2021 Metreeca srl. All rights reserved.
  *
  * This file is part of Metreeca/Self.
  *
@@ -23,9 +23,7 @@ import com.metreeca.self.shared.beans.Term;
 
 import org.junit.Test;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
 import static com.metreeca.self.shared.beans.Term.named;
 

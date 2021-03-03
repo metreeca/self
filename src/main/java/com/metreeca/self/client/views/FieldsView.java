@@ -1,5 +1,5 @@
 /*
- * Copyright © 2013-2019 Metreeca srl. All rights reserved.
+ * Copyright © 2013-2021 Metreeca srl. All rights reserved.
  *
  * This file is part of Metreeca/Self.
  *
@@ -17,11 +17,11 @@
 
 package com.metreeca.self.client.views;
 
-import com.metreeca.self.shared.Command;
 import com.metreeca._tile.client.*;
 import com.metreeca._tile.client.plugins.Overlay;
 import com.metreeca.self.client.Self.Bus;
 import com.metreeca.self.client.faces.Header;
+import com.metreeca.self.shared.Command;
 import com.metreeca.self.shared.Report;
 import com.metreeca.self.shared.beans.Path;
 import com.metreeca.self.shared.beans.Specs;

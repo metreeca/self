@@ -1,5 +1,5 @@
 /*
- * Copyright © 2013-2019 Metreeca srl. All rights reserved.
+ * Copyright © 2013-2021 Metreeca srl. All rights reserved.
  *
  * This file is part of Metreeca/Self.
  *
@@ -20,9 +20,7 @@ package com.metreeca.self.shared.csv;
 import org.junit.Test;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
+import java.util.*;
 
 import static org.junit.Assert.assertEquals;
 

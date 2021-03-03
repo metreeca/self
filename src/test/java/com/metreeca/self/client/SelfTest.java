@@ -1,5 +1,5 @@
 /*
- * Copyright © 2013-2019 Metreeca srl. All rights reserved.
+ * Copyright © 2013-2021 Metreeca srl. All rights reserved.
  *
  * This file is part of Metreeca/Self.
  *
@@ -30,9 +30,7 @@ import org.junit.runners.ParentRunner;
 import org.junit.runners.model.InitializationError;
 
 import java.io.*;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 

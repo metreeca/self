@@ -1,5 +1,5 @@
 /*
- * Copyright © 2013-2020 Metreeca srl. All rights reserved.
+ * Copyright © 2013-2021 Metreeca srl. All rights reserved.
  *
  * This file is part of Metreeca/Self.
  *
@@ -37,6 +37,7 @@ import java.util.Map;
 
 import static com.metreeca._tile.client.Window.window;
 import static com.metreeca.self.client.Self.Setup;
+
 import static java.lang.Math.max;
 import static java.lang.System.currentTimeMillis;
 

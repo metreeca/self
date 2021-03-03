@@ -1,5 +1,5 @@
 /*
- * Copyright © 2013-2019 Metreeca srl. All rights reserved.
+ * Copyright © 2013-2021 Metreeca srl. All rights reserved.
  *
  * This file is part of Metreeca/Self.
  *
@@ -17,12 +17,10 @@
 
 package com.metreeca.self.client.views;
 
-import com.metreeca.self.shared.Command;
-import com.metreeca._tile.client.Action;
-import com.metreeca._tile.client.Event;
-import com.metreeca._tile.client.View;
+import com.metreeca._tile.client.*;
 import com.metreeca._tile.client.plugins.Form;
 import com.metreeca.self.client.tiles.Endpoint;
+import com.metreeca.self.shared.Command;
 import com.metreeca.self.shared.Report;
 
 import com.google.gwt.core.client.GWT;

@@ -1,5 +1,5 @@
 /*
- * Copyright © 2013-2019 Metreeca srl. All rights reserved.
+ * Copyright © 2013-2021 Metreeca srl. All rights reserved.
  *
  * This file is part of Metreeca/Self.
  *
@@ -17,17 +17,13 @@
 
 package com.metreeca.self.client.ports;
 
+import com.metreeca._tile.client.*;
+import com.metreeca.self.client.Self.Bus;
 import com.metreeca.self.shared.Cache;
 import com.metreeca.self.shared.async.Handler;
 import com.metreeca.self.shared.async.Promise;
-import com.metreeca._tile.client.Action;
-import com.metreeca._tile.client.Event;
-import com.metreeca._tile.client.View;
-import com.metreeca.self.client.Self.Bus;
 import com.metreeca.self.shared.forms.Shape;
-import com.metreeca.self.shared.sparql.Client;
-import com.metreeca.self.shared.sparql.Engine;
-import com.metreeca.self.shared.sparql.Query;
+import com.metreeca.self.shared.sparql.*;
 
 
 public final class ShapePort extends View {

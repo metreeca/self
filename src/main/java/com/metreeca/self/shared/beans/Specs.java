@@ -1,5 +1,5 @@
 /*
- * Copyright © 2013-2019 Metreeca srl. All rights reserved.
+ * Copyright © 2013-2021 Metreeca srl. All rights reserved.
  *
  * This file is part of Metreeca/Self.
  *
@@ -19,13 +19,9 @@ package com.metreeca.self.shared.beans;
 
 import com.metreeca._bean.shared.Bean;
 import com.metreeca.self.shared.beans.Constraint.Options;
-import com.metreeca.self.shared.beans.schemas.OWL;
-import com.metreeca.self.shared.beans.schemas.RDFS;
-import com.metreeca.self.shared.beans.schemas.VoID;
+import com.metreeca.self.shared.beans.schemas.*;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
+import java.util.*;
 
 import static com.metreeca.self.shared.beans.Constraint.Base;
 import static com.metreeca.self.shared.beans.Term.named;

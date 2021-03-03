@@ -1,5 +1,5 @@
 /*
- * Copyright © 2013-2019 Metreeca srl. All rights reserved.
+ * Copyright © 2013-2021 Metreeca srl. All rights reserved.
  *
  * This file is part of Metreeca/Self.
  *
@@ -20,15 +20,12 @@ package com.metreeca.self.shared.forms;
 import com.metreeca.self.shared.beans.Specs;
 import com.metreeca.self.shared.beans.Term;
 import com.metreeca.self.shared.beans.schemas.Geo;
-import com.metreeca.self.shared.sparql.Client;
 import com.metreeca.self.shared.sparql.Query;
-import com.metreeca.self.shared.sparql.Table;
+import com.metreeca.self.shared.sparql.*;
 
 import org.eclipse.rdf4j.model.*;
 import org.eclipse.rdf4j.model.impl.SimpleValueFactory;
-import org.eclipse.rdf4j.model.vocabulary.OWL;
-import org.eclipse.rdf4j.model.vocabulary.RDF;
-import org.eclipse.rdf4j.model.vocabulary.RDFS;
+import org.eclipse.rdf4j.model.vocabulary.*;
 import org.eclipse.rdf4j.query.*;
 import org.eclipse.rdf4j.query.resultio.*;
 import org.eclipse.rdf4j.query.resultio.text.BooleanTextParser;
@@ -43,16 +40,12 @@ import org.junit.BeforeClass;
 
 import java.io.IOException;
 import java.io.StringReader;
-import java.math.BigDecimal;
-import java.math.BigInteger;
-import java.math.RoundingMode;
+import java.math.*;
 import java.nio.charset.Charset;
 import java.util.*;
 import java.util.Map.Entry;
 
-import static com.metreeca.self.shared.beans.Term.blank;
-import static com.metreeca.self.shared.beans.Term.named;
-import static com.metreeca.self.shared.beans.Term.typed;
+import static com.metreeca.self.shared.beans.Term.*;
 
 import static java.lang.Float.parseFloat;
 import static java.lang.Math.abs;

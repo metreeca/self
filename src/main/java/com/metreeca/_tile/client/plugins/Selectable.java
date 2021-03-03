@@ -1,5 +1,5 @@
 /*
- * Copyright © 2013-2019 Metreeca srl. All rights reserved.
+ * Copyright © 2013-2021 Metreeca srl. All rights reserved.
  *
  * This file is part of Metreeca/Self.
  *
@@ -18,9 +18,7 @@
 package com.metreeca._tile.client.plugins;
 
 
-import com.metreeca._tile.client.Lambda;
-import com.metreeca._tile.client.Plugin;
-import com.metreeca._tile.client.Tile;
+import com.metreeca._tile.client.*;
 
 
 public final class Selectable extends Plugin {

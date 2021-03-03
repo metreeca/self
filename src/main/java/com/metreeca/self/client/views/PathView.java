@@ -1,5 +1,5 @@
 /*
- * Copyright © 2013-2019 Metreeca srl. All rights reserved.
+ * Copyright © 2013-2021 Metreeca srl. All rights reserved.
  *
  * This file is part of Metreeca/Self.
  *
@@ -26,11 +26,9 @@ import com.metreeca.self.client.filters.RangeView;
 import com.metreeca.self.shared.Command;
 import com.metreeca.self.shared.Report;
 import com.metreeca.self.shared.async.Handler;
-import com.metreeca.self.shared.beans.Constraint;
-import com.metreeca.self.shared.beans.Path;
+import com.metreeca.self.shared.beans.*;
 import com.metreeca.self.shared.beans.Path.Summary;
 import com.metreeca.self.shared.beans.Path.Transform;
-import com.metreeca.self.shared.beans.Specs;
 import com.metreeca.self.shared.forms.Values;
 
 import com.google.gwt.core.client.GWT;

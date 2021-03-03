@@ -1,5 +1,5 @@
 /*
- * Copyright © 2013-2019 Metreeca srl. All rights reserved.
+ * Copyright © 2013-2021 Metreeca srl. All rights reserved.
  *
  * This file is part of Metreeca/Self.
  *
@@ -20,15 +20,15 @@ package com.metreeca.self.client.ports;
 import com.metreeca._bean.client.ClientMeta;
 import com.metreeca._bean.client.ClientNode;
 import com.metreeca._bean.shared.*;
-import com.metreeca.self.shared.Options;
 import com.metreeca._tile.client.*;
 import com.metreeca._tile.client.js.JSArray;
 import com.metreeca._tile.client.plugins.Protocol;
+import com.metreeca.self.client.Self.Bus;
+import com.metreeca.self.client.Self.Setup;
 import com.metreeca.self.client.views.Catalog;
 import com.metreeca.self.client.views.Dialog;
 import com.metreeca.self.shared.Item;
-import com.metreeca.self.client.Self.Bus;
-import com.metreeca.self.client.Self.Setup;
+import com.metreeca.self.shared.Options;
 import com.metreeca.self.shared.forms.Export;
 import com.metreeca.self.shared.forms.Import;
 

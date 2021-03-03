@@ -1,5 +1,5 @@
 /*
- * Copyright © 2013-2019 Metreeca srl. All rights reserved.
+ * Copyright © 2013-2021 Metreeca srl. All rights reserved.
  *
  * This file is part of Metreeca/Self.
  *
@@ -18,21 +18,13 @@
 
 package com.metreeca.self.client;
 
-import com.metreeca.self.shared.Option;
-import com.metreeca.self.shared.Options;
 import com.metreeca._tile.client.*;
 import com.metreeca._tile.client.plugins.Overlay;
 import com.metreeca._tile.client.plugins.Protocol;
-import com.metreeca.self.client.ports.ErrorPort;
-import com.metreeca.self.client.ports.ItemPort;
-import com.metreeca.self.client.ports.StorePort;
+import com.metreeca.self.client.ports.*;
 import com.metreeca.self.client.views.Lock;
-import com.metreeca.self.shared.Item;
-import com.metreeca.self.client.ports.ReportPort;
-import com.metreeca.self.client.ports.SPARQLPort;
-import com.metreeca.self.client.ports.ShapePort;
 import com.metreeca.self.client.views.ReportPage;
-import com.metreeca.self.shared.Report;
+import com.metreeca.self.shared.*;
 import com.metreeca.self.shared.beans.Specs;
 import com.metreeca.self.shared.sparql.Query;
 

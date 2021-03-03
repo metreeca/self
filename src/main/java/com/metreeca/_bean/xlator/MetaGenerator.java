@@ -1,5 +1,5 @@
 /*
- * Copyright © 2013-2019 Metreeca srl. All rights reserved.
+ * Copyright © 2013-2021 Metreeca srl. All rights reserved.
  *
  * This file is part of Metreeca/Self.
  *
@@ -23,9 +23,7 @@ import com.metreeca._bean.shared.Bean;
 import com.metreeca._bean.shared.Meta;
 
 import com.google.gwt.core.ext.*;
-import com.google.gwt.core.ext.typeinfo.JClassType;
-import com.google.gwt.core.ext.typeinfo.NotFoundException;
-import com.google.gwt.core.ext.typeinfo.TypeOracle;
+import com.google.gwt.core.ext.typeinfo.*;
 
 import java.io.PrintWriter;
 import java.lang.reflect.Modifier;

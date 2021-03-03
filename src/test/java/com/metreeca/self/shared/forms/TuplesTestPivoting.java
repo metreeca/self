@@ -1,5 +1,5 @@
 /*
- * Copyright © 2013-2019 Metreeca srl. All rights reserved.
+ * Copyright © 2013-2021 Metreeca srl. All rights reserved.
  *
  * This file is part of Metreeca/Self.
  *
@@ -27,9 +27,7 @@ import static com.metreeca.self.shared.beans.Constraint.Range;
 import static com.metreeca.self.shared.beans.Path.Summary.Count;
 import static com.metreeca.self.shared.beans.Path.Summary.Sum;
 import static com.metreeca.self.shared.beans.Path.Transform.Year;
-import static com.metreeca.self.shared.beans.Term.named;
-import static com.metreeca.self.shared.beans.Term.plain;
-import static com.metreeca.self.shared.beans.Term.typed;
+import static com.metreeca.self.shared.beans.Term.*;
 import static com.metreeca.self.shared.beans.schemas.RDF.RDFType;
 
 

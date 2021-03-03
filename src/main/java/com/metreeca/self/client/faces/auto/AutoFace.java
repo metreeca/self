@@ -1,5 +1,5 @@
 /*
- * Copyright © 2013-2019 Metreeca srl. All rights reserved.
+ * Copyright © 2013-2021 Metreeca srl. All rights reserved.
  *
  * This file is part of Metreeca/Self.
  *
@@ -17,17 +17,13 @@
 
 package com.metreeca.self.client.faces.auto;
 
-import com.metreeca.self.shared.async.Handler;
-import com.metreeca.self.shared.async.Morpher;
-import com.metreeca.self.shared.async.Promise;
 import com.metreeca._tile.client.Action;
 import com.metreeca._tile.client.Event;
-import com.metreeca.self.shared.Item.Auto;
 import com.metreeca.self.client.faces.Face;
+import com.metreeca.self.shared.Item.Auto;
 import com.metreeca.self.shared.Report;
-import com.metreeca.self.shared.Report.Board;
-import com.metreeca.self.shared.Report.Book;
-import com.metreeca.self.shared.Report.Table;
+import com.metreeca.self.shared.Report.*;
+import com.metreeca.self.shared.async.*;
 import com.metreeca.self.shared.beans.Path;
 import com.metreeca.self.shared.beans.Specs;
 import com.metreeca.self.shared.forms.Tuples;

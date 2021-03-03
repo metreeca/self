@@ -1,5 +1,5 @@
 /*
- * Copyright © 2013-2019 Metreeca srl. All rights reserved.
+ * Copyright © 2013-2021 Metreeca srl. All rights reserved.
  *
  * This file is part of Metreeca/Self.
  *
@@ -17,9 +17,7 @@
 
 package com.metreeca._bean.client;
 
-import com.metreeca._bean.shared.Bean;
-import com.metreeca._bean.shared.Meta;
-import com.metreeca._bean.shared.MetaException;
+import com.metreeca._bean.shared.*;
 
 import com.google.gwt.core.client.GWT;
 

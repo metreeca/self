@@ -1,5 +1,5 @@
 /*
- * Copyright © 2013-2019 Metreeca srl. All rights reserved.
+ * Copyright © 2013-2021 Metreeca srl. All rights reserved.
  *
  * This file is part of Metreeca/Self.
  *
@@ -23,17 +23,13 @@ import com.metreeca.self.shared.beans.schemas.RDF;
 import com.metreeca.self.shared.beans.schemas.RDFS;
 
 import java.io.UnsupportedEncodingException;
-import java.math.BigDecimal;
-import java.math.BigInteger;
-import java.math.RoundingMode;
+import java.math.*;
 import java.util.Comparator;
 import java.util.Date;
 
 import static com.metreeca.self.shared.beans.schemas.XSD.*;
 
-import static java.lang.Character.isLowerCase;
-import static java.lang.Character.isUpperCase;
-import static java.lang.Character.toLowerCase;
+import static java.lang.Character.*;
 import static java.lang.Float.NaN;
 import static java.lang.Float.isNaN;
 import static java.lang.Integer.parseInt;

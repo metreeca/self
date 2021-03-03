@@ -1,5 +1,5 @@
 /*
- * Copyright © 2013-2019 Metreeca srl. All rights reserved.
+ * Copyright © 2013-2021 Metreeca srl. All rights reserved.
  *
  * This file is part of Metreeca/Self.
  *
@@ -26,9 +26,7 @@ import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.Date;
 
-import static com.metreeca.self.shared.beans.Term.named;
-import static com.metreeca.self.shared.beans.Term.plain;
-import static com.metreeca.self.shared.beans.Term.typed;
+import static com.metreeca.self.shared.beans.Term.*;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;

@@ -1,5 +1,5 @@
 /*
- * Copyright © 2013-2019 Metreeca srl. All rights reserved.
+ * Copyright © 2013-2021 Metreeca srl. All rights reserved.
  *
  * This file is part of Metreeca/Self.
  *
@@ -23,9 +23,7 @@ import com.metreeca.self.client.views.Input;
 import com.metreeca.self.client.views.TermView;
 import com.metreeca.self.shared.Report;
 import com.metreeca.self.shared.async.Handler;
-import com.metreeca.self.shared.beans.Path;
-import com.metreeca.self.shared.beans.Specs;
-import com.metreeca.self.shared.beans.Term;
+import com.metreeca.self.shared.beans.*;
 import com.metreeca.self.shared.forms.Values;
 
 import com.google.gwt.core.client.GWT;
@@ -33,15 +31,11 @@ import com.google.gwt.i18n.client.NumberFormat;
 import com.google.gwt.resources.client.ClientBundle;
 import com.google.gwt.resources.client.TextResource;
 
-import java.util.LinkedHashSet;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 import static com.metreeca._tile.client.Tile.$;
 
-import static java.lang.Math.ceil;
-import static java.lang.Math.log10;
-import static java.lang.Math.max;
+import static java.lang.Math.*;
 import static java.util.Collections.unmodifiableSet;
 import static java.util.stream.Collectors.toMap;
 

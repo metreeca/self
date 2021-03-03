@@ -1,5 +1,5 @@
 /*
- * Copyright © 2013-2019 Metreeca srl. All rights reserved.
+ * Copyright © 2013-2021 Metreeca srl. All rights reserved.
  *
  * This file is part of Metreeca/Self.
  *
@@ -17,15 +17,11 @@
 
 package com.metreeca._bean.server;
 
-import com.metreeca._bean.shared.Bean;
-import com.metreeca._bean.shared.Meta;
-import com.metreeca._bean.shared.MetaException;
+import com.metreeca._bean.shared.*;
 
 import java.io.IOError;
 import java.io.IOException;
-import java.lang.reflect.Constructor;
-import java.lang.reflect.Method;
-import java.lang.reflect.Modifier;
+import java.lang.reflect.*;
 import java.net.URL;
 import java.util.*;
 

@@ -1,5 +1,5 @@
 /*
- * Copyright © 2013-2019 Metreeca srl. All rights reserved.
+ * Copyright © 2013-2021 Metreeca srl. All rights reserved.
  *
  * This file is part of Metreeca/Self.
  *
@@ -17,9 +17,7 @@
 
 package com.metreeca.self.client.faces.line;
 
-import com.metreeca._tile.client.Action;
-import com.metreeca._tile.client.Event;
-import com.metreeca._tile.client.View;
+import com.metreeca._tile.client.*;
 import com.metreeca.self.client.faces.Role;
 import com.metreeca.self.client.faces.Tray;
 import com.metreeca.self.shared.Report;

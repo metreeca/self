@@ -1,5 +1,5 @@
 /*
- * Copyright © 2013-2019 Metreeca srl. All rights reserved.
+ * Copyright © 2013-2021 Metreeca srl. All rights reserved.
  *
  * This file is part of Metreeca/Self.
  *
@@ -17,18 +17,12 @@
 
 package com.metreeca.self.client.filters;
 
-import com.metreeca._tile.client.Action;
-import com.metreeca._tile.client.Event;
-import com.metreeca._tile.client.View;
+import com.metreeca._tile.client.*;
 import com.metreeca.self.client.Self.Bus;
 import com.metreeca.self.client.views.Input;
 import com.metreeca.self.shared.Report;
-import com.metreeca.self.shared.async.Handler;
-import com.metreeca.self.shared.async.Morpher;
-import com.metreeca.self.shared.async.Promise;
-import com.metreeca.self.shared.beans.Path;
-import com.metreeca.self.shared.beans.Specs;
-import com.metreeca.self.shared.beans.Term;
+import com.metreeca.self.shared.async.*;
+import com.metreeca.self.shared.beans.*;
 import com.metreeca.self.shared.beans.schemas.XSD;
 import com.metreeca.self.shared.forms.Ranges;
 import com.metreeca.self.shared.forms.Values;

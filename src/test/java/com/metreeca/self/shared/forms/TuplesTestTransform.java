@@ -1,5 +1,5 @@
 /*
- * Copyright © 2013-2019 Metreeca srl. All rights reserved.
+ * Copyright © 2013-2021 Metreeca srl. All rights reserved.
  *
  * This file is part of Metreeca/Self.
  *
@@ -23,8 +23,8 @@ import com.metreeca.self.shared.beans.Specs;
 import org.junit.Test;
 
 import static com.metreeca.self.shared.beans.Constraint.Options;
-import static com.metreeca.self.shared.beans.Path.Transform.*;
 import static com.metreeca.self.shared.beans.Path.Transform.Number;
+import static com.metreeca.self.shared.beans.Path.Transform.*;
 import static com.metreeca.self.shared.beans.Term.typed;
 import static com.metreeca.self.shared.beans.schemas.RDF.RDFType;
 import static com.metreeca.self.shared.beans.schemas.XSD.XSDInteger;

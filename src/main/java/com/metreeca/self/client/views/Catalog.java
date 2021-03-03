@@ -1,5 +1,5 @@
 /*
- * Copyright © 2013-2019 Metreeca srl. All rights reserved.
+ * Copyright © 2013-2021 Metreeca srl. All rights reserved.
  *
  * This file is part of Metreeca/Self.
  *
@@ -19,8 +19,8 @@ package com.metreeca.self.client.views;
 
 import com.metreeca._tile.client.*;
 import com.metreeca._tile.client.plugins.Overlay;
-import com.metreeca.self.shared.forms.Items;
 import com.metreeca.self.shared.Item;
+import com.metreeca.self.shared.forms.Items;
 
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.resources.client.ClientBundle;

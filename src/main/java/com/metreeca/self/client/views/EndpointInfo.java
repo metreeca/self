@@ -1,5 +1,5 @@
 /*
- * Copyright © 2013-2019 Metreeca srl. All rights reserved.
+ * Copyright © 2013-2021 Metreeca srl. All rights reserved.
  *
  * This file is part of Metreeca/Self.
  *
@@ -28,13 +28,10 @@ import com.google.gwt.core.client.GWT;
 import com.google.gwt.resources.client.ClientBundle;
 import com.google.gwt.resources.client.TextResource;
 
-import java.util.ArrayList;
 import java.util.Collection;
-import java.util.List;
+import java.util.*;
 
-import static com.metreeca.self.shared.beans.Specs.Collection;
-import static com.metreeca.self.shared.beans.Specs.Resource;
-import static com.metreeca.self.shared.beans.Specs.Springboard;
+import static com.metreeca.self.shared.beans.Specs.*;
 
 
 public final class EndpointInfo extends View {

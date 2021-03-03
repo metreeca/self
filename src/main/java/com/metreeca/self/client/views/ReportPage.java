@@ -1,5 +1,5 @@
 /*
- * Copyright © 2013-2019 Metreeca srl. All rights reserved.
+ * Copyright © 2013-2021 Metreeca srl. All rights reserved.
  *
  * This file is part of Metreeca/Self.
  *
@@ -21,21 +21,17 @@ import com.metreeca._bean.client.ClientMeta;
 import com.metreeca._bean.client.ClientNode;
 import com.metreeca._bean.shared.Bean;
 import com.metreeca._bean.shared.NodeCodec;
-import com.metreeca._tile.client.Action;
-import com.metreeca._tile.client.Event;
-import com.metreeca._tile.client.Tile;
+import com.metreeca._tile.client.*;
 import com.metreeca._tile.client.plugins.Menu;
 import com.metreeca._tile.client.plugins.Overlay;
-import com.metreeca.self.shared.forms.Export;
-import com.metreeca.self.shared.forms.State;
-import com.metreeca.self.shared.Item;
-import com.metreeca.self.shared.Item.Lens;
 import com.metreeca.self.client.Self;
 import com.metreeca.self.client.Self.Bus;
+import com.metreeca.self.shared.Item;
+import com.metreeca.self.shared.Item.Lens;
 import com.metreeca.self.shared.Report;
-import com.metreeca.self.shared.beans.Path;
-import com.metreeca.self.shared.beans.Specs;
-import com.metreeca.self.shared.beans.Term;
+import com.metreeca.self.shared.beans.*;
+import com.metreeca.self.shared.forms.Export;
+import com.metreeca.self.shared.forms.State;
 
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.resources.client.ClientBundle;

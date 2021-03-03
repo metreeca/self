@@ -1,5 +1,5 @@
 /*
- * Copyright © 2013-2019 Metreeca srl. All rights reserved.
+ * Copyright © 2013-2021 Metreeca srl. All rights reserved.
  *
  * This file is part of Metreeca/Self.
  *
@@ -18,16 +18,14 @@
 package com.metreeca.self.client.faces.board;
 
 
-import com.metreeca.self.shared.async.Handler;
-import com.metreeca._tile.client.Action;
-import com.metreeca._tile.client.Event;
-import com.metreeca._tile.client.Tile;
-import com.metreeca.self.shared.forms.State;
-import com.metreeca.self.client.views.Image;
+import com.metreeca._tile.client.*;
 import com.metreeca.self.client.faces.Face;
+import com.metreeca.self.client.views.Image;
 import com.metreeca.self.client.views.TermView;
 import com.metreeca.self.shared.Report;
+import com.metreeca.self.shared.async.Handler;
 import com.metreeca.self.shared.beans.Term;
+import com.metreeca.self.shared.forms.State;
 import com.metreeca.self.shared.forms.Tuples;
 
 import com.google.gwt.core.client.GWT;

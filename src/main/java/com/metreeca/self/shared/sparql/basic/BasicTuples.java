@@ -1,5 +1,5 @@
 /*
- * Copyright © 2013-2019 Metreeca srl. All rights reserved.
+ * Copyright © 2013-2021 Metreeca srl. All rights reserved.
  *
  * This file is part of Metreeca/Self.
  *
@@ -19,9 +19,7 @@ package com.metreeca.self.shared.sparql.basic;
 
 import com.metreeca.self.shared.async.Morpher;
 import com.metreeca.self.shared.async.Promise;
-import com.metreeca.self.shared.beans.Path;
-import com.metreeca.self.shared.beans.Specs;
-import com.metreeca.self.shared.beans.Term;
+import com.metreeca.self.shared.beans.*;
 import com.metreeca.self.shared.forms.Tuples;
 import com.metreeca.self.shared.sparql.*;
 
