@@ -26,7 +26,7 @@
 	<packaging>gwt-app</packaging>
 
 	<name>Metreeca Self-Service SPARQL Tool</name>
-	<description>A self-service search and analysis tool enabling interactive exploration of SPARQL endpoints.
+	<description>A linked data search and visualization tool enabling interactive exploration of SPARQL endpoints.
 	</description>
 	<url>https://metreeca.github.io/self/</url>
 	<inceptionYear>2013</inceptionYear>
