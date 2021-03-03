@@ -1,5 +1,5 @@
 /*
- * Copyright © 2013-2019 Metreeca srl. All rights reserved.
+ * Copyright © 2013-2021 Metreeca srl. All rights reserved.
  *
  * This file is part of Metreeca/Self.
  *
@@ -17,21 +17,15 @@
 
 package com.metreeca.self.shared.sparql.basic;
 
-import com.metreeca.self.shared.async.Morpher;
-import com.metreeca.self.shared.async.Promise;
-import com.metreeca.self.shared.async.Promises;
-import com.metreeca.self.shared.beans.Path;
-import com.metreeca.self.shared.beans.Specs;
-import com.metreeca.self.shared.beans.Term;
+import com.metreeca.self.shared.async.*;
+import com.metreeca.self.shared.beans.*;
 import com.metreeca.self.shared.forms.Leaves;
 import com.metreeca.self.shared.sparql.*;
 
 import java.util.*;
 import java.util.Map.Entry;
 
-import static com.metreeca.self.shared.async.Promises.all;
-import static com.metreeca.self.shared.async.Promises.maps;
-import static com.metreeca.self.shared.async.Promises.promise;
+import static com.metreeca.self.shared.async.Promises.*;
 
 import static java.lang.Math.max;
 
@@ -45,14 +39,18 @@ public final class BasicLeaves {
 		return maps(spine(leaves, client, false), spine(leaves, client, true))
 
 				.pipe(new Morpher<Map<Term, Integer>, List<Map<Term, Term>>>() {
-					@Override public Promise<List<Map<Term, Term>>> value(final Map<Term, Integer> spine) { // define batches
+					@Override public Promise<List<Map<Term, Term>>> value(final Map<Term, Integer> spine) { // define
+						// batches
 
-						// store batches as auto-associative maps to support recovering of annotated terms during chunk assembly
+						// store batches as auto-associative maps to support recovering of annotated terms during chunk
+						// assembly
 
 						final List<Map<Term, Term>> batches=new ArrayList<>();
 
-						final Map<Term, Term> recto=new HashMap<>(); // omnibus batch for direct predicates with low fan-out
-						final Map<Term, Term> verso=new HashMap<>(); // omnibus batch for inverse predicates with low fan-in
+						final Map<Term, Term> recto=new HashMap<>(); // omnibus batch for direct predicates with low
+						// fan-out
+						final Map<Term, Term> verso=new HashMap<>(); // omnibus batch for inverse predicates with low
+						// fan-in
 
 
 						for (final Entry<Term, Integer> entry : spine.entrySet()) {
@@ -62,7 +60,8 @@ public final class BasicLeaves {
 
 							if ( count > max(MaxDetail, leaves.getDetail()) ) {
 
-								batches.add(Collections.singletonMap(term, term)); // large fan-in/out: add to a dedicated batch
+								batches.add(Collections.singletonMap(term, term)); // large fan-in/out: add to a
+								// dedicated batch
 
 							} else if ( term.isRecto() ) { // small fan-out: add to the omnibus
 
@@ -84,7 +83,8 @@ public final class BasicLeaves {
 				})
 
 				.pipe(new Morpher<List<Map<Term, Term>>, Map<Term, List<Term>>>() {
-					@Override public Promise<Map<Term, List<Term>>> value(final List<Map<Term, Term>> batches) { // retrieve and assemble chunks
+					@Override public Promise<Map<Term, List<Term>>> value(final List<Map<Term, Term>> batches) { //
+						// retrieve and assemble chunks
 
 						final Collection<Promise<Map<Term, List<Term>>>> chunks=new ArrayList<>();
 
@@ -100,7 +100,8 @@ public final class BasicLeaves {
 								final Map<Term, List<Term>> ordered=new TreeMap<>(Term.TextualOrder);
 
 								for (final Map<Term, List<Term>> chunk : chunks) {
-									ordered.putAll(chunk); // no need to merge leave lists: each chunk has a unique set of key links
+									ordered.putAll(chunk); // no need to merge leave lists: each chunk has a unique set
+									// of key links
 								}
 
 								// convert to linked hash to allow lookup by raw term while preserving order
@@ -153,7 +154,7 @@ public final class BasicLeaves {
 							if ( singleton != null ) { // optimize for singletons
 
 								text(inverse ? "?term ?link (0) ." : "(0) ?link ?term .",
-										singleton.isVerso()? singleton.reverse().format() : singleton.format()
+										singleton.isVerso() ? singleton.reverse().format() : singleton.format()
 								);
 
 							} else {
@@ -169,7 +170,8 @@ public final class BasicLeaves {
 							}
 
 							// aggregate filter guards against unbound ?link projected toward following optional clauses
-							// ;(virtuoso) can't refer to the projected aggregate ?count in filter (correctly strictly standard-wise)
+							// ;(virtuoso) can't refer to the projected aggregate ?count in filter (correctly strictly
+							// standard-wise)
 
 							text("\f} group by ?link having (count(distinct ?term) > 0) }\f");
 
@@ -205,7 +207,8 @@ public final class BasicLeaves {
 				});
 	}
 
-	private Promise<Map<Term, List<Term>>> chunk(final Leaves leaves, final Client client, final Map<Term, Term> batch) {
+	private Promise<Map<Term, List<Term>>> chunk(final Leaves leaves, final Client client,
+			final Map<Term, Term> batch) {
 
 		final Specs specs=leaves.getSpecs();
 		final int detail=leaves.getDetail();
@@ -256,7 +259,7 @@ public final class BasicLeaves {
 							if ( singleton != null ) { // optimize for singletons
 
 								text(inverse ? "?term (1) (0) ." : "(0) (1) ?term .",
-										singleton.isVerso()? singleton.reverse().format() : singleton.format(),
+										singleton.isVerso() ? singleton.reverse().format() : singleton.format(),
 										predicate);
 
 							} else {
@@ -288,7 +291,8 @@ public final class BasicLeaves {
 							criterion("term", false, label, notes, image, point);
 
 							// ;(virtuoso) not in criterion to preserve limited sort keys
-							// ;(virtuoso) test datatype to prevent Virtuoso 22026 Error: Sorting key too long in order by key
+							// ;(virtuoso) test datatype to prevent Virtuoso 22026 Error: Sorting key too long in order
+							// by key
 
 							text(" asc(if(datatype(?term), str(?term), ''))"); // sort unsupported typed literals
 
@@ -323,7 +327,8 @@ public final class BasicLeaves {
 						      for (int r=0, rows=table.rows(); r < rows; ++r) {
 
 							      final Term link=dedicated ? first // recover annotated links from batch
-									      : batch.get(inverse ? table.term(r, "link").reverse() : table.term(r, "link"));
+									      : batch.get(inverse ? table.term(r, "link").reverse() : table.term(r, "link"
+							      ));
 
 							      final Term term=table.term(r, "term");
 

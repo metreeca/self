@@ -1,5 +1,5 @@
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-  Copyright © 2013-2020 Metreeca srl. All rights reserved.
+  Copyright © 2013-2021 Metreeca srl. All rights reserved.
 
   This file is part of Metreeca/Self.
 
@@ -90,7 +90,7 @@
 
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
-		<maven.deploy.skip>true</maven.deploy.skip> <!-- !!! no public artifact deployment -->
+		<maven.deploy.skip>true</maven.deploy.skip> <!-- no public artifact deployment -->
 		<maven.build.timestamp.format>yyyyMMdd</maven.build.timestamp.format>
 
 		<timestamp>${maven.build.timestamp}</timestamp> <!-- ;( not directly available to filtered resources -->

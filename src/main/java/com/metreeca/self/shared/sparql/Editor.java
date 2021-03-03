@@ -1,5 +1,5 @@
 /*
- * Copyright © 2013-2019 Metreeca srl. All rights reserved.
+ * Copyright © 2013-2021 Metreeca srl. All rights reserved.
  *
  * This file is part of Metreeca/Self.
  *
@@ -206,8 +206,7 @@ public abstract class Editor {
 
 	//// Matching //////////////////////////////////////////////////////////////////////////////////////////////////////
 
-	protected void core(final Flake flake, final Integer target,
-			final int sample, final String pattern) {
+	protected void core(final Flake flake, final Integer target, final int sample, final String pattern) {
 
 		text("\f{ select distinct ");
 
@@ -259,7 +258,8 @@ public abstract class Editor {
 
 	protected Integer hook(final Flake flake, final Integer target,
 			final boolean optional, final Path path,
-			final int sample, final String pattern) {
+			final int sample, final String pattern
+	) {
 
 		final List<Term> steps=path.getSteps();
 		final Transform transform=path.getTransform();
@@ -495,7 +495,7 @@ public abstract class Editor {
 							text("values ?(0) {\n", id(flake));
 
 							for (final Term term : values) {
-								text(term.isVerso()? term.reverse().format() : term.format());
+								text(term.isVerso() ? term.reverse().format() : term.format());
 								text('\n');
 							}
 
@@ -660,7 +660,7 @@ public abstract class Editor {
 
 	private void term(final Term term) {
 		text(' ');
-		text(term.isVerso()? term.reverse().format() : term.format());
+		text(term.isVerso() ? term.reverse().format() : term.format());
 	}
 
 
@@ -697,7 +697,7 @@ public abstract class Editor {
 				if ( term != null && probe.isField() ) { // project inlined constant
 
 					text("values ?(0) { (1) }\f",
-							id(flake), term.isVerso()? term.reverse().format() : term.format()
+							id(flake), term.isVerso() ? term.reverse().format() : term.format()
 					);
 
 				}

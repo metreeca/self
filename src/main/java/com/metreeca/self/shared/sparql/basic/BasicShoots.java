@@ -1,5 +1,5 @@
 /*
- * Copyright © 2013-2019 Metreeca srl. All rights reserved.
+ * Copyright © 2013-2021 Metreeca srl. All rights reserved.
  *
  * This file is part of Metreeca/Self.
  *
@@ -19,9 +19,8 @@ package com.metreeca.self.shared.sparql.basic;
 
 import com.metreeca.self.shared.async.Morpher;
 import com.metreeca.self.shared.async.Promise;
-import com.metreeca.self.shared.beans.Path;
-import com.metreeca.self.shared.beans.Specs;
-import com.metreeca.self.shared.beans.Term;
+import com.metreeca.self.shared.beans.*;
+import com.metreeca.self.shared.forms.Shape;
 import com.metreeca.self.shared.forms.Shoots;
 import com.metreeca.self.shared.sparql.*;
 
@@ -39,7 +38,8 @@ public class BasicShoots {
 	public Promise<List<Term>> entries(final Shoots shoots, final Client client) {
 		return lists(
 				shoots(shoots, client, false),
-				shoots(shoots, client, true));
+				shoots(shoots, client, true)
+		);
 	}
 
 	private Promise<List<Term>> shoots(final Shoots shoots, final Client client, final boolean inverse) {
@@ -47,7 +47,7 @@ public class BasicShoots {
 		final Specs specs=shoots.getSpecs();
 		final List<Term> path=shoots.getPath();
 
-		final int sample=min(shoots.getSample(), 1000); // ;(graphdb) linear elapsed > limit sampling
+		final int sample=min(shoots.getSample(), Shape.Shoots);
 
 		final boolean label=shoots.getLabel();
 		final boolean notes=shoots.getNotes();

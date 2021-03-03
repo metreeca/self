@@ -1,5 +1,5 @@
 /*
- * Copyright © 2013-2019 Metreeca srl. All rights reserved.
+ * Copyright © 2013-2021 Metreeca srl. All rights reserved.
  *
  * This file is part of Metreeca/Self.
  *
@@ -27,8 +27,10 @@ import static java.util.Arrays.asList;
 
 public abstract class Shape<T extends Shape<T, E>, E> extends Form<T> {
 
-	public static final int Limit=1000; // the default maximum number of items included in shapes
-	public static final int Sample=100_000; // the default maximum number of matches to be considered in sampling
+	public static final int Limit=1_000; // the default maximum number of items included in shapes
+	public static final int Sample=10_000; // the default maximum number of matches to be considered in sampling
+	public static final int Shoots=1_000;  // the maximum number of shoots to be considered ;(graphdb) linear elapsed
+
 	public static final int Timeout=30*1000; // the default query timeout [ms]
 
 
