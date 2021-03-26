@@ -131,8 +131,6 @@
 
 	<build>
 
-		<finalName>metreeca-${project.artifactId}-${project.version}</finalName>
-
 		<resources>
 
 			<resource>
